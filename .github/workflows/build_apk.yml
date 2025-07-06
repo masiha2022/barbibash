@@ -9,10 +9,27 @@ jobs:
       - name: Set up JDK
         uses: actions/setup-java@v3
         with:
-          distribution: 'temurin'  # Required field
+          distribution: 'temurin'
           java-version: '17'
       
-      - run: chmod +x gradlew && ./gradlew assembleDebug
+      # Only run if gradlew exists
+      - name: Check for gradlew
+        id: check_gradlew
+        run: |
+          if [ -f "gradlew" ]; then
+            echo "exists=true" >> $GITHUB_OUTPUT
+          fi
+      
+      - name: Build APK (with gradlew)
+        if: steps.check_gradlew.outputs.exists == 'true'
+        run: |
+          chmod +x gradlew
+          ./gradlew assembleDebug
+      
+      - name: Build APK (fallback)
+        if: steps.check_gradlew.outputs.exists != 'true'
+        run: |
+          gradle assembleDebug
       
       - uses: actions/upload-artifact@v4
         with:
