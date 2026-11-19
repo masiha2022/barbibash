@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>سبد خرید | باربی باش</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+  <style>
+    :root { --pink:#e91e63; --pink-light:#f8bbd0; --pink-dark:#ad1457; --soft-bg:#fff5f8; }
+    body { font-family:'Vazirmatn',sans-serif; background:var(--soft-bg); color:#333; padding-top:76px; }
+    .navbar { background:rgba(255,255,255,0.97); backdrop-filter:blur(10px); box-shadow:0 2px 20px rgba(233,30,99,.1); }
+    .navbar-brand { font-weight:800; color:var(--pink)!important; font-size:1.6rem; }
+    .navbar-brand span { color:var(--pink-dark); }
+    .nav-link { font-weight:500; color:#555!important; transition:.3s; }
+    .nav-link:hover, .nav-link.active { color:var(--pink)!important; }
+    .cart-badge { position:absolute; top:-6px; left:-8px; background:var(--pink); color:#fff; font-size:.65rem; min-width:18px; height:18px; padding:0 4px; border-radius:10px; display:flex; align-items:center; justify-content:center; }
+    .btn-pink { background:linear-gradient(135deg,var(--pink),var(--pink-dark)); color:#fff; border:none; padding:12px 32px; border-radius:50px; font-weight:600; box-shadow:0 8px 25px rgba(233,30,99,.35); transition:.3s; }
+    .btn-pink:hover { transform:translateY(-3px); box-shadow:0 12px 30px rgba(233,30,99,.5); color:#fff; }
+    .btn-outline-pink { border:2px solid var(--pink); color:var(--pink); padding:10px 30px; border-radius:50px; font-weight:600; transition:.3s; background:transparent; }
+    .btn-outline-pink:hover { background:var(--pink); color:#fff; }
+    .btn-whatsapp { background:linear-gradient(135deg,#25d366,#128c7e); color:#fff; border:none; padding:14px 28px; border-radius:50px; font-weight:700; box-shadow:0 8px 25px rgba(37,211,102,.35); transition:.3s; width:100%; }
+    .btn-whatsapp:hover { transform:translateY(-3px); box-shadow:0 12px 30px rgba(37,211,102,.5); color:#fff; }
+    .btn-telegram { background:linear-gradient(135deg,#0088cc,#006699); color:#fff; border:none; padding:14px 28px; border-radius:50px; font-weight:700; box-shadow:0 8px 25px rgba(0,136,204,.35); transition:.3s; width:100%; }
+    .btn-telegram:hover { transform:translateY(-3px); box-shadow:0 12px 30px rgba(0,136,204,.5); color:#fff; }
+    .breadcrumb-bar { background:#fff; border-bottom:1px solid #fce4ec; padding:12px 0; font-size:.9rem; }
+    .breadcrumb-bar a { color:#888; text-decoration:none; }
+    .breadcrumb-bar a:hover { color:var(--pink); }
+    .breadcrumb-bar .active { color:var(--pink-dark); font-weight:600; }
+    .page-title { font-weight:800; color:var(--pink-dark); margin-bottom:30px; }
+    .page-title::after { content:''; display:block; width:70px; height:4px; background:linear-gradient(90deg,var(--pink),transparent); border-radius:4px; margin-top:10px; }
+    .cart-item { background:#fff; border-radius:20px; padding:20px; margin-bottom:16px; border:1px solid rgba(233,30,99,.08); display:flex; align-items:center; gap:20px; transition:.3s; position:relative; }
+    .cart-item:hover { box-shadow:0 10px 30px rgba(233,30,99,.08); }
+    .cart-img { width:90px; height:90px; border-radius:14px; background:linear-gradient(135deg,#fce4ec,#f8bbd0); display:flex; align-items:center; justify-content:center; flex-shrink:0; overflow:hidden; }
+    .cart-img img { width:100%; height:100%; object-fit:cover; }
+    .cart-img i { font-size:2.2rem; color:var(--pink); }
+    .cart-info { flex-grow:1; }
+    .cart-info h6 { font-weight:700; margin-bottom:4px; color:#333; }
+    .cart-info .desc { font-size:.82rem; color:#888; margin-bottom:8px; }
+    .cart-info .price-line { font-size:.9rem; color:#555; }
+    .cart-info .price-line .final-price { font-weight:800; color:var(--pink-dark); font-size:1.05rem; }
+    .cart-info .price-line .old-price { text-decoration:line-through; color:#aaa; font-size:.8rem; margin-right:6px; }
+    .qty-box { display:inline-flex; align-items:center; border:2px solid #eee; border-radius:50px; overflow:hidden; background:#fff; }
+    .qty-box button { background:transparent; border:none; width:34px; height:34px; color:var(--pink); cursor:pointer; transition:.2s; font-size:.85rem; }
+    .qty-box button:hover { background:var(--soft-bg); }
+    .qty-box button:disabled { color:#ccc; cursor:not-allowed; }
+    .qty-box span { min-width:36px; text-align:center; font-weight:700; font-size:.95rem; }
+    .remove-btn { background:transparent; border:none; color:#ccc; font-size:1.1rem; cursor:pointer; transition:.3s; padding:8px; border-radius:50%; }
+    .remove-btn:hover { color:#f44336; background:#ffebee; }
+    .item-discount-badge { position:absolute; top:12px; left:12px; background:#ff9800; color:#fff; font-size:.7rem; font-weight:700; padding:3px 10px; border-radius:50px; }
+    .summary-card { background:#fff; border-radius:20px; padding:24px; border:1px solid rgba(233,30,99,.08); position:sticky; top:90px; }
+    .summary-card h5 { font-weight:800; color:var(--pink-dark); padding-bottom:15px; border-bottom:2px solid #fce4ec; margin-bottom:20px; }
+    .summary-row { display:flex; justify-content:space-between; margin-bottom:12px; color:#555; font-size:.92rem; }
+    .summary-row.total { border-top:2px dashed #fce4ec; padding-top:15px; margin-top:15px; font-size:1.2rem; font-weight:800; color:var(--pink-dark); }
+    .summary-row .savings { color:#4caf50; font-weight:700; }
+    .free-shipping-badge { background:#e8f5e9; color:#2e7d32; padding:8px 12px; border-radius:10px; font-size:.82rem; margin-bottom:15px; text-align:center; }
+    .checkout-info-box { background:linear-gradient(135deg,#e3f2fd,#f0f7ff); border-radius:16px; padding:18px; margin-bottom:20px; border:1px solid #bbdefb; }
+    .checkout-info-box i { color:#1976d2; font-size:1.2rem; }
+    .checkout-info-box p { margin:0; font-size:.85rem; color:#1565c0; line-height:1.7; }
+    .order-divider { text-align:center; margin:20px 0 15px; position:relative; }
+    .order-divider::before { content:''; position:absolute; top:50%; right:0; left:0; height:1px; background:#fce4ec; }
+    .order-divider span { background:#fff; padding:0 15px; position:relative; color:#999; font-size:.82rem; }
+    .empty-cart { background:#fff; border-radius:20px; padding:70px 30px; text-align:center; border:1px solid rgba(233,30,99,.08); }
+    .empty-cart i { font-size:5rem; color:var(--pink-light); margin-bottom:20px; }
+    .empty-cart h4 { font-weight:800; color:var(--pink-dark); }
+    .toast-custom { position:fixed; bottom:30px; left:30px; background:#fff; border-radius:14px; padding:16px 24px; box-shadow:0 15px 40px rgba(0,0,0,.15); display:flex; align-items:center; gap:12px; z-index:9999; transform:translateY(150%); transition:.4s; border-right:5px solid #4caf50; max-width:320px; }
+    .toast-custom.show { transform:translateY(0); }
+    .toast-custom i { color:#4caf50; font-size:1.5rem; }
+    footer { background:#1a1a1a; color:#bbb; padding:40px 0 20px; margin-top:60px; }
+    footer h5 { color:#fff; }
+    .social-icon { width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,.08); display:inline-flex; align-items:center; justify-content:center; transition:.3s; }
+    .social-icon:hover { background:var(--pink); color:#fff!important; }
+    @media (max-width:768px) {
+      .cart-item { flex-wrap:wrap; gap:12px; }
+      .cart-img { width:70px; height:70px; }
+      .cart-img i { font-size:1.8rem; }
+      .summary-card { position:static; margin-top:20px; }
+      .toast-custom { left:15px; right:15px; bottom:15px; max-width:none; }
+      .item-discount-badge { font-size:.65rem; padding:2px 8px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="index.html"><i class="fa-solid fa-star me-1"></i>باربی <span>باش</span></a>
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">خانه</a></li>
+        <li class="nav-item"><a class="nav-link" href="shop.html">فروشگاه</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">درباره ما</a></li>
+        <li class="nav-item"><a class="nav-link" href="faq.html">سوالات متداول</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">تماس</a></li>
+      </ul>
+      <div class="d-flex align-items-center gap-3">
+        <a href="cart.html" class="position-relative text-decoration-none" style="color:var(--pink); font-size:1.3rem;">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span class="cart-badge">۰</span>
+        </a>
+        <a href="shop.html" class="btn btn-pink btn-sm px-4">خرید کنید</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="breadcrumb-bar">
+  <div class="container">
+    <a href="index.html"><i class="fa-solid fa-house me-1"></i>خانه</a>
+    <span class="mx-2 text-muted">/</span>
+    <a href="shop.html">فروشگاه</a>
+    <span class="mx-2 text-muted">/</span>
+    <span class="active">سبد خرید</span>
+  </div>
+</div>
+
+<section class="py-5">
+  <div class="container">
+    <h2 class="page-title"><i class="fa-solid fa-cart-shopping me-2" style="color:var(--pink)"></i>سبد خرید</h2>
+
+    <div class="empty-cart d-none" id="emptyCart">
+      <i class="fa-solid fa-cart-shopping"></i>
+      <h4>سبد خرید شما خالی است</h4>
+      <p class="text-muted mb-4">هنوز محصولی به سبد اضافه نکرده‌اید.</p>
+      <a href="shop.html" class="btn btn-pink"><i class="fa-solid fa-store me-2"></i>مشاهده فروشگاه</a>
+    </div>
+
+    <div class="row g-4 d-none" id="cartContent">
+      <div class="col-lg-8">
+        <div id="cartItems"></div>
+        <a href="shop.html" class="btn btn-outline-pink mt-2"><i class="fa-solid fa-arrow-right me-2"></i>ادامه خرید</a>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="summary-card">
+          <h5><i class="fa-solid fa-receipt me-2"></i>خلاصه سفارش</h5>
+          <div class="summary-row"><span>تعداد اقلام:</span><span id="totalItems">۰</span></div>
+          <div class="summary-row"><span>جمع کل:</span><span id="subtotal">۰ تومان</span></div>
+          <div class="summary-row" id="savingsRow" style="display:none;"><span>سود شما:</span><span class="savings" id="savings">۰ تومان</span></div>
+          <div class="summary-row"><span>هزینه ارسال:</span><span id="shipping">۰ تومان</span></div>
+          <div id="freeShippingNote"></div>
+          <div class="summary-row total"><span>مبلغ قابل پرداخت:</span><span id="total">۰ تومان</span></div>
+
+          <div class="order-divider mt-4"><span>ثبت سفارش از طریق</span></div>
+          <div class="checkout-info-box">
+            <div class="d-flex gap-2 align-items-start">
+              <i class="fa-solid fa-circle-info mt-1"></i>
+              <p>پرداخت آنلاین فعال نیست. لطفاً سفارش خود را از طریق <strong>واتساپ</strong> یا <strong>تلگرام</strong> برای مشاور ارسال کنید.</p>
+            </div>
+          </div>
+
+          <button class="btn-whatsapp mb-2" onclick="orderViaWhatsApp()"><i class="fa-brands fa-whatsapp me-2"></i>ثبت سفارش در واتساپ</button>
+          <button class="btn-telegram" onclick="orderViaTelegram()"><i class="fa-brands fa-telegram me-2"></i>ثبت سفارش در تلگرام</button>
+          <button class="btn btn-outline-pink w-100 mt-3" onclick="copyOrderText()"><i class="fa-solid fa-copy me-2"></i>کپی متن سفارش</button>
+
+          <div class="text-center mt-3">
+            <small class="text-muted d-block mb-1">یا تماس مستقیم:</small>
+            <a href="tel:02112345678" class="fw-bold text-decoration-none" style="color:var(--pink-dark)" id="phoneLink"><i class="fa-solid fa-phone me-1"></i><span id="phoneText">۰۲۱-۱۲۳۴۵۶۷۸</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container text-center">
+    <h5><i class="fa-solid fa-star me-1" style="color:var(--pink)"></i>باربی باش</h5>
+    <p class="small mb-3">قرص‌های لاغری گیاهی با مجوز وزارت بهداشت</p>
+    <div class="mb-3">
+      <a href="#" class="social-icon me-2" style="color:var(--pink-light)"><i class="fa-brands fa-instagram"></i></a>
+      <a href="#" class="social-icon me-2" style="color:var(--pink-light)"><i class="fa-brands fa-telegram"></i></a>
+      <a href="#" class="social-icon me-2" style="color:var(--pink-light)"><i class="fa-brands fa-whatsapp"></i></a>
+    </div>
+    <small>© ۱۴۰۳ تمامی حقوق برای شرکت باربی باش محفوظ است.</small>
+  </div>
+</footer>
+
+<div class="toast-custom" id="toast">
+  <i class="fa-solid fa-circle-check"></i>
+  <div><strong class="d-block" id="toastTitle">عملیات موفق</strong><small class="text-muted" id="toastText"></small></div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/pricing.js"></script>
+<script src="js/products.js"></script>
+<script>
+  const advisor = typeof ADVISOR !== 'undefined' ? ADVISOR : { whatsapp:'989121234567', telegram:'barbiebash_support', phone:'02112345678', name:'مشاور باربی باش' };
+
+  (function initPhone() {
+    document.getElementById('phoneLink').href = 'tel:+98' + advisor.phone.replace(/^0/, '');
+    document.getElementById('phoneText').textContent = toPersian(advisor.phone);
+  })();
+
+  function renderCart() {
+    const cart = getCart();
+    const emptyEl = document.getElementById('emptyCart');
+    const contentEl = document.getElementById('cartContent');
+
+    if (cart.length === 0) {
+      emptyEl.classList.remove('d-none');
+      contentEl.classList.add('d-none');
+      updateCartBadge();
+      return;
+    }
+    emptyEl.classList.add('d-none');
+    contentEl.classList.remove('d-none');
+
+    document.getElementById('cartItems').innerHTML = cart.map(item => {
+      const p = getProductById(item.id);
+      if (!p) return '';
+      const fp = getFinalPrice(p);
+      const op = getOldPrice(p);
+      const disc = getDiscountPercent(p);
+      const sub = fp * item.qty;
+      const imgs = getProductImages(p);
+      return `
+        <div class="cart-item">
+          ${disc > 0 ? `<span class="item-discount-badge">${toPersian(disc)}٪ تخفیف</span>` : ''}
+          <div class="cart-img">
+            <img src="${imgs[0]}" alt="${p.name}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <i class="fa-solid ${p.icon}" style="display:none;"></i>
+          </div>
+          <div class="cart-info">
+            <h6>${p.name}</h6>
+            <div class="desc">${p.desc}</div>
+            <div class="price-line">
+              <span class="final-price">${formatPrice(fp)}</span>
+              <span class="text-muted small">تومان</span>
+              ${op > fp ? `<span class="old-price">${formatPrice(op)}</span>` : ''}
+              <span class="text-muted small mx-2">×</span>
+              <span>${toPersian(item.qty)}</span>
+              <span class="text-muted small mx-1">=</span>
+              <span class="final-price">${formatPrice(sub)}</span>
+              <span class="text-muted small">تومان</span>
+            </div>
+          </div>
+          <div class="d-flex flex-column align-items-center gap-2">
+            <div class="qty-box">
+              <button onclick="changeItemQty(${p.id}, -1)" ${item.qty <= 1 ? 'disabled' : ''}><i class="fa-solid fa-minus"></i></button>
+              <span>${toPersian(item.qty)}</span>
+              <button onclick="changeItemQty(${p.id}, 1)" ${item.qty >= 10 ? 'disabled' : ''}><i class="fa-solid fa-plus"></i></button>
+            </div>
+            <button class="remove-btn" onclick="removeItem(${p.id})" title="حذف"><i class="fa-solid fa-trash"></i></button>
+          </div>
+        </div>
+      `;
+    }).join('');
+
+    updateSummary(cart);
+    updateCartBadge();
+  }
+
+  function updateSummary(cart) {
+    const totalQty = cart.reduce((s, i) => s + i.qty, 0);
+    const subtotal = getCartTotal();
+    const savings = getCartSavings();
+    const shipping = getShippingCost();
+    const total = subtotal + shipping;
+
+    document.getElementById('totalItems').textContent = toPersian(totalQty);
+    document.getElementById('subtotal').textContent = formatPrice(subtotal) + ' تومان';
+    document.getElementById('shipping').textContent = shipping === 0 ? 'رایگان' : formatPrice(shipping) + ' تومان';
+    document.getElementById('total').textContent = formatPrice(total) + ' تومان';
+
+    if (savings > 0) {
+      document.getElementById('savingsRow').style.display = '';
+      document.getElementById('savings').textContent = formatPrice(savings) + ' تومان';
+    } else {
+      document.getElementById('savingsRow').style.display = 'none';
+    }
+
+    const noteEl = document.getElementById('freeShippingNote');
+    if (shipping > 0) {
+      const remaining = FREE_SHIPPING_MIN - subtotal;
+      noteEl.innerHTML = `<div class="alert py-2 px-3 mb-3" style="background:#fff3e0; border-radius:10px; font-size:.8rem; color:#e65100;"><i class="fa-solid fa-truck me-1"></i>${formatPrice(remaining)} تومان دیگر خرید کنید تا ارسال رایگان شود!</div>`;
+    } else {
+      noteEl.innerHTML = `<div class="free-shipping-badge"><i class="fa-solid fa-check-circle me-1"></i>ارسال شما رایگان است!</div>`;
+    }
+  }
+
+  function changeItemQty(id, delta) {
+    const cart = getCart();
+    const item = cart.find(i => i.id === id);
+    if (!item) return;
+    item.qty = Math.min(10, Math.max(1, item.qty + delta));
+    saveCart(cart);
+    renderCart();
+  }
+
+  function removeItem(id) {
+    saveCart(getCart().filter(i => i.id !== id));
+    renderCart();
+    showToast('حذف شد', 'محصول از سبد خرید حذف شد');
+  }
+
+  function buildOrderText() {
+    const cart = getCart();
+    if (cart.length === 0) return '';
+    let lines = ['🛍️ *سفارش جدید از باربی باش*', '━━━━━━━━━━━━━━━', '', '📋 *لیست محصولات:*', ''];
+    cart.forEach((item, idx) => {
+      const p = getProductById(item.id);
+      if (!p) return;
+      const fp = getFinalPrice(p);
+      const sub = fp * item.qty;
+      lines.push(`${idx + 1}. ${p.name}`);
+      lines.push(`   تعداد: ${item.qty} عدد`);
+      lines.push(`   قیمت واحد: ${formatPrice(fp)} تومان`);
+      lines.push(`   جمع: ${formatPrice(sub)} تومان`);
+      lines.push('');
+    });
+    lines.push('━━━━━━━━━━━━━━━');
+    lines.push(`📦 تعداد اقلام: ${cart.reduce((s, i) => s + i.qty, 0)} عدد`);
+    lines.push(`💰 جمع کل: ${formatPrice(getCartTotal())} تومان`);
+    const savings = getCartSavings();
+    if (savings > 0) lines.push(`🎁 سود شما: ${formatPrice(savings)} تومان`);
+    const shipping = getShippingCost();
+    lines.push(`🚚 هزینه ارسال: ${shipping === 0 ? 'رایگان' : formatPrice(shipping) + ' تومان'}`);
+    lines.push(`✅ *مبلغ قابل پرداخت: ${formatPrice(getCartTotal() + shipping)} تومان*`);
+    lines.push('', '━━━━━━━━━━━━━━━', '📝 لطفاً اطلاعات زیر را تکمیل کنید:', '• نام و نام خانوادگی:', '• شماره تماس:', '• آدرس کامل:', '• کد پستی:', '', `📞 شماره مشاور: ${toPersian(advisor.phone)}`);
+    return lines.join('\n');
+  }
+
+  function orderViaWhatsApp() {
+    const text = buildOrderText();
+    if (!text) { showToast('سبد خالی است', 'ابتدا محصولی انتخاب کنید'); return; }
+    window.open(`https://wa.me/${advisor.whatsapp}?text=${encodeURIComponent(text)}`, '_blank');
+    showToast('در حال انتقال به واتساپ', 'سفارش شما آماده ارسال است');
+  }
+
+  function orderViaTelegram() {
+    const text = buildOrderText();
+    if (!text) { showToast('سبد خالی است', 'ابتدا محصولی انتخاب کنید'); return; }
+    copyToClipboard(text).then(() => {
+      showToast('متن سفارش کپی شد', 'در تلگرام برای مشاور ارسال کنید');
+      setTimeout(() => window.open(`https://t.me/${advisor.telegram}`, '_blank'), 800);
+    }).catch(() => {
+      window.open(`https://t.me/${advisor.telegram}`, '_blank');
+    });
+  }
+
+  function copyOrderText() {
+    const text = buildOrderText();
+    if (!text) { showToast('سبد خالی است', 'ابتدا محصولی انتخاب کنید'); return; }
+    copyToClipboard(text).then(() => {
+      showToast('کپی شد', 'متن سفارش در کلیپ‌بورد قرار گرفت');
+    }).catch(() => {
+      showToast('خطا در کپی', 'لطفاً دستی متن را انتخاب کنید');
+    });
+  }
+
+  function copyToClipboard(text) {
+    if (navigator.clipboard && navigator.clipboard.writeText) return navigator.clipboard.writeText(text);
+    return new Promise((resolve, reject) => {
+      try {
+        const ta = document.createElement('textarea');
+        ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+        document.body.appendChild(ta); ta.select(); document.execCommand('copy');
+        document.body.removeChild(ta); resolve();
+      } catch (e) { reject(e); }
+    });
+  }
+
+  let toastTimer;
+  function showToast(title, text) {
+    const t = document.getElementById('toast');
+    document.getElementById('toastTitle').textContent = title;
+    document.getElementById('toastText').textContent = text || '';
+    t.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => t.classList.remove('show'), 3000);
+  }
+
+  renderCart();
+</script>
+</body>
+</html>

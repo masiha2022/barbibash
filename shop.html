@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>فروشگاه | باربی باش</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+  <style>
+    :root { --pink:#e91e63; --pink-light:#f8bbd0; --pink-dark:#ad1457; --soft-bg:#fff5f8; }
+    body { font-family:'Vazirmatn',sans-serif; background:var(--soft-bg); color:#333; padding-top:76px; }
+    .navbar { background:rgba(255,255,255,0.97); backdrop-filter:blur(10px); box-shadow:0 2px 20px rgba(233,30,99,.1); }
+    .navbar-brand { font-weight:800; color:var(--pink)!important; font-size:1.6rem; }
+    .navbar-brand span { color:var(--pink-dark); }
+    .nav-link { font-weight:500; color:#555!important; transition:.3s; }
+    .nav-link:hover, .nav-link.active { color:var(--pink)!important; }
+    .cart-badge { position:absolute; top:-6px; left:-8px; background:var(--pink); color:#fff; font-size:.65rem; min-width:18px; height:18px; padding:0 4px; border-radius:10px; display:flex; align-items:center; justify-content:center; }
+    .btn-pink { background:linear-gradient(135deg,var(--pink),var(--pink-dark)); color:#fff; border:none; padding:12px 32px; border-radius:50px; font-weight:600; box-shadow:0 8px 25px rgba(233,30,99,.35); transition:.3s; }
+    .btn-pink:hover { transform:translateY(-3px); box-shadow:0 12px 30px rgba(233,30,99,.5); color:#fff; }
+    .btn-outline-pink { border:2px solid var(--pink); color:var(--pink); padding:8px 22px; border-radius:50px; font-weight:600; transition:.3s; background:transparent; }
+    .btn-outline-pink:hover { background:var(--pink); color:#fff; }
+    .global-banner { background:linear-gradient(135deg,var(--pink),var(--pink-dark)); color:#fff; text-align:center; padding:12px 15px; font-weight:700; font-size:.95rem; }
+    .global-banner i { margin-left:8px; }
+    .global-banner .blink { animation:blink 1.5s infinite; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.5} }
+    .page-header { background:linear-gradient(135deg,#fff5f8 0%,#fce4ec 50%,#f8bbd0 100%); padding:50px 0 40px; position:relative; overflow:hidden; }
+    .page-header::before { content:''; position:absolute; width:300px; height:300px; background:radial-gradient(circle,rgba(233,30,99,.15),transparent 70%); border-radius:50%; top:-80px; left:-80px; }
+    .page-header h1 { font-weight:800; color:var(--pink-dark); font-size:2.2rem; }
+    .page-header p { color:#666; margin-bottom:0; }
+    .breadcrumb-bar { background:#fff; border-bottom:1px solid #fce4ec; padding:12px 0; font-size:.9rem; }
+    .breadcrumb-bar a { color:#888; text-decoration:none; }
+    .breadcrumb-bar a:hover { color:var(--pink); }
+    .breadcrumb-bar .active { color:var(--pink-dark); font-weight:600; }
+    .filter-card { background:#fff; border-radius:20px; padding:24px; border:1px solid rgba(233,30,99,.08); margin-bottom:20px; }
+    .filter-card h6 { font-weight:800; color:var(--pink-dark); margin-bottom:18px; padding-bottom:12px; border-bottom:2px solid #fce4ec; }
+    .filter-card .form-check { margin-bottom:12px; }
+    .filter-card .form-check-input:checked { background-color:var(--pink); border-color:var(--pink); }
+    .filter-card .form-check-label { font-size:.92rem; color:#555; cursor:pointer; }
+    .filter-card .form-check-label .count { color:#aaa; font-size:.8rem; }
+    .price-range input[type="range"] { accent-color:var(--pink); }
+    .price-labels { display:flex; justify-content:space-between; font-size:.85rem; color:#888; margin-top:8px; }
+    .filter-chip { display:inline-flex; align-items:center; gap:6px; background:var(--pink-light); color:var(--pink-dark); padding:5px 12px; border-radius:50px; font-size:.8rem; font-weight:600; margin:0 0 8px 8px; }
+    .filter-chip button { background:transparent; border:none; color:var(--pink-dark); cursor:pointer; padding:0; line-height:1; }
+    .sort-bar { background:#fff; border-radius:16px; padding:14px 20px; border:1px solid rgba(233,30,99,.08); margin-bottom:24px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px; }
+    .sort-bar .form-select { border-radius:50px; border:2px solid #eee; font-size:.9rem; max-width:220px; }
+    .sort-bar .form-select:focus { border-color:var(--pink); box-shadow:0 0 0 .2rem rgba(233,30,99,.15); }
+    .view-toggle button { background:transparent; border:2px solid #eee; border-radius:10px; width:40px; height:40px; color:#888; transition:.3s; }
+    .view-toggle button.active { border-color:var(--pink); color:var(--pink); background:var(--soft-bg); }
+    .product-card { background:#fff; border-radius:20px; overflow:hidden; border:1px solid rgba(233,30,99,.08); transition:.4s; height:100%; position:relative; }
+    .product-card:hover { transform:translateY(-8px); box-shadow:0 20px 40px rgba(233,30,99,.18); }
+    .product-img { height:200px; background:linear-gradient(135deg,#fce4ec,#f8bbd0); display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden; }
+    .product-img img { width:100%; height:100%; object-fit:cover; transition:.4s; display:block; }
+    .product-card:hover .product-img img { transform:scale(1.08); }
+    .product-img i { font-size:4.5rem; color:var(--pink); transition:.4s; }
+    .product-card:hover .product-img i { transform:scale(1.15) rotate(-5deg); }
+    .badge-float { position:absolute; top:12px; right:12px; padding:5px 12px; border-radius:50px; font-size:.72rem; font-weight:700; color:#fff; z-index:2; }
+    .badge-hot { background:var(--pink); }
+    .badge-new { background:var(--pink-dark); }
+    .badge-off { background:#ff9800; }
+    .wishlist-btn { position:absolute; top:12px; left:12px; width:36px; height:36px; border-radius:50%; background:rgba(255,255,255,.9); border:none; color:#aaa; transition:.3s; z-index:2; display:flex; align-items:center; justify-content:center; }
+    .wishlist-btn:hover, .wishlist-btn.active { color:var(--pink); background:#fff; }
+    .product-body { padding:18px; }
+    .product-body h6 { font-weight:700; margin-bottom:6px; color:#333; }
+    .product-body .desc { font-size:.82rem; color:#888; margin-bottom:10px; min-height:36px; }
+    .stars { color:#ffc107; font-size:.8rem; }
+    .stars .count { color:#aaa; margin-right:4px; }
+    .price { color:var(--pink-dark); font-weight:800; font-size:1.15rem; }
+    .old-price { text-decoration:line-through; color:#aaa; font-size:.85rem; margin-right:6px; }
+    .product-actions { display:flex; gap:8px; margin-top:12px; }
+    .product-actions .btn { border-radius:50px; font-size:.82rem; font-weight:600; padding:8px 12px; }
+    .pagination .page-link { border:none; color:#555; margin:0 4px; border-radius:12px!important; width:42px; height:42px; display:flex; align-items:center; justify-content:center; font-weight:600; transition:.3s; }
+    .pagination .page-link:hover { background:var(--soft-bg); color:var(--pink); }
+    .pagination .page-item.active .page-link { background:linear-gradient(135deg,var(--pink),var(--pink-dark)); color:#fff; box-shadow:0 5px 15px rgba(233,30,99,.35); }
+    .empty-state { background:#fff; border-radius:20px; padding:60px 30px; text-align:center; border:1px solid rgba(233,30,99,.08); }
+    .empty-state i { font-size:4rem; color:var(--pink-light); margin-bottom:20px; }
+    .toast-custom { position:fixed; bottom:30px; left:30px; background:#fff; border-radius:14px; padding:16px 24px; box-shadow:0 15px 40px rgba(0,0,0,.15); display:flex; align-items:center; gap:12px; z-index:9999; transform:translateY(150%); transition:.4s; border-right:5px solid #4caf50; max-width:320px; }
+    .toast-custom.show { transform:translateY(0); }
+    .toast-custom i { color:#4caf50; font-size:1.5rem; }
+    .filter-toggle-mobile { display:none; }
+    footer { background:#1a1a1a; color:#bbb; padding:40px 0 20px; }
+    footer h5 { color:#fff; }
+    .social-icon { width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,.08); display:inline-flex; align-items:center; justify-content:center; transition:.3s; }
+    .social-icon:hover { background:var(--pink); color:#fff!important; }
+    .products-grid.list-view .product-card { display:flex; flex-direction:row; }
+    .products-grid.list-view .product-img { width:200px; height:auto; flex-shrink:0; }
+    .products-grid.list-view .product-body { display:flex; flex-direction:column; justify-content:center; flex-grow:1; }
+    @media (max-width:991px) {
+      .filter-toggle-mobile { display:inline-flex; margin-bottom:15px; }
+      .filter-sidebar { display:none; }
+      .filter-sidebar.show { display:block; }
+      .global-banner { font-size:.82rem; padding:10px; }
+    }
+    @media (max-width:768px) {
+      .toast-custom { left:15px; right:15px; bottom:15px; max-width:none; }
+      .products-grid.list-view .product-card { flex-direction:column; }
+      .products-grid.list-view .product-img { width:100%; height:200px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="global-banner" id="globalBanner" style="display:none;">
+  <i class="fa-solid fa-gift blink"></i>
+  <span id="globalBannerText">جشنواره تخفیف سراسری</span>
+</div>
+
+<nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="index.html"><i class="fa-solid fa-star me-1"></i>باربی <span>باش</span></a>
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">خانه</a></li>
+        <li class="nav-item"><a class="nav-link active" href="shop.html">فروشگاه</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">درباره ما</a></li>
+        <li class="nav-item"><a class="nav-link" href="faq.html">سوالات متداول</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">تماس</a></li>
+      </ul>
+      <div class="d-flex align-items-center gap-3">
+        <a href="cart.html" class="position-relative text-decoration-none" style="color:var(--pink); font-size:1.3rem;">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span class="cart-badge">۰</span>
+        </a>
+        <a href="shop.html" class="btn btn-pink btn-sm px-4">خرید کنید</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="breadcrumb-bar">
+  <div class="container">
+    <a href="index.html"><i class="fa-solid fa-house me-1"></i>خانه</a>
+    <span class="mx-2 text-muted">/</span>
+    <span class="active">فروشگاه</span>
+  </div>
+</div>
+
+<section class="page-header">
+  <div class="container position-relative">
+    <h1>فروشگاه باربی باش</h1>
+    <p>بهترین قرص‌های لاغری گیاهی با مجوز وزارت بهداشت</p>
+  </div>
+</section>
+
+<section class="py-4">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-3">
+        <button class="btn btn-outline-pink filter-toggle-mobile w-100" onclick="toggleFilters()">
+          <i class="fa-solid fa-filter me-2"></i>فیلترها
+        </button>
+        <div class="filter-sidebar" id="filterSidebar">
+          <div class="filter-card">
+            <h6><i class="fa-solid fa-magnifying-glass me-2"></i>جستجو</h6>
+            <input type="text" class="form-control" id="searchInput" placeholder="نام محصول..." style="border-radius:50px; border:2px solid #eee;" oninput="applyFilters()">
+          </div>
+          <div class="filter-card">
+            <h6><i class="fa-solid fa-layer-group me-2"></i>دسته‌بندی</h6>
+            <div class="form-check"><input class="form-check-input category-filter" type="checkbox" value="all" id="cat-all" checked onchange="applyFilters()"><label class="form-check-label" for="cat-all">همه محصولات <span class="count">(۱۲)</span></label></div>
+            <div class="form-check"><input class="form-check-input category-filter" type="checkbox" value="slim" id="cat-slim" onchange="applyFilters()"><label class="form-check-label" for="cat-slim">قرص لاغری <span class="count">(۵)</span></label></div>
+            <div class="form-check"><input class="form-check-input category-filter" type="checkbox" value="detox" id="cat-detox" onchange="applyFilters()"><label class="form-check-label" for="cat-detox">سم‌زدایی <span class="count">(۳)</span></label></div>
+            <div class="form-check"><input class="form-check-input category-filter" type="checkbox" value="night" id="cat-night" onchange="applyFilters()"><label class="form-check-label" for="cat-night">قرص شبانه <span class="count">(۲)</span></label></div>
+            <div class="form-check"><input class="form-check-input category-filter" type="checkbox" value="tea" id="cat-tea" onchange="applyFilters()"><label class="form-check-label" for="cat-tea">چای لاغری <span class="count">(۲)</span></label></div>
+          </div>
+          <div class="filter-card">
+            <h6><i class="fa-solid fa-tag me-2"></i>محدوده قیمت</h6>
+            <div class="price-range">
+              <input type="range" class="form-range" id="priceRange" min="100000" max="900000" step="50000" value="900000" oninput="updatePriceLabel(); applyFilters()">
+              <div class="price-labels"><span>۱۰۰,۰۰۰</span><span id="priceLabel">۹۰۰,۰۰۰</span></div>
+            </div>
+            <small class="text-muted d-block mt-2" style="font-size:.75rem;"><i class="fa-solid fa-circle-info me-1"></i>قیمت‌ها با تخفیف سراسری</small>
+          </div>
+          <div class="filter-card">
+            <h6><i class="fa-solid fa-star me-2"></i>امتیاز</h6>
+            <div class="form-check"><input class="form-check-input rating-filter" type="radio" name="rating" value="0" id="rate-all" checked onchange="applyFilters()"><label class="form-check-label" for="rate-all">همه</label></div>
+            <div class="form-check"><input class="form-check-input rating-filter" type="radio" name="rating" value="4" id="rate-4" onchange="applyFilters()"><label class="form-check-label" for="rate-4"><span class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i></span> و بالاتر</label></div>
+            <div class="form-check"><input class="form-check-input rating-filter" type="radio" name="rating" value="3" id="rate-3" onchange="applyFilters()"><label class="form-check-label" for="rate-3"><span class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i></span> و بالاتر</label></div>
+          </div>
+          <div class="filter-card">
+            <h6><i class="fa-solid fa-check-double me-2"></i>ویژگی‌ها</h6>
+            <div class="form-check"><input class="form-check-input feature-filter" type="checkbox" value="organic" id="feat-organic" onchange="applyFilters()"><label class="form-check-label" for="feat-organic">۱۰۰٪ گیاهی</label></div>
+            <div class="form-check"><input class="form-check-input feature-filter" type="checkbox" value="discount" id="feat-discount" onchange="applyFilters()"><label class="form-check-label" for="feat-discount">دارای تخفیف</label></div>
+            <div class="form-check"><input class="form-check-input feature-filter" type="checkbox" value="stock" id="feat-stock" onchange="applyFilters()"><label class="form-check-label" for="feat-stock">موجود در انبار</label></div>
+          </div>
+          <button class="btn btn-outline-pink w-100" onclick="resetFilters()"><i class="fa-solid fa-rotate-left me-2"></i>پاک کردن فیلترها</button>
+        </div>
+      </div>
+
+      <div class="col-lg-9">
+        <div class="sort-bar">
+          <div class="d-flex align-items-center gap-2">
+            <span class="text-muted small">نمایش:</span>
+            <strong id="resultCount" style="color:var(--pink-dark)">۰</strong>
+            <span class="text-muted small">محصول</span>
+          </div>
+          <div class="d-flex align-items-center gap-2 flex-wrap">
+            <label class="text-muted small mb-0">مرتب‌سازی:</label>
+            <select class="form-select form-select-sm" id="sortSelect" onchange="applyFilters()">
+              <option value="popular">محبوب‌ترین</option>
+              <option value="newest">جدیدترین</option>
+              <option value="cheap">ارزان‌ترین</option>
+              <option value="expensive">گران‌ترین</option>
+              <option value="rating">بیشترین امتیاز</option>
+            </select>
+            <div class="view-toggle d-flex gap-1">
+              <button class="active" id="gridViewBtn" onclick="setView('grid')"><i class="fa-solid fa-grip"></i></button>
+              <button id="listViewBtn" onclick="setView('list')"><i class="fa-solid fa-list"></i></button>
+            </div>
+          </div>
+        </div>
+        <div id="activeFilters" class="mb-3"></div>
+        <div class="row g-4 products-grid" id="productsGrid"></div>
+        <div class="empty-state d-none" id="emptyState">
+          <i class="fa-solid fa-box-open"></i>
+          <h5 class="fw-bold">محصولی یافت نشد</h5>
+          <p class="text-muted">فیلترها را تغییر دهید یا جستجو را پاک کنید.</p>
+          <button class="btn btn-pink" onclick="resetFilters()">نمایش همه محصولات</button>
+        </div>
+        <nav class="mt-5"><ul class="pagination justify-content-center" id="pagination"></ul></nav>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container text-center">
+    <h5><i class="fa-solid fa-star me-1" style="color:var(--pink)"></i>باربی باش</h5>
+    <p class="small mb-3">قرص‌های لاغری گیاهی با مجوز وزارت بهداشت</p>
+    <div class="mb-3">
+      <a href="#" class="social-icon me-2" style="color:var(--pink-light)"><i class="fa-brands fa-instagram"></i></a>
+      <a href="#" class="social-icon me-2" style="color:var(--pink-light)"><i class="fa-brands fa-telegram"></i></a>
+      <a href="#" class="social-icon me-2" style="color:var(--pink-light)"><i class="fa-brands fa-whatsapp"></i></a>
+    </div>
+    <small>© ۱۴۰۳ تمامی حقوق برای شرکت باربی باش محفوظ است.</small>
+  </div>
+</footer>
+
+<div class="toast-custom" id="toast">
+  <i class="fa-solid fa-circle-check"></i>
+  <div><strong class="d-block" id="toastTitle">به سبد خرید اضافه شد</strong><small class="text-muted" id="toastText">محصول</small></div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/pricing.js"></script>
+<script src="js/products.js"></script>
+<script>
+  (function initGlobalBanner() {
+    if (GLOBAL_DISCOUNT > 0) {
+      const b = document.getElementById('globalBanner');
+      document.getElementById('globalBannerText').textContent = `جشنواره تخفیف سراسری ${toPersian(GLOBAL_DISCOUNT)}٪ - فرصت محدود!`;
+      b.style.display = 'block';
+    }
+  })();
+
+  function productImageTag(p, lazy = true) {
+    const imgs = getProductImages(p);
+    return `<img src="${imgs[0]}" alt="${p.name}" ${lazy ? 'loading="lazy"' : ''}
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <i class="fa-solid ${p.icon}" style="display:none;"></i>`;
+  }
+
+  const MAX_PRICE = 900000;
+  let state = { search:'', categories:['all'], maxPrice:MAX_PRICE, minRating:0, features:[], sort:'popular', view:'grid', page:1, perPage:6 };
+
+  function getFiltered() {
+    let list = PRODUCTS.filter(p => {
+      const fp = getFinalPrice(p);
+      if (state.search && !p.name.toLowerCase().includes(state.search.toLowerCase()) && !p.desc.toLowerCase().includes(state.search.toLowerCase())) return false;
+      if (!state.categories.includes('all') && !state.categories.includes(p.cat)) return false;
+      if (fp > state.maxPrice) return false;
+      if (p.rating < state.minRating) return false;
+      if (state.features.includes('organic') && !p.organic) return false;
+      if (state.features.includes('discount') && !hasDiscount(p)) return false;
+      if (state.features.includes('stock') && !p.stock) return false;
+      return true;
+    });
+    switch (state.sort) {
+      case 'cheap': list.sort((a,b) => getFinalPrice(a) - getFinalPrice(b)); break;
+      case 'expensive': list.sort((a,b) => getFinalPrice(b) - getFinalPrice(a)); break;
+      case 'newest': list.sort((a,b) => b.date - a.date); break;
+      case 'rating': list.sort((a,b) => b.rating - a.rating); break;
+      default: list.sort((a,b) => b.popular - a.popular);
+    }
+    return list;
+  }
+
+  function renderProducts() {
+    const filtered = getFiltered();
+    const totalPages = Math.ceil(filtered.length / state.perPage) || 1;
+    if (state.page > totalPages) state.page = 1;
+    const start = (state.page - 1) * state.perPage;
+    const pageItems = filtered.slice(start, start + state.perPage);
+
+    document.getElementById('resultCount').textContent = toPersian(filtered.length);
+    const grid = document.getElementById('productsGrid');
+    const empty = document.getElementById('emptyState');
+
+    if (pageItems.length === 0) {
+      grid.innerHTML = '';
+      empty.classList.remove('d-none');
+      document.getElementById('pagination').innerHTML = '';
+      return;
+    }
+    empty.classList.add('d-none');
+
+    grid.innerHTML = pageItems.map(p => {
+      const fp = getFinalPrice(p);
+      const op = getOldPrice(p);
+      const disc = getDiscountPercent(p);
+      return `
+      <div class="col-md-6 col-xl-4">
+        <div class="product-card">
+          <div class="product-img">
+            ${p.badge ? `<span class="badge-float badge-${p.badge}">${p.badgeText}</span>` : ''}
+            ${disc > 0 ? `<span class="badge-float badge-off" style="top:45px; right:12px;">${toPersian(disc)}٪-</span>` : ''}
+            <button class="wishlist-btn" onclick="toggleWishlist(this)"><i class="fa-regular fa-heart"></i></button>
+            ${productImageTag(p)}
+          </div>
+          <div class="product-body">
+            <h6>${p.name}</h6>
+            <p class="desc">${p.desc}</p>
+            <div class="d-flex align-items-center justify-content-between mb-2">
+              <div class="stars">${starsHTML(p.rating)}<span class="count">(${toPersian(p.reviews)})</span></div>
+              ${!p.stock ? '<span class="text-danger small">ناموجود</span>' : ''}
+            </div>
+            <div class="mb-2">
+              <span class="price">${formatPrice(fp)}</span>
+              <span class="text-muted small">تومان</span>
+              ${op > fp ? `<span class="old-price">${formatPrice(op)}</span>` : ''}
+            </div>
+            <div class="product-actions">
+              <a href="product.html?slug=${p.slug}" class="btn btn-outline-pink flex-grow-1"><i class="fa-solid fa-eye me-1"></i>جزئیات</a>
+              <button class="btn btn-pink flex-grow-1" onclick="handleAddToCart(${p.id}, '${p.name}')" ${!p.stock ? 'disabled' : ''}><i class="fa-solid fa-cart-plus me-1"></i>خرید</button>
+            </div>
+          </div>
+        </div>
+      </div>`;
+    }).join('');
+
+    renderPagination(totalPages);
+  }
+
+  function renderPagination(total) {
+    const ul = document.getElementById('pagination');
+    if (total <= 1) { ul.innerHTML = ''; return; }
+    let html = `<li class="page-item ${state.page === 1 ? 'disabled' : ''}"><a class="page-link" href="#" onclick="goPage(${state.page - 1}); return false;"><i class="fa-solid fa-chevron-right"></i></a></li>`;
+    for (let i = 1; i <= total; i++) {
+      html += `<li class="page-item ${i === state.page ? 'active' : ''}"><a class="page-link" href="#" onclick="goPage(${i}); return false;">${toPersian(i)}</a></li>`;
+    }
+    html += `<li class="page-item ${state.page === total ? 'disabled' : ''}"><a class="page-link" href="#" onclick="goPage(${state.page + 1}); return false;"><i class="fa-solid fa-chevron-left"></i></a></li>`;
+    ul.innerHTML = html;
+  }
+
+  function goPage(p) { state.page = p; renderProducts(); window.scrollTo({top: 200, behavior:'smooth'}); }
+
+  function renderChips() {
+    const box = document.getElementById('activeFilters');
+    let chips = [];
+    if (state.search) chips.push({ label: `جستجو: "${state.search}"`, action: 'search' });
+    if (!state.categories.includes('all')) {
+      const names = { slim:'قرص لاغری', detox:'سم‌زدایی', night:'قرص شبانه', tea:'چای لاغری' };
+      state.categories.forEach(c => chips.push({ label: names[c] || c, action: 'cat', value: c }));
+    }
+    if (state.maxPrice < MAX_PRICE) chips.push({ label: `تا ${formatPrice(state.maxPrice)} تومان`, action: 'price' });
+    if (state.minRating > 0) chips.push({ label: `${toPersian(state.minRating)}+ ستاره`, action: 'rating' });
+    state.features.forEach(f => {
+      const names = { organic:'۱۰۰٪ گیاهی', discount:'تخفیف‌دار', stock:'موجود' };
+      chips.push({ label: names[f], action: 'feature', value: f });
+    });
+    box.innerHTML = chips.length === 0 ? '' : chips.map(c => `<span class="filter-chip">${c.label}<button onclick="removeChip('${c.action}','${c.value || ''}')"><i class="fa-solid fa-xmark"></i></button></span>`).join('');
+  }
+
+  function removeChip(action, value) {
+    if (action === 'search') { state.search = ''; document.getElementById('searchInput').value = ''; }
+    if (action === 'cat') { state.categories = state.categories.filter(c => c !== value); document.getElementById('cat-' + value).checked = false; if (state.categories.length === 0) { state.categories = ['all']; document.getElementById('cat-all').checked = true; } }
+    if (action === 'price') { state.maxPrice = MAX_PRICE; document.getElementById('priceRange').value = MAX_PRICE; updatePriceLabel(); }
+    if (action === 'rating') { state.minRating = 0; document.getElementById('rate-all').checked = true; }
+    if (action === 'feature') { state.features = state.features.filter(f => f !== value); document.getElementById('feat-' + value).checked = false; }
+    applyFilters();
+  }
+
+  function applyFilters() {
+    state.search = document.getElementById('searchInput').value.trim();
+    const cats = Array.from(document.querySelectorAll('.category-filter:checked')).map(c => c.value);
+    state.categories = (cats.includes('all') || cats.length === 0) ? ['all'] : cats;
+    state.maxPrice = parseInt(document.getElementById('priceRange').value);
+    const ratingEl = document.querySelector('.rating-filter:checked');
+    state.minRating = ratingEl ? parseFloat(ratingEl.value) : 0;
+    state.features = Array.from(document.querySelectorAll('.feature-filter:checked')).map(f => f.value);
+    state.sort = document.getElementById('sortSelect').value;
+    state.page = 1;
+    renderProducts();
+    renderChips();
+  }
+
+  function updatePriceLabel() { document.getElementById('priceLabel').textContent = formatPrice(parseInt(document.getElementById('priceRange').value)); }
+
+  function resetFilters() {
+    document.getElementById('searchInput').value = '';
+    document.querySelectorAll('.category-filter').forEach(c => c.checked = false);
+    document.getElementById('cat-all').checked = true;
+    document.getElementById('priceRange').value = MAX_PRICE;
+    updatePriceLabel();
+    document.getElementById('rate-all').checked = true;
+    document.querySelectorAll('.feature-filter').forEach(f => f.checked = false);
+    document.getElementById('sortSelect').value = 'popular';
+    state = { search:'', categories:['all'], maxPrice:MAX_PRICE, minRating:0, features:[], sort:'popular', view:state.view, page:1, perPage:6 };
+    applyFilters();
+  }
+
+  function setView(v) {
+    state.view = v;
+    const grid = document.getElementById('productsGrid');
+    if (v === 'list') { grid.classList.add('list-view'); document.getElementById('listViewBtn').classList.add('active'); document.getElementById('gridViewBtn').classList.remove('active'); }
+    else { grid.classList.remove('list-view'); document.getElementById('gridViewBtn').classList.add('active'); document.getElementById('listViewBtn').classList.remove('active'); }
+  }
+
+  function toggleFilters() { document.getElementById('filterSidebar').classList.toggle('show'); }
+  function toggleWishlist(btn) { btn.classList.toggle('active'); const icon = btn.querySelector('i'); icon.className = btn.classList.contains('active') ? 'fa-solid fa-heart' : 'fa-regular fa-heart'; }
+
+  function handleAddToCart(id, name) { addToCart(id, 1); showToast('به سبد خرید اضافه شد', name); }
+
+  let toastTimer;
+  function showToast(title, text) {
+    const t = document.getElementById('toast');
+    document.getElementById('toastTitle').textContent = title;
+    document.getElementById('toastText').textContent = text || '';
+    t.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => t.classList.remove('show'), 3000);
+  }
+
+  updatePriceLabel();
+  applyFilters();
+</script>
+</body>
+</html>

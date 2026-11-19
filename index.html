@@ -1,13 +1,325 @@
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <title>باربی باش | BarbiBash</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>باربی باش | قرص‌های لاغری گیاهی</title>
+  <meta name="description" content="قرص لاغری گیاهی باربی باش - لاغری سالم بدون عوارض">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+  <style>
+    :root { --pink:#e91e63; --pink-light:#f8bbd0; --pink-dark:#ad1457; --soft-bg:#fff5f8; }
+    body { font-family:'Vazirmatn',sans-serif; background:var(--soft-bg); color:#333; }
+    .navbar { background:rgba(255,255,255,0.97); backdrop-filter:blur(10px); box-shadow:0 2px 20px rgba(233,30,99,.1); }
+    .navbar-brand { font-weight:800; color:var(--pink)!important; font-size:1.6rem; }
+    .navbar-brand span { color:var(--pink-dark); }
+    .nav-link { font-weight:500; color:#555!important; transition:.3s; }
+    .nav-link:hover, .nav-link.active { color:var(--pink)!important; }
+    .cart-badge { position:absolute; top:-6px; left:-8px; background:var(--pink); color:#fff; font-size:.65rem; min-width:18px; height:18px; padding:0 4px; border-radius:10px; display:flex; align-items:center; justify-content:center; }
+    .btn-pink { background:linear-gradient(135deg,var(--pink),var(--pink-dark)); color:#fff; border:none; padding:12px 32px; border-radius:50px; font-weight:600; box-shadow:0 8px 25px rgba(233,30,99,.35); transition:.3s; }
+    .btn-pink:hover { transform:translateY(-3px); box-shadow:0 12px 30px rgba(233,30,99,.5); color:#fff; }
+    .btn-outline-pink { border:2px solid var(--pink); color:var(--pink); padding:10px 30px; border-radius:50px; font-weight:600; transition:.3s; background:transparent; }
+    .btn-outline-pink:hover { background:var(--pink); color:#fff; }
+    .global-banner { background:linear-gradient(135deg,var(--pink),var(--pink-dark)); color:#fff; text-align:center; padding:12px 15px; font-weight:700; font-size:.95rem; }
+    .global-banner i { margin-left:8px; }
+    .global-banner .blink { animation:blink 1.5s infinite; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.5} }
+    .hero { background:linear-gradient(135deg,#fff5f8 0%,#fce4ec 50%,#f8bbd0 100%); padding:80px 0 70px; position:relative; overflow:hidden; }
+    .hero::before { content:''; position:absolute; width:400px; height:400px; background:radial-gradient(circle,rgba(233,30,99,.15),transparent 70%); border-radius:50%; top:-100px; left:-100px; }
+    .hero::after { content:''; position:absolute; width:300px; height:300px; background:radial-gradient(circle,rgba(173,20,87,.1),transparent 70%); border-radius:50%; bottom:-80px; right:-80px; }
+    .hero h1 { font-weight:800; font-size:2.8rem; line-height:1.4; color:var(--pink-dark); }
+    .hero h1 span { background:linear-gradient(90deg,var(--pink),var(--pink-dark)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+    .hero p.lead { color:#666; font-size:1.15rem; }
+    .product-visual { position:relative; z-index:2; animation:float 4s ease-in-out infinite; }
+    @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-20px)} }
+    .bottle-card { background:linear-gradient(145deg,#fff,#fce4ec); border-radius:30px; padding:40px 30px; box-shadow:0 30px 60px rgba(233,30,99,.25); text-align:center; border:1px solid rgba(233,30,99,.1); position:relative; }
+    .bottle-card img { width:100%; max-height:260px; object-fit:contain; margin-bottom:15px; }
+    .bottle-icon { font-size:6rem; color:var(--pink); filter:drop-shadow(0 10px 20px rgba(233,30,99,.3)); }
+    .bottle-badge { position:absolute; top:20px; right:20px; background:var(--pink); color:#fff; padding:6px 16px; border-radius:50px; font-weight:800; font-size:.85rem; box-shadow:0 5px 15px rgba(233,30,99,.4); z-index:2; }
+    .bottle-price .now { font-size:1.6rem; font-weight:800; color:var(--pink-dark); }
+    .bottle-price .old { text-decoration:line-through; color:#aaa; font-size:1rem; margin-right:8px; }
+    .section-title { font-weight:800; color:var(--pink-dark); position:relative; display:inline-block; margin-bottom:15px; }
+    .section-title::after { content:''; position:absolute; bottom:-10px; right:0; width:60%; height:4px; background:linear-gradient(90deg,var(--pink),transparent); border-radius:4px; }
+    .feature-card { background:#fff; border-radius:20px; padding:35px 25px; text-align:center; height:100%; border:1px solid rgba(233,30,99,.08); transition:.4s; }
+    .feature-card:hover { transform:translateY(-10px); box-shadow:0 20px 40px rgba(233,30,99,.15); }
+    .feature-icon { width:70px; height:70px; margin:0 auto 20px; border-radius:50%; display:flex; align-items:center; justify-content:center; background:linear-gradient(135deg,var(--pink-light),#fff); color:var(--pink); font-size:1.8rem; }
+    .product-card { background:#fff; border-radius:20px; overflow:hidden; border:1px solid rgba(233,30,99,.08); transition:.4s; height:100%; position:relative; }
+    .product-card:hover { transform:translateY(-8px); box-shadow:0 20px 40px rgba(233,30,99,.18); }
+    .product-img { height:200px; background:linear-gradient(135deg,#fce4ec,#f8bbd0); display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden; }
+    .product-img img { width:100%; height:100%; object-fit:cover; transition:.4s; display:block; }
+    .product-card:hover .product-img img { transform:scale(1.08); }
+    .product-img i { font-size:4.5rem; color:var(--pink); transition:.4s; }
+    .product-card:hover .product-img i { transform:scale(1.15) rotate(-5deg); }
+    .badge-float { position:absolute; top:12px; right:12px; padding:5px 12px; border-radius:50px; font-size:.72rem; font-weight:700; color:#fff; z-index:2; }
+    .badge-hot { background:var(--pink); }
+    .badge-new { background:var(--pink-dark); }
+    .badge-off { background:#ff9800; }
+    .product-body { padding:18px; }
+    .product-body h6 { font-weight:700; margin-bottom:6px; color:#333; }
+    .product-body .desc { font-size:.82rem; color:#888; margin-bottom:10px; min-height:36px; }
+    .stars { color:#ffc107; font-size:.8rem; }
+    .stars .count { color:#aaa; margin-right:4px; }
+    .price { color:var(--pink-dark); font-weight:800; font-size:1.15rem; }
+    .old-price { text-decoration:line-through; color:#aaa; font-size:.85rem; margin-right:6px; }
+    .product-actions { display:flex; gap:8px; margin-top:12px; }
+    .product-actions .btn { border-radius:50px; font-size:.82rem; font-weight:600; padding:8px 12px; }
+    .testimonial-card { background:#fff; border-radius:20px; padding:30px; height:100%; border:1px solid rgba(233,30,99,.08); position:relative; }
+    .testimonial-card::before { content:'\201C'; position:absolute; top:10px; left:25px; font-size:5rem; color:var(--pink-light); font-family:serif; line-height:1; }
+    .avatar { width:50px; height:50px; border-radius:50%; background:linear-gradient(135deg,var(--pink),var(--pink-dark)); color:#fff; display:flex; align-items:center; justify-content:center; font-weight:700; }
+    .cta-section { background:linear-gradient(135deg,var(--pink-dark),var(--pink)); border-radius:30px; padding:60px 40px; color:#fff; position:relative; overflow:hidden; }
+    .cta-section::after { content:'\f06c'; font-family:'Font Awesome 6 Free'; font-weight:900; position:absolute; font-size:15rem; opacity:.08; bottom:-50px; left:20px; }
+    footer { background:#1a1a1a; color:#bbb; padding:50px 0 20px; }
+    footer h5 { color:#fff; margin-bottom:20px; }
+    footer a { color:#bbb; text-decoration:none; transition:.3s; }
+    footer a:hover { color:var(--pink-light); }
+    .social-icon { width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,.08); display:inline-flex; align-items:center; justify-content:center; margin-left:8px; transition:.3s; }
+    .social-icon:hover { background:var(--pink); color:#fff!important; transform:translateY(-3px); }
+    .toast-custom { position:fixed; bottom:30px; left:30px; background:#fff; border-radius:14px; padding:16px 24px; box-shadow:0 15px 40px rgba(0,0,0,.15); display:flex; align-items:center; gap:12px; z-index:9999; transform:translateY(150%); transition:.4s; border-right:5px solid #4caf50; max-width:320px; }
+    .toast-custom.show { transform:translateY(0); }
+    .toast-custom i { color:#4caf50; font-size:1.5rem; }
+    .reveal { opacity:0; transform:translateY(30px); transition:.8s; }
+    .reveal.active { opacity:1; transform:translateY(0); }
+    @media (max-width:768px) {
+      .hero { padding:50px 0 30px; text-align:center; }
+      .hero h1 { font-size:2rem; }
+      .product-visual { margin-top:40px; }
+      .cta-section { padding:40px 25px; }
+      .bottle-icon { font-size:4rem; }
+      .bottle-badge { font-size:.75rem; padding:5px 12px; }
+      .global-banner { font-size:.82rem; padding:10px; }
+      .toast-custom { left:15px; right:15px; bottom:15px; max-width:none; }
+    }
+  </style>
 </head>
 <body>
-  <h1>همیشه باربی باش 😍</h1>
-  <p>سایت در حال به روز رسانی می باشد</p>
-  <h3>با شماره زیر در واتساپ و تلگرام پیام دهید</h3>
-  <h2>09307167748</h2>
+
+<div class="global-banner" id="globalBanner" style="display:none;">
+  <i class="fa-solid fa-gift blink"></i>
+  <span id="globalBannerText">جشنواره تخفیف سراسری</span>
+</div>
+
+<nav class="navbar navbar-expand-lg sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="index.html"><i class="fa-solid fa-star me-1"></i>باربی <span>باش</span></a>
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item"><a class="nav-link active" href="index.html">خانه</a></li>
+        <li class="nav-item"><a class="nav-link" href="shop.html">فروشگاه</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">درباره ما</a></li>
+        <li class="nav-item"><a class="nav-link" href="faq.html">سوالات متداول</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">تماس</a></li>
+      </ul>
+      <div class="d-flex align-items-center gap-3">
+        <a href="cart.html" class="position-relative text-decoration-none" style="color:var(--pink); font-size:1.3rem;">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span class="cart-badge">۰</span>
+        </a>
+        <a href="shop.html" class="btn btn-pink btn-sm px-4">خرید کنید</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6 mb-4 mb-lg-0">
+        <h1>لاغری <span>طبیعی</span> با<br>قرص‌های باربی باش</h1>
+        <p class="lead mt-3 mb-4">با فرمولاسیون گیاهی و تأیید شده، بدون عوارض جانبی به وزن ایده‌آل خود برسید. سلامتی شما اولویت ماست. ✨</p>
+        <div class="d-flex flex-wrap gap-3">
+          <a href="shop.html" class="btn btn-pink"><i class="fa-solid fa-cart-shopping me-2"></i>مشاهده محصولات</a>
+          <a href="#features" class="btn btn-outline-pink">بیشتر بدانید</a>
+        </div>
+        <div class="d-flex align-items-center gap-4 mt-4 flex-wrap">
+          <div><h4 class="mb-0 fw-bold" style="color:var(--pink-dark)">+۱۰هزار</h4><small class="text-muted">مشتری راضی</small></div>
+          <div class="vr d-none d-sm-block"></div>
+          <div><h4 class="mb-0 fw-bold" style="color:var(--pink-dark)">۱۰۰٪</h4><small class="text-muted">طبیعی و گیاهی</small></div>
+          <div class="vr d-none d-sm-block"></div>
+          <div><h4 class="mb-0 fw-bold" style="color:var(--pink-dark)">۴.۹</h4><small class="text-muted">امتیاز کاربران</small></div>
+        </div>
+      </div>
+      <div class="col-lg-6 text-center">
+        <div class="product-visual">
+          <div class="bottle-card" id="heroProduct"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5 my-5" id="features">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <h2 class="section-title">چرا باربی باش؟</h2>
+      <p class="text-muted mt-3">مزایایی که ما را از دیگران متمایز می‌کند</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-3 reveal"><div class="feature-card"><div class="feature-icon"><i class="fa-solid fa-leaf"></i></div><h5 class="fw-bold">۱۰۰٪ گیاهی</h5><p class="text-muted small mb-0">ساخته شده از عصاره‌های طبیعی و بدون مواد شیمیایی مضر</p></div></div>
+      <div class="col-md-6 col-lg-3 reveal"><div class="feature-card"><div class="feature-icon"><i class="fa-solid fa-shield-heart"></i></div><h5 class="fw-bold">بدون عوارض</h5><p class="text-muted small mb-0">تأیید شده توسط متخصصان تغذیه و داروسازی</p></div></div>
+      <div class="col-md-6 col-lg-3 reveal"><div class="feature-card"><div class="feature-icon"><i class="fa-solid fa-bolt"></i></div><h5 class="fw-bold">نتیجه سریع</h5><p class="text-muted small mb-0">مشاهده تغییرات از هفته اول مصرف به همراه رژیم</p></div></div>
+      <div class="col-md-6 col-lg-3 reveal"><div class="feature-card"><div class="feature-icon"><i class="fa-solid fa-truck-fast"></i></div><h5 class="fw-bold">ارسال رایگان</h5><p class="text-muted small mb-0">ارسال سریع به سراسر کشور با بسته‌بندی امن</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5" id="products" style="background:#fff;">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <h2 class="section-title">محصولات پرفروش</h2>
+      <p class="text-muted mt-3">بهترین قرص‌های لاغری برای نیاز شما</p>
+    </div>
+    <div class="row g-4" id="homeProductsGrid"></div>
+    <div class="text-center mt-5">
+      <a href="shop.html" class="btn btn-outline-pink"><i class="fa-solid fa-arrow-left me-2"></i>مشاهده همه محصولات</a>
+    </div>
+  </div>
+</section>
+
+<section class="py-5 my-5" id="testimonials">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <h2 class="section-title">نظرات مشتریان</h2>
+      <p class="text-muted mt-3">تجربه واقعی افرادی که با ما به هدفشان رسیدند</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4 reveal"><div class="testimonial-card"><div class="stars mb-3"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><p class="text-muted">"در دو ماه ۸ کیلو کم کردم! واقعاً بدون عوارض بود و خیلی راضی‌ام."</p><div class="d-flex align-items-center mt-3"><div class="avatar me-3">س</div><div><h6 class="mb-0 fw-bold">سارا محمدی</h6><small class="text-muted">تهران</small></div></div></div></div>
+      <div class="col-md-4 reveal"><div class="testimonial-card"><div class="stars mb-3"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><p class="text-muted">"بعد از زایمان خیلی نگران وزنم بودم. قرص‌های باربی باش بهم کمک کرد."</p><div class="d-flex align-items-center mt-3"><div class="avatar me-3">م</div><div><h6 class="mb-0 fw-bold">مریم رضایی</h6><small class="text-muted">اصفهان</small></div></div></div></div>
+      <div class="col-md-4 reveal"><div class="testimonial-card"><div class="stars mb-3"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div><p class="text-muted">"ارسال سریع و بسته‌بندی عالی. مصرفش راحته و واقعاً اثر داره."</p><div class="d-flex align-items-center mt-3"><div class="avatar me-3">ن</div><div><h6 class="mb-0 fw-bold">نگار کریمی</h6><small class="text-muted">شیراز</small></div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5" id="contact">
+  <div class="container">
+    <div class="cta-section text-center reveal">
+      <h2 class="fw-bold mb-3">همین امروز شروع کنید!</h2>
+      <p class="mb-4 opacity-75">با مشاوره رایگان متخصصان ما، مسیر لاغری سالم خود را آغاز کنید.</p>
+      <div class="d-flex justify-content-center flex-wrap gap-3">
+        <a href=# class="btn btn-light px-4 py-2 fw-bold" style="border-radius:50px; color:var(--pink-dark)"><i class="fa-solid fa-phone me-2"></i>09307167748</a>
+        <a href="shop.html" class="btn btn-outline-light px-4 py-2 fw-bold" style="border-radius:50px"><i class="fa-solid fa-shopping-bag me-2"></i>فقط واتساپ و تلگرام</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container text-center">
+    <h5><i class="fa-solid fa-star me-1" style="color:var(--pink)"></i>باربی باش</h5>
+    <p class="small mb-3">قرص‌های لاغری گیاهی با مجوز وزارت بهداشت</p>
+    <div class="mb-3">
+      <a href="#" class="social-icon me-2" style="color:var(--pink-light)"><i class="fa-brands fa-instagram"></i></a>
+      <a href="#" class="social-icon me-2" style="color:var(--pink-light)"><i class="fa-brands fa-telegram"></i></a>
+      <a href="#" class="social-icon me-2" style="color:var(--pink-light)"><i class="fa-brands fa-whatsapp"></i></a>
+    </div>
+    <small>© ۱۴۰۳ تمامی حقوق برای شرکت باربی باش محفوظ است.</small>
+  </div>
+</footer>
+
+<div class="toast-custom" id="toast">
+  <i class="fa-solid fa-circle-check"></i>
+  <div><strong class="d-block" id="toastTitle">به سبد خرید اضافه شد</strong><small class="text-muted" id="toastText">محصول</small></div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/pricing.js"></script>
+<script src="js/products.js"></script>
+<script>
+  (function initGlobalBanner() {
+    if (GLOBAL_DISCOUNT > 0) {
+      const b = document.getElementById('globalBanner');
+      document.getElementById('globalBannerText').textContent = `جشنواره تخفیف سراسری ${toPersian(GLOBAL_DISCOUNT)}٪ - فرصت محدود!`;
+      b.style.display = 'block';
+    }
+  })();
+
+  // تصویر محصول: از getProductImages استفاده می‌کند
+  function productImageTag(p, lazy = true) {
+    const imgs = getProductImages(p);
+    const src = imgs[0];
+    return `<img src="${src}" alt="${p.name}" ${lazy ? 'loading="lazy"' : ''} 
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <i class="fa-solid ${p.icon}" style="display:none;"></i>`;
+  }
+
+  (function initHeroProduct() {
+    const hp = PRODUCTS.find(p => p.slug === 'barbieslim-pro') || PRODUCTS[0];
+    const fp = getFinalPrice(hp);
+    const op = getOldPrice(hp);
+    const disc = getDiscountPercent(hp);
+    document.getElementById('heroProduct').innerHTML = `
+      ${disc > 0 ? `<span class="bottle-badge">${toPersian(disc)}٪ تخفیف</span>` : ''}
+      ${productImageTag(hp, false)}
+      <h4 class="mt-4 fw-bold" style="color:var(--pink-dark)">${hp.name}</h4>
+      <p class="text-muted mb-0">${hp.desc}</p>
+      <div class="bottle-price mt-3">
+        <span class="now">${formatPrice(fp)}</span>
+        <span class="text-muted">تومان</span>
+        ${op > fp ? `<span class="old">${formatPrice(op)}</span>` : ''}
+      </div>
+      <a href="product.html?slug=${hp.slug}" class="btn btn-pink mt-3"><i class="fa-solid fa-eye me-1"></i>مشاهده محصول</a>
+    `;
+  })();
+
+  (function renderHomeProducts() {
+    const top = [...PRODUCTS].sort((a,b) => b.popular - a.popular).slice(0, 4);
+    document.getElementById('homeProductsGrid').innerHTML = top.map(p => {
+      const fp = getFinalPrice(p);
+      const op = getOldPrice(p);
+      const disc = getDiscountPercent(p);
+      return `
+      <div class="col-md-6 col-lg-3">
+        <div class="product-card">
+          <div class="product-img">
+            ${p.badge ? `<span class="badge-float badge-${p.badge}">${p.badgeText}</span>` : ''}
+            ${disc > 0 ? `<span class="badge-float badge-off" style="top:45px; right:12px;">${toPersian(disc)}٪-</span>` : ''}
+            ${productImageTag(p)}
+          </div>
+          <div class="product-body">
+            <h6>${p.name}</h6>
+            <p class="desc">${p.desc}</p>
+            <div class="d-flex align-items-center justify-content-between mb-2">
+              <div class="stars">${starsHTML(p.rating)}<span class="count">(${toPersian(p.reviews)})</span></div>
+              ${!p.stock ? '<span class="text-danger small">ناموجود</span>' : ''}
+            </div>
+            <div class="mb-2">
+              <span class="price">${formatPrice(fp)}</span>
+              <span class="text-muted small">تومان</span>
+              ${op > fp ? `<span class="old-price">${formatPrice(op)}</span>` : ''}
+            </div>
+            <div class="product-actions">
+              <a href="product.html?slug=${p.slug}" class="btn btn-outline-pink flex-grow-1"><i class="fa-solid fa-eye me-1"></i>جزئیات</a>
+              <button class="btn btn-pink flex-grow-1" onclick="handleAddToCart(${p.id}, '${p.name}')" ${!p.stock ? 'disabled' : ''}><i class="fa-solid fa-cart-plus me-1"></i>خرید</button>
+            </div>
+          </div>
+        </div>
+      </div>`;
+    }).join('');
+  })();
+
+  function handleAddToCart(id, name) {
+    addToCart(id, 1);
+    showToast('به سبد خرید اضافه شد', name);
+  }
+
+  let toastTimer;
+  function showToast(title, text) {
+    const t = document.getElementById('toast');
+    document.getElementById('toastTitle').textContent = title;
+    document.getElementById('toastText').textContent = text || '';
+    t.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => t.classList.remove('show'), 3000);
+  }
+
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('active'); });
+  }, { threshold: 0.15 });
+  reveals.forEach(el => observer.observe(el));
+</script>
 </body>
 </html>

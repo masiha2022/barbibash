@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>محصول | باربی باش</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+  <style>
+    :root { --pink:#e91e63; --pink-light:#f8bbd0; --pink-dark:#ad1457; --soft-bg:#fff5f8; }
+    body { font-family:'Vazirmatn',sans-serif; background:var(--soft-bg); color:#333; padding-top:76px; }
+    .navbar { background:rgba(255,255,255,0.97); backdrop-filter:blur(10px); box-shadow:0 2px 20px rgba(233,30,99,.1); }
+    .navbar-brand { font-weight:800; color:var(--pink)!important; font-size:1.6rem; }
+    .navbar-brand span { color:var(--pink-dark); }
+    .nav-link { font-weight:500; color:#555!important; transition:.3s; }
+    .nav-link:hover, .nav-link.active { color:var(--pink)!important; }
+    .cart-badge { position:absolute; top:-6px; left:-8px; background:var(--pink); color:#fff; font-size:.65rem; min-width:18px; height:18px; padding:0 4px; border-radius:10px; display:flex; align-items:center; justify-content:center; }
+    .btn-pink { background:linear-gradient(135deg,var(--pink),var(--pink-dark)); color:#fff; border:none; padding:12px 32px; border-radius:50px; font-weight:600; box-shadow:0 8px 25px rgba(233,30,99,.35); transition:.3s; }
+    .btn-pink:hover { transform:translateY(-3px); box-shadow:0 12px 30px rgba(233,30,99,.5); color:#fff; }
+    .btn-outline-pink { border:2px solid var(--pink); color:var(--pink); padding:10px 30px; border-radius:50px; font-weight:600; transition:.3s; background:transparent; }
+    .btn-outline-pink:hover { background:var(--pink); color:#fff; }
+    .btn-whatsapp { background:linear-gradient(135deg,#25d366,#128c7e); color:#fff; border:none; padding:12px 24px; border-radius:50px; font-weight:700; box-shadow:0 8px 25px rgba(37,211,102,.35); transition:.3s; width:100%; }
+    .btn-whatsapp:hover { transform:translateY(-3px); box-shadow:0 12px 30px rgba(37,211,102,.5); color:#fff; }
+    .btn-telegram { background:linear-gradient(135deg,#0088cc,#006699); color:#fff; border:none; padding:12px 24px; border-radius:50px; font-weight:700; box-shadow:0 8px 25px rgba(0,136,204,.35); transition:.3s; width:100%; }
+    .btn-telegram:hover { transform:translateY(-3px); box-shadow:0 12px 30px rgba(0,136,204,.5); color:#fff; }
+    .global-banner { background:linear-gradient(135deg,var(--pink),var(--pink-dark)); color:#fff; text-align:center; padding:12px 15px; font-weight:700; font-size:.95rem; }
+    .global-banner i { margin-left:8px; }
+    .global-banner .blink { animation:blink 1.5s infinite; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.5} }
+    .breadcrumb-bar { background:#fff; border-bottom:1px solid #fce4ec; padding:12px 0; font-size:.9rem; }
+    .breadcrumb-bar a { color:#888; text-decoration:none; }
+    .breadcrumb-bar a:hover { color:var(--pink); }
+    .breadcrumb-bar .active { color:var(--pink-dark); font-weight:600; }
+    .product-gallery { background:#fff; border-radius:24px; padding:20px; border:1px solid rgba(233,30,99,.08); box-shadow:0 10px 30px rgba(233,30,99,.06); }
+    .main-image { background:linear-gradient(135deg,#fce4ec,#f8bbd0); border-radius:20px; height:420px; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden; }
+    .main-image img { width:100%; height:100%; object-fit:cover; padding:0px; transition:transform .5s; display:block; }
+    .main-image:hover img { transform:scale(1.05); }
+    .main-image i { font-size:11rem; color:var(--pink); filter:drop-shadow(0 15px 30px rgba(233,30,99,.3)); }
+    .discount-badge { position:absolute; top:20px; right:20px; background:var(--pink); color:#fff; padding:8px 18px; border-radius:50px; font-weight:800; font-size:.95rem; box-shadow:0 5px 15px rgba(233,30,99,.4); z-index:2; }
+    .thumb-list { display:flex; gap:12px; margin-top:15px; justify-content:center; flex-wrap:wrap; }
+    .thumb { width:80px; height:80px; border-radius:14px; background:linear-gradient(135deg,#fce4ec,#f8bbd0); display:flex; align-items:center; justify-content:center; cursor:pointer; border:2px solid transparent; transition:.3s; overflow:hidden; position:relative; }
+    .thumb img { width:100%; height:100%; object-fit:cover; border-radius:12px; }
+    .thumb i { font-size:2rem; color:var(--pink); }
+    .thumb:hover, .thumb.active { border-color:var(--pink); transform:translateY(-3px); box-shadow:0 5px 15px rgba(233,30,99,.25); }
+    .thumb.active::after { content:''; position:absolute; bottom:-8px; left:50%; transform:translateX(-50%); width:20px; height:3px; background:var(--pink); border-radius:3px; }
+    .product-info { background:#fff; border-radius:24px; padding:30px; border:1px solid rgba(233,30,99,.08); box-shadow:0 10px 30px rgba(233,30,99,.06); }
+    .product-info h1 { font-weight:800; color:var(--pink-dark); font-size:1.9rem; line-height:1.4; }
+    .brand-tag { display:inline-block; background:var(--pink-light); color:var(--pink-dark); padding:4px 14px; border-radius:50px; font-size:.8rem; font-weight:600; margin-bottom:10px; }
+    .stars { color:#ffc107; }
+    .stars .count { color:#888; font-size:.85rem; margin-right:6px; }
+    .price-box { background:var(--soft-bg); border-radius:16px; padding:20px; margin:20px 0; border:1px dashed var(--pink-light); }
+    .price-now { font-size:2rem; font-weight:800; color:var(--pink-dark); }
+    .price-old { text-decoration:line-through; color:#aaa; font-size:1.1rem; margin-right:10px; }
+    .save-badge { background:#4caf50; color:#fff; padding:4px 12px; border-radius:50px; font-size:.8rem; font-weight:700; }
+    .qty-box { display:inline-flex; align-items:center; border:2px solid #eee; border-radius:50px; overflow:hidden; background:#fff; }
+    .qty-box button { background:transparent; border:none; width:44px; height:44px; font-size:1.2rem; color:var(--pink); cursor:pointer; transition:.2s; }
+    .qty-box button:hover { background:var(--soft-bg); }
+    .qty-box input { width:50px; text-align:center; border:none; font-weight:700; font-size:1.1rem; outline:none; background:transparent; }
+    .feature-mini { display:flex; align-items:center; gap:10px; font-size:.9rem; color:#555; }
+    .feature-mini i { color:var(--pink); font-size:1.1rem; }
+    .order-box { background:linear-gradient(135deg,#e3f2fd,#f0f7ff); border-radius:16px; padding:20px; margin-top:20px; border:1px solid #bbdefb; }
+    .order-box .order-title { font-size:.9rem; font-weight:700; color:#1565c0; margin-bottom:15px; text-align:center; }
+    .order-box .order-title::before, .order-box .order-title::after { content:' ─ '; color:#90caf9; }
+    .order-box p.info-text { font-size:.8rem; color:#1565c0; text-align:center; margin-bottom:15px; line-height:1.7; }
+    .product-tabs { background:#fff; border-radius:24px; padding:30px; border:1px solid rgba(233,30,99,.08); margin-top:40px; }
+    .nav-tabs { border-bottom:2px solid #fce4ec; flex-wrap:nowrap; overflow-x:auto; }
+    .nav-tabs .nav-link { border:none; color:#777; font-weight:600; padding:12px 22px; border-radius:0; white-space:nowrap; background:transparent; }
+    .nav-tabs .nav-link.active { color:var(--pink-dark)!important; background:transparent; border-bottom:3px solid var(--pink); }
+    .nav-tabs .nav-link:hover { color:var(--pink)!important; }
+    .tab-content { padding-top:25px; }
+    .tab-content p, .tab-content li { color:#555; line-height:1.9; }
+    .ingredient-item { display:flex; align-items:flex-start; gap:12px; padding:14px; background:var(--soft-bg); border-radius:12px; margin-bottom:10px; }
+    .ingredient-item i { color:var(--pink); background:#fff; width:38px; height:38px; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .warning-box { background:#fff3e0; border-right:4px solid #ff9800; border-radius:10px; padding:18px; color:#e65100; }
+    .warning-box i { margin-left:8px; }
+    .usage-step { display:flex; gap:15px; margin-bottom:18px; }
+    .step-num { width:40px; height:40px; background:linear-gradient(135deg,var(--pink),var(--pink-dark)); color:#fff; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:800; flex-shrink:0; }
+    .review-card { background:#fff; border-radius:16px; padding:20px; margin-bottom:16px; border:1px solid rgba(233,30,99,.08); }
+    .avatar { width:46px; height:46px; border-radius:50%; background:linear-gradient(135deg,var(--pink),var(--pink-dark)); color:#fff; display:flex; align-items:center; justify-content:center; font-weight:700; flex-shrink:0; }
+    .verified-badge { font-size:.7rem; color:#4caf50; font-weight:600; }
+    .rating-summary { background:var(--soft-bg); border-radius:16px; padding:25px; text-align:center; }
+    .rating-big { font-size:3.5rem; font-weight:800; color:var(--pink-dark); line-height:1; }
+    .product-card { background:#fff; border-radius:20px; overflow:hidden; border:1px solid rgba(233,30,99,.08); transition:.4s; height:100%; position:relative; }
+    .product-card:hover { transform:translateY(-8px); box-shadow:0 20px 40px rgba(233,30,99,.15); }
+    .product-img { height:180px; background:linear-gradient(135deg,#fce4ec,#f8bbd0); display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden; }
+    .product-img img { width:100%; height:100%; object-fit:cover; transition:.4s; display:block; }
+    .product-card:hover .product-img img { transform:scale(1.08); }
+    .product-img i { font-size:4rem; color:var(--pink); transition:.4s; }
+    .badge-float { position:absolute; top:12px; right:12px; padding:5px 12px; border-radius:50px; font-size:.72rem; font-weight:700; color:#fff; z-index:2; }
+    .badge-hot { background:var(--pink); }
+    .badge-new { background:var(--pink-dark); }
+    .badge-off { background:#ff9800; }
+    .price { color:var(--pink-dark); font-weight:800; font-size:1.15rem; }
+    .old-price { text-decoration:line-through; color:#aaa; font-size:.85rem; margin-right:6px; }
+    .section-title { font-weight:800; color:var(--pink-dark); position:relative; display:inline-block; margin-bottom:10px; }
+    .section-title::after { content:''; position:absolute; bottom:-8px; right:0; width:60%; height:4px; background:linear-gradient(90deg,var(--pink),transparent); border-radius:4px; }
+    .toast-custom { position:fixed; bottom:30px; left:30px; background:#fff; border-radius:14px; padding:16px 24px; box-shadow:0 15px 40px rgba(0,0,0,.15); display:flex; align-items:center; gap:12px; z-index:9999; transform:translateY(150%); transition:.4s; border-right:5px solid #4caf50; max-width:320px; }
+    .toast-custom.show { transform:translateY(0); }
+    .toast-custom i { color:#4caf50; font-size:1.5rem; }
+    footer { background:#1a1a1a; color:#bbb; padding:40px 0 20px; }
+    footer h5 { color:#fff; }
+    .social-icon { width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,.08); display:inline-flex; align-items:center; justify-content:center; transition:.3s; }
+    .social-icon:hover { background:var(--pink); color:#fff!important; }
+    @media (max-width:768px) {
+      .main-image { height:300px; }
+      .main-image img { padding:10px; }
+      .main-image i { font-size:7rem; }
+      .product-info h1 { font-size:1.4rem; }
+      .price-now { font-size:1.6rem; }
+      .thumb { width:65px; height:65px; }
+      .thumb i { font-size:1.6rem; }
+      .toast-custom { left:15px; right:15px; bottom:15px; max-width:none; }
+      .product-tabs { padding:20px 15px; }
+      .product-info { padding:20px; }
+      .global-banner { font-size:.82rem; padding:10px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="global-banner" id="globalBanner" style="display:none;">
+  <i class="fa-solid fa-gift blink"></i>
+  <span id="globalBannerText">جشنواره تخفیف سراسری</span>
+</div>
+
+<nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="index.html"><i class="fa-solid fa-star me-1"></i>باربی <span>باش</span></a>
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">خانه</a></li>
+        <li class="nav-item"><a class="nav-link active" href="shop.html">فروشگاه</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">درباره ما</a></li>
+        <li class="nav-item"><a class="nav-link" href="faq.html">سوالات متداول</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">تماس</a></li>
+      </ul>
+      <div class="d-flex align-items-center gap-3">
+        <a href="cart.html" class="position-relative text-decoration-none" style="color:var(--pink); font-size:1.3rem;">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span class="cart-badge">۰</span>
+        </a>
+        <a href="shop.html" class="btn btn-pink btn-sm px-4">خرید کنید</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="breadcrumb-bar">
+  <div class="container">
+    <a href="index.html"><i class="fa-solid fa-house me-1"></i>خانه</a>
+    <span class="mx-2 text-muted">/</span>
+    <a href="shop.html">فروشگاه</a>
+    <span class="mx-2 text-muted">/</span>
+    <span class="active" id="breadcrumbName">محصول</span>
+  </div>
+</div>
+
+<section class="py-4">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-6">
+        <div class="product-gallery">
+          <div class="main-image">
+            <span class="discount-badge" id="discountBadge" style="display:none;">۰٪ تخفیف</span>
+            <img id="mainImage" src="" alt="" style="display:none;">
+            <i class="fa-solid fa-pills" id="mainIcon"></i>
+          </div>
+          <div class="thumb-list" id="thumbList"></div>
+          <div class="row g-3 mt-3">
+            <div class="col-6"><div class="feature-mini"><i class="fa-solid fa-leaf"></i>۱۰۰٪ گیاهی</div></div>
+            <div class="col-6"><div class="feature-mini"><i class="fa-solid fa-shield-heart"></i>بدون عوارض</div></div>
+            <div class="col-6"><div class="feature-mini"><i class="fa-solid fa-truck-fast"></i>ارسال رایگان</div></div>
+            <div class="col-6"><div class="feature-mini"><i class="fa-solid fa-certificate"></i>مجوز بهداشت</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="product-info">
+          <span class="brand-tag"><i class="fa-solid fa-star me-1"></i>باربی باش</span>
+          <h1 id="productName">در حال بارگذاری...</h1>
+          <div class="d-flex align-items-center gap-2 mt-2 flex-wrap">
+            <div class="stars" id="productStars"></div>
+            <span class="text-muted small">|</span>
+            <span class="text-success small" id="stockStatus"><i class="fa-solid fa-check-circle me-1"></i>موجود در انبار</span>
+          </div>
+          <p class="text-muted mt-3 mb-0" id="productDesc"></p>
+
+          <div class="price-box">
+            <div class="d-flex align-items-center flex-wrap gap-2">
+              <span class="price-now" id="priceNow">۰</span>
+              <span class="text-muted">تومان</span>
+              <span class="price-old" id="priceOld" style="display:none;">۰</span>
+              <span class="save-badge" id="saveBadge" style="display:none;">۰ تومان صرفه‌جویی</span>
+            </div>
+            <small class="text-muted d-block mt-2" id="discountHint" style="display:none;"><i class="fa-solid fa-clock me-1"></i>پیشنهاد ویژه تا ۴۸ ساعت آینده</small>
+          </div>
+
+          <div class="row g-3 align-items-end mt-2">
+            <div class="col-auto">
+              <label class="form-label fw-bold small mb-1">تعداد:</label>
+              <div class="qty-box">
+                <button type="button" onclick="changeQty(-1)"><i class="fa-solid fa-minus"></i></button>
+                <input type="number" id="qty" value="1" min="1" max="10" readonly>
+                <button type="button" onclick="changeQty(1)"><i class="fa-solid fa-plus"></i></button>
+              </div>
+            </div>
+            <div class="col">
+              <button class="btn btn-pink w-100 py-2" id="addToCartBtn" onclick="handleAddToCart()"><i class="fa-solid fa-cart-plus me-2"></i>افزودن به سبد خرید</button>
+            </div>
+          </div>
+
+          <a href="cart.html" class="btn btn-outline-pink w-100 mt-3 py-2"><i class="fa-solid fa-cart-shopping me-2"></i>مشاهده سبد خرید</a>
+
+          <div class="order-box">
+            <div class="order-title">سفارش مستقیم و سریع</div>
+            <p class="info-text">بدون ثبت‌نام، سفارش خود را به‌صورت مستقیم برای مشاور ارسال کنید. مشاور ما در اسرع وقت با شما تماس می‌گیرد.</p>
+            <button class="btn-whatsapp mb-2" onclick="orderViaWhatsApp()"><i class="fa-brands fa-whatsapp me-2"></i>سفارش در واتساپ</button>
+            <button class="btn-telegram" onclick="orderViaTelegram()"><i class="fa-brands fa-telegram me-2"></i>سفارش در تلگرام</button>
+          </div>
+
+          <div class="mt-4 pt-3 border-top">
+            <div class="d-flex align-items-start gap-3 mb-2"><i class="fa-solid fa-truck-fast mt-1" style="color:var(--pink)"></i><div><strong class="d-block small">ارسال سریع</strong><small class="text-muted">تحویل ۲ تا ۴ روز کاری به سراسر کشور</small></div></div>
+            <div class="d-flex align-items-start gap-3 mb-2"><i class="fa-solid fa-rotate-left mt-1" style="color:var(--pink)"></i><div><strong class="d-block small">۷ روز ضمانت بازگشت</strong><small class="text-muted">در صورت عدم رضایت، وجه شما بازگردانده می‌شود</small></div></div>
+            <div class="d-flex align-items-start gap-3"><i class="fa-solid fa-headset mt-1" style="color:var(--pink)"></i><div><strong class="d-block small">پشتیبانی تخصصی</strong><small class="text-muted">مشاوره رایگان با متخصص تغذیه</small></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-tabs">
+      <ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item" role="presentation"><button class="nav-link active" data-bs-toggle="tab" data-bs-target="#tab-desc" type="button" role="tab">توضیحات</button></li>
+        <li class="nav-item" role="presentation"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-ingredients" type="button" role="tab">ترکیبات</button></li>
+        <li class="nav-item" role="presentation"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-usage" type="button" role="tab">روش مصرف</button></li>
+        <li class="nav-item" role="presentation"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-reviews" type="button" role="tab">نظرات (<span id="reviewsCountTab">۰</span>)</button></li>
+      </ul>
+
+      <div class="tab-content">
+        <div class="tab-pane fade show active" id="tab-desc" role="tabpanel">
+          <h5 class="fw-bold mb-3" style="color:var(--pink-dark)" id="descTitle">درباره محصول</h5>
+          <p id="descLong"></p>
+          <h6 class="fw-bold mt-4 mb-3">مزایای کلیدی:</h6>
+          <ul class="list-unstyled" id="benefitsList"></ul>
+        </div>
+
+        <div class="tab-pane fade" id="tab-ingredients" role="tabpanel">
+          <h5 class="fw-bold mb-3" style="color:var(--pink-dark)">ترکیبات فعال</h5>
+          <div id="ingredientsList"></div>
+          <div class="warning-box mt-4" id="warningBox" style="display:none;"></div>
+        </div>
+
+        <div class="tab-pane fade" id="tab-usage" role="tabpanel">
+          <h5 class="fw-bold mb-3" style="color:var(--pink-dark)">روش مصرف صحیح</h5>
+          <div id="usageList"></div>
+          <div class="alert mt-3" style="background:var(--soft-bg); border-radius:12px;"><i class="fa-solid fa-circle-info me-2" style="color:var(--pink)"></i>برای بهترین نتیجه، مصرف را با یک رژیم غذایی متعادل و ۳۰ دقیقه پیاده‌روی روزانه همراه کنید.</div>
+        </div>
+
+        <div class="tab-pane fade" id="tab-reviews" role="tabpanel">
+          <div class="row g-4">
+            <div class="col-lg-4">
+              <div class="rating-summary">
+                <div class="rating-big" id="ratingBig">۰</div>
+                <div class="stars mb-2" id="ratingStarsBig"></div>
+                <p class="text-muted small mb-3">بر اساس <span id="reviewsCountSummary">۰</span> نظر</p>
+                <div class="text-start small">
+                  <div class="d-flex align-items-center gap-2 mb-1"><span style="width:45px">۵ ستاره</span><div class="progress flex-grow-1" style="height:8px"><div class="progress-bar" style="width:78%; background:var(--pink)"></div></div><span class="text-muted">۷۸٪</span></div>
+                  <div class="d-flex align-items-center gap-2 mb-1"><span style="width:45px">۴ ستاره</span><div class="progress flex-grow-1" style="height:8px"><div class="progress-bar" style="width:15%; background:var(--pink)"></div></div><span class="text-muted">۱۵٪</span></div>
+                  <div class="d-flex align-items-center gap-2 mb-1"><span style="width:45px">۳ ستاره</span><div class="progress flex-grow-1" style="height:8px"><div class="progress-bar" style="width:5%; background:#ffc107"></div></div><span class="text-muted">۵٪</span></div>
+                  <div class="d-flex align-items-center gap-2"><span style="width:45px">۲ ستاره</span><div class="progress flex-grow-1" style="height:8px"><div class="progress-bar" style="width:2%; background:#ff9800"></div></div><span class="text-muted">۲٪</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-8">
+              <div class="review-card"><div class="d-flex align-items-center gap-3 mb-2 flex-wrap"><div class="avatar">س</div><div class="flex-grow-1"><strong class="d-block">سارا محمدی</strong><span class="verified-badge"><i class="fa-solid fa-circle-check"></i> خرید تأیید شده</span></div><div class="stars small"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div></div><p class="mb-0 small text-muted">در دو ماه ۸ کیلو کم کردم! واقعاً بدون عوارض بود و خیلی راضی‌ام.</p></div>
+              <div class="review-card"><div class="d-flex align-items-center gap-3 mb-2 flex-wrap"><div class="avatar">م</div><div class="flex-grow-1"><strong class="d-block">مریم رضایی</strong><span class="verified-badge"><i class="fa-solid fa-circle-check"></i> خرید تأیید شده</span></div><div class="stars small"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div></div><p class="mb-0 small text-muted">بعد از زایمان خیلی نگران وزنم بودم. قرص‌های باربی باش بهم کمک کرد.</p></div>
+              <div class="review-card"><div class="d-flex align-items-center gap-3 mb-2 flex-wrap"><div class="avatar">ن</div><div class="flex-grow-1"><strong class="d-block">نگار کریمی</strong><span class="verified-badge"><i class="fa-solid fa-circle-check"></i> خرید تأیید شده</span></div><div class="stars small"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div></div><p class="mb-0 small text-muted">ارسال سریع و بسته‌بندی عالی. مصرفش راحته و واقعاً اثر داره.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5" style="background:#fff;">
+  <div class="container">
+    <div class="text-center mb-5"><h2 class="section-title">محصولات مشابه</h2></div>
+    <div class="row g-4" id="relatedProducts"></div>
+  </div>
+</section>
+
+<footer>
+  <div class="container text-center">
+    <h5><i class="fa-solid fa-star me-1" style="color:var(--pink)"></i>باربی باش</h5>
+    <p class="small mb-3">قرص‌های لاغری گیاهی با مجوز وزارت بهداشت</p>
+    <div class="mb-3">
+      <a href="#" class="social-icon me-2" style="color:var(--pink-light)"><i class="fa-brands fa-instagram"></i></a>
+      <a href="#" class="social-icon me-2" style="color:var(--pink-light)"><i class="fa-brands fa-telegram"></i></a>
+      <a href="#" class="social-icon me-2" style="color:var(--pink-light)"><i class="fa-brands fa-whatsapp"></i></a>
+    </div>
+    <small>© ۱۴۰۳ تمامی حقوق برای شرکت باربی باش محفوظ است.</small>
+  </div>
+</footer>
+
+<div class="toast-custom" id="toast">
+  <i class="fa-solid fa-circle-check"></i>
+  <div><strong class="d-block" id="toastTitle">به سبد خرید اضافه شد</strong><small class="text-muted" id="toastText">محصول</small></div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/pricing.js"></script>
+<script src="js/products.js"></script>
+<script>
+  const advisor = typeof ADVISOR !== 'undefined' ? ADVISOR : { whatsapp:'989121234567', telegram:'barbiebash_support', phone:'02112345678', name:'مشاور باربی باش' };
+
+  const params = new URLSearchParams(window.location.search);
+  const slug = params.get('slug') || 'barbieslim-pro';
+  const product = getProductBySlug(slug) || PRODUCTS[0];
+
+  (function initGlobalBanner() {
+    if (GLOBAL_DISCOUNT > 0) {
+      const b = document.getElementById('globalBanner');
+      document.getElementById('globalBannerText').textContent = `جشنواره تخفیف سراسری ${toPersian(GLOBAL_DISCOUNT)}٪ - فرصت محدود!`;
+      b.style.display = 'block';
+    }
+  })();
+
+  const finalPrice = getFinalPrice(product);
+  const oldPrice = getOldPrice(product);
+  const discount = getDiscountPercent(product);
+
+  document.title = product.name + ' | باربی باش';
+  document.getElementById('breadcrumbName').textContent = product.name;
+  document.getElementById('productName').textContent = product.name;
+  document.getElementById('productDesc').textContent = product.desc;
+  document.getElementById('productStars').innerHTML = starsHTML(product.rating) + `<span class="count">(${toPersian(product.reviews)} نظر)</span>`;
+
+  if (!product.stock) {
+    const s = document.getElementById('stockStatus');
+    s.className = 'text-danger small';
+    s.innerHTML = '<i class="fa-solid fa-xmark-circle me-1"></i>ناموجود';
+    document.getElementById('addToCartBtn').disabled = true;
+  }
+
+  document.getElementById('priceNow').textContent = formatPrice(finalPrice);
+  if (oldPrice > finalPrice) {
+    document.getElementById('priceOld').textContent = formatPrice(oldPrice);
+    document.getElementById('priceOld').style.display = '';
+    document.getElementById('discountHint').style.display = '';
+  }
+  if (discount > 0) {
+    document.getElementById('discountBadge').textContent = toPersian(discount) + '٪ تخفیف';
+    document.getElementById('discountBadge').style.display = '';
+    document.getElementById('saveBadge').textContent = formatPrice(oldPrice - finalPrice) + ' تومان صرفه‌جویی';
+    document.getElementById('saveBadge').style.display = '';
+  }
+
+  document.getElementById('descTitle').textContent = 'درباره ' + product.name;
+  document.getElementById('descLong').textContent = product.longDesc || product.desc;
+
+  document.getElementById('benefitsList').innerHTML = (product.benefits || []).length
+    ? product.benefits.map(b => `<li class="mb-2"><i class="fa-solid fa-check-circle me-2" style="color:var(--pink)"></i>${b}</li>`).join('')
+    : '<li class="text-muted">در حال تکمیل...</li>';
+
+  document.getElementById('ingredientsList').innerHTML = (product.ingredients || []).length
+    ? product.ingredients.map(ing => `<div class="ingredient-item"><i class="fa-solid fa-leaf"></i><div><strong>${ing.name}${ing.amount ? ` (${ing.amount})` : ''}</strong><p class="mb-0 small text-muted">${ing.desc}</p></div></div>`).join('')
+    : '<p class="text-muted">در حال تکمیل...</p>';
+
+  if (product.warning) {
+    document.getElementById('warningBox').innerHTML = `<i class="fa-solid fa-triangle-exclamation"></i><strong>هشدار:</strong> ${product.warning}`;
+    document.getElementById('warningBox').style.display = '';
+  }
+
+  document.getElementById('usageList').innerHTML = (product.usage || []).length
+    ? product.usage.map((u, i) => `<div class="usage-step"><div class="step-num">${toPersian(i + 1)}</div><div><strong>${u.title}${u.time ? ` (${u.time})` : ''}</strong><p class="mb-0 text-muted small">${u.desc}</p></div></div>`).join('')
+    : '<p class="text-muted">در حال تکمیل...</p>';
+
+  document.getElementById('reviewsCountTab').textContent = toPersian(product.reviews);
+  document.getElementById('reviewsCountSummary').textContent = toPersian(product.reviews);
+  document.getElementById('ratingBig').textContent = product.rating;
+  document.getElementById('ratingStarsBig').innerHTML = starsHTML(product.rating);
+
+  /* ============================================
+     گالری — ۴ تصویر با پیش‌فرض
+     ============================================ */
+  const productImages = getProductImages(product);
+  let activeImageIndex = 0;
+
+  function setMainImage(index) {
+    const mainImg = document.getElementById('mainImage');
+    const mainIcon = document.getElementById('mainIcon');
+    const src = productImages[index];
+    activeImageIndex = index;
+
+    if (src) {
+      mainImg.src = src;
+      mainImg.alt = `${product.name} - تصویر ${toPersian(index + 1)}`;
+      mainImg.style.display = 'block';
+      mainIcon.style.display = 'none';
+      mainImg.onerror = function() {
+        this.style.display = 'none';
+        mainIcon.style.display = 'block';
+        mainIcon.className = 'fa-solid ' + product.icon;
+      };
+    } else {
+      mainImg.style.display = 'none';
+      mainIcon.style.display = 'block';
+      mainIcon.className = 'fa-solid ' + product.icon;
+    }
+
+    document.querySelectorAll('.thumb').forEach((t, i) => {
+      t.classList.toggle('active', i === index);
+    });
+  }
+
+  function buildThumbs() {
+    document.getElementById('thumbList').innerHTML = productImages.map((src, i) => `
+      <div class="thumb ${i === 0 ? 'active' : ''}" onclick="changeImage(${i})" title="تصویر ${toPersian(i + 1)}">
+        <img src="${src}" alt="${product.name} - تصویر ${toPersian(i + 1)}"
+             onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\\'fa-solid fa-image\\'></i>';">
+      </div>
+    `).join('');
+  }
+
+  function changeImage(index) { setMainImage(index); }
+
+  buildThumbs();
+  setMainImage(0);
+
+  // ناوبری با کیبورد
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') setMainImage(Math.min(productImages.length - 1, activeImageIndex + 1));
+    if (e.key === 'ArrowRight') setMainImage(Math.max(0, activeImageIndex - 1));
+  });
+
+  function changeQty(delta) {
+    const input = document.getElementById('qty');
+    let v = (parseInt(input.value) || 1) + delta;
+    input.value = Math.min(10, Math.max(1, v));
+  }
+
+  function handleAddToCart() {
+    if (!product.stock) return;
+    const qty = parseInt(document.getElementById('qty').value) || 1;
+    addToCart(product.id, qty);
+    showToast('به سبد خرید اضافه شد', `${product.name} × ${toPersian(qty)}`);
+  }
+
+  function orderViaWhatsApp() {
+    if (!product.stock) { showToast('محصول ناموجود', 'این محصول فعلاً موجود نیست'); return; }
+    const qty = parseInt(document.getElementById('qty').value) || 1;
+    const sub = finalPrice * qty;
+    let lines = ['🛍️ *سفارش محصول از باربی باش*', '━━━━━━━━━━━━━━━', '', `📦 *محصول:* ${product.name}`, `🔢 *تعداد:* ${qty} عدد`, `💰 *قیمت واحد:* ${formatPrice(finalPrice)} تومان`];
+    if (oldPrice > finalPrice) lines.push(`🎁 *تخفیف:* ${toPersian(discount)}٪`);
+    lines.push(`✅ *مبلغ کل:* ${formatPrice(sub)} تومان`, '', '━━━━━━━━━━━━━━━', '📝 لطفاً اطلاعات زیر را تکمیل کنید:', '• نام و نام خانوادگی:', '• شماره تماس:', '• آدرس کامل:', '• کد پستی:', '', `📞 شماره مشاور: ${toPersian(advisor.phone)}`);
+    window.open(`https://wa.me/${advisor.whatsapp}?text=${encodeURIComponent(lines.join('\n'))}`, '_blank');
+    showToast('در حال انتقال به واتساپ', 'سفارش شما آماده ارسال است');
+  }
+
+  function orderViaTelegram() {
+    if (!product.stock) { showToast('محصول ناموجود', 'این محصول فعلاً موجود نیست'); return; }
+    const qty = parseInt(document.getElementById('qty').value) || 1;
+    const sub = finalPrice * qty;
+    let lines = ['🛍️ سفارش محصول از باربی باش', '━━━━━━━━━━━━━━━', '', `📦 محصول: ${product.name}`, `🔢 تعداد: ${qty} عدد`, `💰 قیمت واحد: ${formatPrice(finalPrice)} تومان`];
+    if (oldPrice > finalPrice) lines.push(`🎁 تخفیف: ${toPersian(discount)}٪`);
+    lines.push(`✅ مبلغ کل: ${formatPrice(sub)} تومان`, '', '━━━━━━━━━━━━━━━', '📝 لطفاً اطلاعات زیر را تکمیل کنید:', '• نام و نام خانوادگی:', '• شماره تماس:', '• آدرس کامل:', '• کد پستی:', '', `📞 شماره مشاور: ${toPersian(advisor.phone)}`);
+    copyToClipboard(lines.join('\n')).then(() => {
+      showToast('متن سفارش کپی شد', 'در تلگرام برای مشاور ارسال کنید');
+      setTimeout(() => window.open(`https://t.me/${advisor.telegram}`, '_blank'), 700);
+    }).catch(() => {
+      window.open(`https://t.me/${advisor.telegram}`, '_blank');
+    });
+  }
+
+  function copyToClipboard(text) {
+    if (navigator.clipboard && navigator.clipboard.writeText) return navigator.clipboard.writeText(text);
+    return new Promise((resolve, reject) => {
+      try {
+        const ta = document.createElement('textarea');
+        ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+        document.body.appendChild(ta); ta.select(); document.execCommand('copy');
+        document.body.removeChild(ta); resolve();
+      } catch (e) { reject(e); }
+    });
+  }
+
+  (function renderRelated() {
+    const related = PRODUCTS.filter(p => p.id !== product.id && p.cat === product.cat).slice(0, 4);
+    if (related.length < 4) {
+      const others = PRODUCTS.filter(p => p.id !== product.id && !related.some(r => r.id === p.id)).slice(0, 4 - related.length);
+      related.push(...others);
+    }
+    document.getElementById('relatedProducts').innerHTML = related.map(p => {
+      const fp = getFinalPrice(p);
+      const op = getOldPrice(p);
+      const disc = getDiscountPercent(p);
+      const imgs = getProductImages(p);
+      return `<div class="col-md-6 col-lg-3"><div class="product-card"><div class="product-img">${p.badge ? `<span class="badge-float badge-${p.badge}">${p.badgeText}</span>` : ''}${disc > 0 ? `<span class="badge-float badge-off" style="top:45px; right:12px;">${toPersian(disc)}٪-</span>` : ''}<img src="${imgs[0]}" alt="${p.name}" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><i class="fa-solid ${p.icon}" style="display:none;"></i></div><div class="p-3"><h6 class="fw-bold mb-1">${p.name}</h6><p class="text-muted small mb-2">${p.desc}</p><div class="d-flex justify-content-between align-items-center"><div><span class="price">${formatPrice(fp)}</span>${op > fp ? `<span class="old-price">${formatPrice(op)}</span>` : ''}</div><a href="product.html?slug=${p.slug}" class="btn btn-pink btn-sm px-3">مشاهده</a></div></div></div></div>`;
+    }).join('');
+  })();
+
+  let toastTimer;
+  function showToast(title, text) {
+    const t = document.getElementById('toast');
+    document.getElementById('toastTitle').textContent = title;
+    document.getElementById('toastText').textContent = text || '';
+    t.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => t.classList.remove('show'), 3000);
+  }
+</script>
+</body>
+</html>
