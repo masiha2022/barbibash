@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>سوالات متداول | باربی باش</title>
+  <meta name="description" content="پاسخ به سوالات پرتکرار درباره قرص‌های لاغری باربی باش - خرید، ارسال، عوارض و مجوزها">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/improvements.css">
+
+  <!-- ===== Schema.org FAQPage ===== -->
+  <script type="application/ld+json" id="faqSchema">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": []
+  }
+  </script>
+
+  <style>
+    :root {
+      --pink: #e91e63;
+      --pink-light: #f8bbd0;
+      --pink-dark: #ad1457;
+      --soft-bg: #fff5f8;
+      --green: #4caf50;
+      --red: #f44336;
+    }
+
+    body {
+      font-family: 'Vazirmatn', sans-serif;
+      background: var(--soft-bg);
+      color: #333;
+      padding-top: 76px;
+    }
+
+    /* ===== Navbar ===== */
+    .navbar { background: rgba(255,255,255,0.97); backdrop-filter: blur(10px); box-shadow: 0 2px 20px rgba(233,30,99,0.1); }
+    .navbar-brand { font-weight: 800; color: var(--pink) !important; font-size: 1.6rem; }
+    .navbar-brand span { color: var(--pink-dark); }
+    .nav-link { font-weight: 500; color: #555 !important; transition: 0.3s; }
+    .nav-link:hover, .nav-link.active { color: var(--pink) !important; }
+    .cart-badge { position: absolute; top: -6px; left: -8px; background: var(--pink); color: #fff; font-size: 0.65rem; min-width: 18px; height: 18px; padding: 0 4px; border-radius: 10px; display: flex; align-items: center; justify-content: center; }
+
+    /* ===== Buttons ===== */
+    .btn-pink { background: linear-gradient(135deg, var(--pink), var(--pink-dark)); color: #fff; border: none; padding: 12px 32px; border-radius: 50px; font-weight: 600; box-shadow: 0 8px 25px rgba(233,30,99,0.35); transition: 0.3s; }
+    .btn-pink:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(233,30,99,0.5); color: #fff; }
+    .btn-outline-pink { border: 2px solid var(--pink); color: var(--pink); padding: 10px 30px; border-radius: 50px; font-weight: 600; transition: 0.3s; background: transparent; }
+    .btn-outline-pink:hover { background: var(--pink); color: #fff; }
+
+    /* ===== Breadcrumb ===== */
+    .breadcrumb-bar { background: #fff; border-bottom: 1px solid #fce4ec; padding: 12px 0; font-size: 0.9rem; }
+    .breadcrumb-bar a { color: #888; text-decoration: none; }
+    .breadcrumb-bar a:hover { color: var(--pink); }
+    .breadcrumb-bar .active { color: var(--pink-dark); font-weight: 600; }
+
+    /* ===== Page Header ===== */
+    .page-header {
+      background: linear-gradient(135deg, #fff5f8 0%, #fce4ec 50%, #f8bbd0 100%);
+      padding: 60px 0 50px;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-header::before {
+      content: '';
+      position: absolute;
+      width: 350px; height: 350px;
+      background: radial-gradient(circle, rgba(233,30,99,0.15), transparent 70%);
+      border-radius: 50%;
+      top: -100px; left: -100px;
+    }
+    .page-header h1 { font-weight: 800; color: var(--pink-dark); font-size: 2.4rem; margin-bottom: 15px; }
+    .page-header p { color: #666; font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
+
+    /* ===== Search Box ===== */
+    .search-box {
+      background: #fff;
+      border-radius: 50px;
+      padding: 8px 8px 8px 20px;
+      display: flex;
+      align-items: center;
+      box-shadow: 0 10px 30px rgba(233,30,99,0.1);
+      border: 2px solid transparent;
+      transition: 0.3s;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .search-box:focus-within { border-color: var(--pink); box-shadow: 0 15px 40px rgba(233,30,99,0.2); }
+    .search-box i { color: var(--pink); font-size: 1.1rem; margin-left: 10px; }
+    .search-box input {
+      flex-grow: 1;
+      border: none;
+      outline: none;
+      padding: 8px 10px;
+      font-family: 'Vazirmatn', sans-serif;
+      font-size: 0.95rem;
+      background: transparent;
+    }
+    .search-box input::placeholder { color: #bbb; }
+
+    /* ===== Category Tabs ===== */
+    .category-tabs {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 40px;
+    }
+    .cat-tab {
+      background: #fff;
+      border: 2px solid #fce4ec;
+      color: #555;
+      padding: 10px 22px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .cat-tab i { font-size: 0.95rem; }
+    .cat-tab:hover { border-color: var(--pink); color: var(--pink); transform: translateY(-2px); }
+    .cat-tab.active {
+      background: linear-gradient(135deg, var(--pink), var(--pink-dark));
+      border-color: var(--pink);
+      color: #fff;
+      box-shadow: 0 8px 20px rgba(233,30,99,0.35);
+    }
+
+    /* ===== Accordion ===== */
+    .faq-item {
+      background: #fff;
+      border-radius: 18px;
+      margin-bottom: 14px;
+      border: 1px solid rgba(233,30,99,0.08);
+      overflow: hidden;
+      transition: 0.3s;
+    }
+    .faq-item:hover { box-shadow: 0 8px 25px rgba(233,30,99,0.08); }
+    .faq-item.open {
+      box-shadow: 0 12px 30px rgba(233,30,99,0.12);
+      border-color: var(--pink-light);
+    }
+    .faq-question {
+      padding: 20px 25px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      font-weight: 700;
+      color: #333;
+      transition: 0.3s;
+      user-select: none;
+    }
+    .faq-question:hover { color: var(--pink-dark); }
+    .faq-item.open .faq-question { color: var(--pink-dark); }
+    .faq-q-icon {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: var(--soft-bg);
+      color: var(--pink);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.95rem;
+      flex-shrink: 0;
+      transition: 0.3s;
+    }
+    .faq-item.open .faq-q-icon { background: linear-gradient(135deg, var(--pink), var(--pink-dark)); color: #fff; }
+    .faq-q-text { flex-grow: 1; font-size: 0.98rem; }
+    .faq-arrow { color: var(--pink); font-size: 0.85rem; transition: 0.3s; }
+    .faq-item.open .faq-arrow { transform: rotate(180deg); }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s ease;
+    }
+    .faq-item.open .faq-answer {
+      max-height: 800px;
+      padding: 0 25px 22px 25px;
+    }
+    .faq-answer-inner {
+      color: #666;
+      font-size: 0.92rem;
+      line-height: 1.9;
+      padding-right: 51px;
+      border-top: 1px dashed #fce4ec;
+      padding-top: 15px;
+    }
+    .faq-answer-inner a { color: var(--pink); text-decoration: none; font-weight: 600; }
+    .faq-answer-inner a:hover { text-decoration: underline; }
+    .faq-answer-inner ul { padding-right: 20px; margin: 10px 0; }
+    .faq-answer-inner li { margin-bottom: 6px; }
+
+    /* ===== Feedback ===== */
+    .feedback {
+      margin-top: 18px;
+      padding-top: 15px;
+      border-top: 1px dashed #fce4ec;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .feedback span { font-size: 0.85rem; color: #888; font-weight: 600; }
+    .feedback-btn {
+      background: #fff;
+      border: 2px solid #fce4ec;
+      color: #555;
+      padding: 6px 14px;
+      border-radius: 50px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'Vazirmatn', sans-serif;
+    }
+    .feedback-btn:hover {
+      border-color: var(--pink);
+      color: var(--pink);
+      transform: translateY(-2px);
+    }
+    .feedback-btn.active-yes {
+      background: #e8f5e9;
+      border-color: var(--green);
+      color: var(--green);
+    }
+    .feedback-btn.active-no {
+      background: #ffebee;
+      border-color: var(--red);
+      color: var(--red);
+    }
+    .feedback-btn:disabled {
+      cursor: not-allowed;
+      opacity: 0.6;
+    }
+    .feedback-thanks {
+      font-size: 0.82rem;
+      color: var(--green);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    /* ===== Empty Search ===== */
+    .empty-search {
+      background: #fff;
+      border-radius: 20px;
+      padding: 60px 30px;
+      text-align: center;
+      border: 1px solid rgba(233,30,99,0.08);
+    }
+    .empty-search i { font-size: 4rem; color: var(--pink-light); margin-bottom: 20px; }
+    .empty-search h5 { font-weight: 800; color: var(--pink-dark); }
+
+    /* ===== Contact CTA ===== */
+    .contact-cta {
+      background: #fff;
+      border-radius: 24px;
+      padding: 40px 30px;
+      text-align: center;
+      border: 1px solid rgba(233,30,99,0.08);
+      margin-top: 40px;
+    }
+    .contact-cta .cta-icon {
+      width: 80px; height: 80px;
+      margin: 0 auto 20px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--pink), var(--pink-dark));
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      box-shadow: 0 10px 25px rgba(233,30,99,0.3);
+    }
+    .contact-cta h3 { font-weight: 800; color: var(--pink-dark); margin-bottom: 10px; }
+    .contact-cta p { color: #666; margin-bottom: 25px; }
+
+    .contact-buttons {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn-contact {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: 50px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: 0.3s;
+      color: #fff;
+      font-size: 0.92rem;
+    }
+    .btn-contact:hover { transform: translateY(-3px); color: #fff; }
+    .btn-wa { background: linear-gradient(135deg, #25d366, #128c7e); box-shadow: 0 8px 20px rgba(37,211,102,0.35); }
+    .btn-wa:hover { box-shadow: 0 12px 30px rgba(37,211,102,0.5); }
+    .btn-tg { background: linear-gradient(135deg, #0088cc, #006699); box-shadow: 0 8px 20px rgba(0,136,204,0.35); }
+    .btn-tg:hover { box-shadow: 0 12px 30px rgba(0,136,204,0.5); }
+    .btn-phone { background: linear-gradient(135deg, var(--pink), var(--pink-dark)); box-shadow: 0 8px 20px rgba(233,30,99,0.35); }
+    .btn-phone:hover { box-shadow: 0 12px 30px rgba(233,30,99,0.5); }
+
+    /* ===== Toast ===== */
+    .toast-custom {
+      position: fixed;
+      bottom: 30px; left: 30px;
+      background: #fff;
+      border-radius: 14px;
+      padding: 16px 24px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      z-index: 9999;
+      transform: translateY(150%);
+      transition: 0.4s;
+      border-right: 5px solid var(--green);
+      max-width: 320px;
+    }
+    .toast-custom.show { transform: translateY(0); }
+    .toast-custom i { color: var(--green); font-size: 1.5rem; }
+
+    /* ===== Footer ===== */
+    footer { background: #1a1a1a; color: #bbb; padding: 40px 0 20px; margin-top: 60px; }
+    footer h5 { color: #fff; }
+    .social-icon { width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.08); display: inline-flex; align-items: center; justify-content: center; transition: 0.3s; }
+    .social-icon:hover { background: var(--pink); color: #fff !important; transform: translateY(-3px); }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 768px) {
+      .page-header { padding: 40px 0 30px; }
+      .page-header h1 { font-size: 1.7rem; }
+      .faq-question { padding: 16px 18px; font-size: 0.9rem; }
+      .faq-item.open .faq-answer { padding: 0 18px 18px 18px; }
+      .faq-answer-inner { padding-right: 0; }
+      .cat-tab { padding: 8px 16px; font-size: 0.82rem; }
+      .feedback { flex-direction: column; align-items: flex-start; }
+      .toast-custom { left: 15px; right: 15px; bottom: 15px; max-width: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== Navbar ===== -->
+<nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">
+      <i class="fa-solid fa-star me-1"></i>باربی <span>باش</span>
+    </a>
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">خانه</a></li>
+        <li class="nav-item"><a class="nav-link" href="shop.html">فروشگاه</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">درباره ما</a></li>
+        <li class="nav-item"><a class="nav-link active" href="faq.html">سوالات متداول</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">تماس</a></li>
+      </ul>
+      <div class="d-flex align-items-center gap-3">
+        <a href="cart.html" class="position-relative text-decoration-none" style="color:var(--pink); font-size:1.3rem;">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span class="cart-badge">۰</span>
+        </a>
+        <a href="shop.html" class="btn btn-pink btn-sm px-4">خرید کنید</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== Breadcrumb ===== -->
+<div class="breadcrumb-bar">
+  <div class="container">
+    <a href="index.html"><i class="fa-solid fa-house me-1"></i>خانه</a>
+    <span class="mx-2 text-muted">/</span>
+    <span class="active">سوالات متداول</span>
+  </div>
+</div>
+
+<!-- ===== Page Header ===== -->
+<section class="page-header text-center">
+  <div class="container position-relative">
+    <h1>سوالات متداول</h1>
+    <p>پاسخ سوالات پرتکرار شما درباره محصولات، خرید، ارسال و مجوزها</p>
+  </div>
+</section>
+
+<!-- ===== Search + Categories ===== -->
+<section class="py-5">
+  <div class="container">
+    <div class="mb-4">
+      <div class="search-box">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="faqSearch" placeholder="جستجو در سوالات..." oninput="searchFAQ()">
+        <button class="btn btn-pink btn-sm px-3" onclick="searchFAQ()" style="border-radius:50px;">
+          <i class="fa-solid fa-search"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="category-tabs" id="categoryTabs">
+      <button class="cat-tab active" data-cat="all" onclick="filterCategory('all', this)">
+        <i class="fa-solid fa-list"></i> همه
+      </button>
+      <button class="cat-tab" data-cat="product" onclick="filterCategory('product', this)">
+        <i class="fa-solid fa-pills"></i> محصولات
+      </button>
+      <button class="cat-tab" data-cat="order" onclick="filterCategory('order', this)">
+        <i class="fa-solid fa-shopping-bag"></i> خرید و سفارش
+      </button>
+      <button class="cat-tab" data-cat="shipping" onclick="filterCategory('shipping', this)">
+        <i class="fa-solid fa-truck-fast"></i> ارسال
+      </button>
+      <button class="cat-tab" data-cat="health" onclick="filterCategory('health', this)">
+        <i class="fa-solid fa-heart-pulse"></i> سلامت و عوارض
+      </button>
+      <button class="cat-tab" data-cat="legal" onclick="filterCategory('legal', this)">
+        <i class="fa-solid fa-certificate"></i> مجوزها
+      </button>
+    </div>
+
+    <div id="faqList"></div>
+
+    <div class="empty-search d-none" id="emptySearch">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <h5>سوالی یافت نشد</h5>
+      <p class="text-muted">عبارت دیگری جستجو کنید یا دسته‌بندی را تغییر دهید.</p>
+      <button class="btn btn-pink" onclick="resetSearch()">نمایش همه سوالات</button>
+    </div>
+
+    <!-- ===== Contact CTA ===== -->
+    <div class="contact-cta">
+      <div class="cta-icon"><i class="fa-solid fa-headset"></i></div>
+      <h3>پاسخ سوال خود را پیدا نکردید؟</h3>
+      <p>تیم پشتیبانی ما آماده پاسخگویی به شماست</p>
+      <div class="contact-buttons">
+        <a href="#" onclick="openWhatsApp(); return false;" class="btn-contact btn-wa">
+          <i class="fa-brands fa-whatsapp"></i> واتساپ
+        </a>
+        <a href="#" onclick="openTelegram(); return false;" class="btn-contact btn-tg">
+          <i class="fa-brands fa-telegram"></i> تلگرام
+        </a>
+        <a href="tel:+982112345678" class="btn-contact btn-phone">
+          <i class="fa-solid fa-phone"></i> تماس تلفنی
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<div id="footer-placeholder"></div>
+
+<!-- ===== Toast ===== -->
+<div class="toast-custom" id="toast">
+  <i class="fa-solid fa-circle-check"></i>
+  <div>
+    <strong class="d-block" id="toastTitle">ممنون از بازخورد شما</strong>
+    <small class="text-muted" id="toastText"></small>
+  </div>
+</div>
+
+<!-- ===== JS Bootstrap ===== -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/pricing.js"></script>
+<script src="js/products.js"></script>
+<script src="js/common.js"></script>
+
+<script>
+  /* ============================================
+     اطلاعات مشاور
+     ============================================ */
+  const advisor = typeof ADVISOR !== 'undefined' ? ADVISOR : {
+    whatsapp: '989121234567',
+    telegram: 'barbiebash_support',
+    phone: '02112345678'
+  };
+
+  /* ============================================
+     داده‌های سوالات متداول
+     ============================================ */
+  const FAQ_DATA = [
+    { id: 1, cat: 'product', q: 'قرص‌های لاغری باربی باش چه ترکیباتی دارند؟',
+      a: `محصولات باربی باش کاملاً گیاهی هستند و از عصاره‌های طبیعی مانند چای سبز، جینسینگ، فلفل کاین، ال‌کارنیتین و فیبر گلوکومانان ساخته شده‌اند. ترکیبات دقیق هر محصول در صفحه اختصاصی آن در بخش «ترکیبات» قابل مشاهده است.` },
+    { id: 2, cat: 'product', q: 'تفاوت محصولات مختلف باربی باش چیست؟',
+      a: `هر محصول برای هدف خاصی طراحی شده است:
+        <ul>
+          <li><strong>BarbieSlim Pro:</strong> چربی‌سوزی و کاهش اشتها</li>
+          <li><strong>Detox:</strong> پاکسازی کبد و روده</li>
+          <li><strong>Night:</strong> چربی‌سوزی در خواب</li>
+          <li><strong>Fiber:</strong> کاهش اشتها با فیبر طبیعی</li>
+          <li><strong>Tea:</strong> چای لاغری گیاهی</li>
+          <li><strong>Max:</strong> قوی‌ترین فرمول چربی‌سوزی</li>
+          <li><strong>Slim+:</strong> مکمل ترکیبی همه‌کاره</li>
+        </ul>` },
+    { id: 3, cat: 'product', q: 'آیا محصولات باربی باش گیاهی هستند؟',
+      a: `بله، تمام محصولات ما <strong>۱۰۰٪ گیاهی</strong> هستند و از عصاره‌های طبیعی تولید شده‌اند. هیچ ماده شیمیایی مضر یا استروئیدی در فرمولاسیون ما استفاده نمی‌شود.` },
+    { id: 4, cat: 'product', q: 'چه مدت می‌توانم از یک محصول استفاده کنم؟',
+      a: `مدت مصرف بسته به محصول متفاوت است. معمولاً <strong>۳۰ تا ۴۵ روز</strong> برای دیدن نتیجه اولیه توصیه می‌شود. برای نتایج پایدارتر، دوره ۶۰ تا ۹۰ روزه پیشنهاد می‌شود.` },
+    { id: 5, cat: 'order', q: 'چگونه می‌توانم سفارش ثبت کنم؟',
+      a: `ثبت سفارش بسیار ساده است:
+        <ul>
+          <li>محصول مورد نظر را از <a href="shop.html">فروشگاه</a> انتخاب کنید</li>
+          <li>به <a href="cart.html">سبد خرید</a> بروید</li>
+          <li>روی دکمه «ثبت سفارش در واتساپ» یا «تلگرام» کلیک کنید</li>
+          <li>پیام آماده برای مشاور ارسال می‌شود</li>
+          <li>مشاور ما در اسرع وقت با شما تماس می‌گیرد</li>
+        </ul>` },
+    { id: 6, cat: 'order', q: 'آیا امکان پرداخت آنلاین وجود دارد؟',
+      a: `در حال حاضر پرداخت آنلاین در سایت فعال نیست. سفارشات از طریق <strong>واتساپ</strong> یا <strong>تلگرام</strong> ثبت می‌شوند و مشاور ما روش‌های پرداخت را با شما هماهنگ می‌کند.` },
+    { id: 7, cat: 'order', q: 'آیا می‌توانم سفارشم را لغو کنم؟',
+      a: `بله، تا قبل از ارسال سفارش، امکان لغو وجود دارد. کافیست با مشاور خود در واتساپ یا تلگرام تماس بگیرید.` },
+    { id: 8, cat: 'order', q: 'آیا تخفیف یا کد تخفیف دارید؟',
+      a: `بله، ما به‌طور دوره‌ای تخفیف‌های ویژه ارائه می‌دهیم. آخرین تخفیف‌ها در بالای سایت نمایش داده می‌شود.` },
+    { id: 9, cat: 'shipping', q: 'هزینه ارسال چقدر است؟',
+      a: `هزینه ارسال <strong>۵۰,۰۰۰ تومان</strong> است. برای خریدهای بالای <strong>۵۰۰,۰۰۰ تومان</strong>، ارسال <strong>رایگان</strong> می‌شود.` },
+    { id: 10, cat: 'shipping', q: 'ارسال چقدر طول می‌کشد؟',
+      a: `ارسال به تهران معمولاً <strong>۲۴ تا ۴۸ ساعت</strong> و به سایر شهرها <strong>۲ تا ۴ روز کاری</strong> زمان می‌برد.` },
+    { id: 11, cat: 'shipping', q: 'آیا به همه شهرهای ایران ارسال دارید؟',
+      a: `بله، ما به <strong>سراسر ایران</strong> ارسال داریم. ارسال به شهرهای بزرگ با پست پیشتاز و به شهرهای کوچک با پست عادی انجام می‌شود.` },
+    { id: 12, cat: 'shipping', q: 'چگونه سفارشم را پیگیری کنم؟',
+      a: `پس از ارسال سفارش، کد رهگیری پستی برای شما از طریق واتساپ یا تلگرام ارسال می‌شود.` },
+    { id: 13, cat: 'health', q: 'آیا قرص‌های باربی باش عوارض دارند؟',
+      a: `محصولات ما <strong>گیاهی و بدون عوارض جانبی</strong> هستند، اما مانند هر مکملی، ممکن است در برخی افراد حساسیت‌های خفیف ایجاد شود. در صورت داشتن شرایط خاص، حتماً با پزشک مشورت کنید.` },
+    { id: 14, cat: 'health', q: 'چه کسانی نباید از محصولات استفاده کنند؟',
+      a: `مصرف محصولات باربی باش برای موارد زیر <strong>توصیه نمی‌شود</strong>:
+        <ul>
+          <li>زنان باردار و شیرده</li>
+          <li>افراد زیر ۱۸ سال</li>
+          <li>افراد با بیماری‌های قلبی یا فشار خون بالا</li>
+          <li>افراد با حساسیت به گیاهان دارویی</li>
+        </ul>` },
+    { id: 15, cat: 'health', q: 'آیا مصرف همزمان چند محصول مجاز است؟',
+      a: `بله، بسیاری از مشتریان ما ترکیبی از محصولات را مصرف می‌کنند. اما توصیه می‌شود قبل از ترکیب، با مشاور تغذیه ما مشورت کنید.` },
+    { id: 16, cat: 'health', q: 'آیا با رژیم غذایی و ورزش نتیجه بهتری می‌گیرم؟',
+      a: `قطعاً! محصولات ما <strong>مکمل</strong> هستند و بهترین نتیجه در کنار <strong>رژیم غذایی متعادل</strong> و <strong>فعالیت بدنی روزانه</strong> به دست می‌آید.` },
+    { id: 17, cat: 'health', q: 'چقدر طول می‌کشد تا نتیجه ببینم؟',
+      a: `معمولاً از <strong>هفته اول</strong> تغییرات اولیه قابل مشاهده است. نتایج پایدارتر از <strong>هفته ۳-۴</strong> به بعد دیده می‌شود.` },
+    { id: 18, cat: 'legal', q: 'آیا محصولات باربی باش مجوز دارند؟',
+      a: `بله، تمام محصولات ما دارای <strong>مجوز وزارت بهداشت</strong> و گواهی <strong>ISO 9001</strong> و <strong>GMP</strong> هستند.` },
+    { id: 19, cat: 'legal', q: 'آیا امکان بازگشت کالا وجود دارد؟',
+      a: `بله، ما <strong>۷ روز ضمانت بازگشت</strong> داریم. در صورت عدم رضایت، می‌توانید با مشاور تماس بگیرید.` },
+    { id: 20, cat: 'legal', q: 'آیا اطلاعات شخصی من محفوظ است؟',
+      a: `بله، اطلاعات شما نزد ما <strong>کاملاً محرمانه</strong> است و تنها برای هماهنگی سفارش استفاده می‌شود.` }
+  ];
+
+  /* ============================================
+     State
+     ============================================ */
+  let currentCategory = 'all';
+  let currentSearch = '';
+
+  /* ============================================
+     ✨ پیشنهاد ۱: ساخت Schema.org خودکار
+     ============================================ */
+  function buildSchema() {
+    const schema = {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": FAQ_DATA.map(item => ({
+        "@type": "Question",
+        "name": item.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": stripHTML(item.a)
+        }
+      }))
+    };
+    document.getElementById('faqSchema').textContent = JSON.stringify(schema);
+  }
+
+  // حذف تگ‌های HTML از متن (برای Schema)
+  function stripHTML(html) {
+    const tmp = document.createElement('div');
+    tmp.innerHTML = html;
+    return tmp.textContent || tmp.innerText || '';
+  }
+
+  /* ============================================
+     ✨ پیشنهاد ۲: ردیابی با Google Analytics
+     ============================================ */
+  function trackEvent(eventName, params = {}) {
+    // اگر GA4 نصب شده باشد
+    if (typeof gtag !== 'undefined') {
+      gtag('event', eventName, params);
+    }
+    // اگر Universal Analytics نصب شده باشد
+    if (typeof ga !== 'undefined') {
+      ga('send', 'event', 'FAQ', eventName, params.faq_question || '');
+    }
+    // لاگ محلی (برای دیباگ)
+    console.log(`📊 [Analytics] ${eventName}:`, params);
+  }
+
+  /* ============================================
+     ✨ پیشنهاد ۳: ذخیره بازخورد در localStorage
+     ============================================ */
+  function getFeedbackData() {
+    try {
+      return JSON.parse(localStorage.getItem('faqFeedback') || '{}');
+    } catch {
+      return {};
+    }
+  }
+
+  function saveFeedback(id, value) {
+    const data = getFeedbackData();
+    data[id] = { value, date: new Date().toISOString() };
+    localStorage.setItem('faqFeedback', JSON.stringify(data));
+  }
+
+  function getFeedback(id) {
+    const data = getFeedbackData();
+    return data[id] ? data[id].value : null;
+  }
+
+  /* ============================================
+     رندر سوالات
+     ============================================ */
+  function renderFAQ() {
+    const list = document.getElementById('faqList');
+    const empty = document.getElementById('emptySearch');
+
+    let items = FAQ_DATA.filter(item => {
+      const matchCat = currentCategory === 'all' || item.cat === currentCategory;
+      const matchSearch = !currentSearch ||
+        item.q.toLowerCase().includes(currentSearch.toLowerCase()) ||
+        item.a.toLowerCase().includes(currentSearch.toLowerCase());
+      return matchCat && matchSearch;
+    });
+
+    if (items.length === 0) {
+      list.innerHTML = '';
+      empty.classList.remove('d-none');
+      return;
+    }
+    empty.classList.add('d-none');
+
+    list.innerHTML = items.map(item => {
+      const fb = getFeedback(item.id);
+      const yesActive = fb === 'yes' ? 'active-yes' : '';
+      const noActive = fb === 'no' ? 'active-no' : '';
+      const disabled = fb ? 'disabled' : '';
+
+      return `
+      <div class="faq-item" data-id="${item.id}">
+        <div class="faq-question" onclick="toggleFAQ(${item.id})">
+          <div class="faq-q-icon"><i class="fa-solid fa-question"></i></div>
+          <div class="faq-q-text">${item.q}</div>
+          <i class="fa-solid fa-chevron-down faq-arrow"></i>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            ${item.a}
+            <div class="feedback">
+              <span><i class="fa-solid fa-circle-question me-1"></i>این پاسخ مفید بود؟</span>
+              <button class="feedback-btn ${yesActive}" ${disabled} onclick="feedback(${item.id}, 'yes', event)">
+                <i class="fa-solid fa-thumbs-up"></i> بله
+              </button>
+              <button class="feedback-btn ${noActive}" ${disabled} onclick="feedback(${item.id}, 'no', event)">
+                <i class="fa-solid fa-thumbs-down"></i> خیر
+              </button>
+              ${fb ? `<span class="feedback-thanks"><i class="fa-solid fa-circle-check"></i> ممنون از بازخورد شما</span>` : ''}
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+    }).join('');
+  }
+
+  /* ============================================
+     باز/بسته کردن سوال + ردیابی
+     ============================================ */
+  function toggleFAQ(id) {
+    const el = document.querySelector(`.faq-item[data-id="${id}"]`);
+    if (!el) return;
+
+    const isOpen = el.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(item => item.classList.remove('open'));
+
+    if (!isOpen) {
+      el.classList.add('open');
+      // ✨ ردیابی باز شدن
+      const item = FAQ_DATA.find(f => f.id === id);
+      trackEvent('faq_open', {
+        faq_id: id,
+        faq_question: item ? item.q : '',
+        faq_category: item ? item.cat : ''
+      });
+    }
+  }
+
+  /* ============================================
+     ✨ ثبت بازخورد (مفید بود؟)
+     ============================================ */
+  function feedback(id, value, event) {
+    if (event) event.stopPropagation();
+
+    const existing = getFeedback(id);
+    if (existing) return; // قبلاً ثبت کرده
+
+    saveFeedback(id, value);
+
+    const item = FAQ_DATA.find(f => f.id === id);
+    trackEvent('faq_feedback', {
+      faq_id: id,
+      faq_question: item ? item.q : '',
+      feedback_value: value
+    });
+
+    showToast('ممنون از بازخورد شما', value === 'yes' ? 'خوشحالیم که مفید بود' : 'سعی می‌کنیم بهتر کنیم');
+
+    // به‌روزرسانی UI بدون رندر مجدد کل لیست
+    const faqEl = document.querySelector(`.faq-item[data-id="${id}"]`);
+    if (faqEl) {
+      const buttons = faqEl.querySelectorAll('.feedback-btn');
+      buttons.forEach(btn => btn.disabled = true);
+      const targetBtn = value === 'yes' ? buttons[0] : buttons[1];
+      if (targetBtn) targetBtn.classList.add(value === 'yes' ? 'active-yes' : 'active-no');
+
+      // اضافه کردن پیام تشکر
+      const fbContainer = faqEl.querySelector('.feedback');
+      if (fbContainer && !fbContainer.querySelector('.feedback-thanks')) {
+        const thanks = document.createElement('span');
+        thanks.className = 'feedback-thanks';
+        thanks.innerHTML = '<i class="fa-solid fa-circle-check"></i> ممنون از بازخورد شما';
+        fbContainer.appendChild(thanks);
+      }
+    }
+  }
+
+  /* ============================================
+     فیلتر دسته‌بندی
+     ============================================ */
+  function filterCategory(cat, btn) {
+    currentCategory = cat;
+    currentSearch = '';
+    document.getElementById('faqSearch').value = '';
+
+    document.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
+    btn.classList.add('active');
+
+    trackEvent('faq_filter_category', { category: cat });
+    renderFAQ();
+  }
+
+  /* ============================================
+     جستجو
+     ============================================ */
+  function searchFAQ() {
+    currentSearch = document.getElementById('faqSearch').value.trim();
+    renderFAQ();
+
+    if (currentSearch.length > 2) {
+      trackEvent('faq_search', { search_term: currentSearch });
+    }
+  }
+
+  function resetSearch() {
+    currentSearch = '';
+    currentCategory = 'all';
+    document.getElementById('faqSearch').value = '';
+    document.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
+    document.querySelector('.cat-tab[data-cat="all"]').classList.add('active');
+    renderFAQ();
+    trackEvent('faq_reset_search');
+  }
+
+  /* ============================================
+     باز کردن واتساپ / تلگرام
+     ============================================ */
+  function openWhatsApp() {
+    const text = 'سلام، یک سوال از سوالات متداول دارم.';
+    window.open(`https://wa.me/${advisor.whatsapp}?text=${encodeURIComponent(text)}`, '_blank');
+    trackEvent('faq_contact_whatsapp');
+    showToast('در حال انتقال', 'واتساپ باز می‌شود');
+  }
+
+  function openTelegram() {
+    window.open(`https://t.me/${advisor.telegram}`, '_blank');
+    trackEvent('faq_contact_telegram');
+    showToast('در حال انتقال', 'تلگرام باز می‌شود');
+  }
+
+  /* ============================================
+     Toast
+     ============================================ */
+  let toastTimer;
+  function showToast(title, text) {
+    const t = document.getElementById('toast');
+    document.getElementById('toastTitle').textContent = title;
+    document.getElementById('toastText').textContent = text || '';
+    t.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => t.classList.remove('show'), 3000);
+  }
+
+  /* ============================================
+     ✨ گزارش آماری بازخورد (اختیاری — برای مدیر)
+     ============================================ */
+  function getFeedbackReport() {
+    const data = getFeedbackData();
+    let yes = 0, no = 0;
+    Object.values(data).forEach(f => {
+      if (f.value === 'yes') yes++;
+      else if (f.value === 'no') no++;
+    });
+    return {
+      total: yes + no,
+      yes,
+      no,
+      yesPercent: yes + no > 0 ? Math.round((yes / (yes + no)) * 100) : 0,
+      details: data
+    };
+  }
+
+  // نمایش در کنسول (برای دیباگ)
+  window.getFeedbackReport = getFeedbackReport;
+
+  /* ============================================
+     Init
+     ============================================ */
+  buildSchema();
+  renderFAQ();
+
+  console.log('💡 برای دیدن گزارش بازخورد در کنسول: getFeedbackReport()');
+</script>
+
+</body>
+</html>

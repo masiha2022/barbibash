@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تماس با ما | باربی باش</title>
+<link rel="icon" type="image/png" href="images/logo/favicon.png">
+<link rel="apple-touch-icon" href="images/logo/favicon.png">
+  <meta name="description" content="راه‌های ارتباط با شرکت باربی باش - تلفن، واتساپ، تلگرام و فرم تماس">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/improvements.css">
+
+  <style>
+    :root {
+      --pink: #e91e63;
+      --pink-light: #f8bbd0;
+      --pink-dark: #ad1457;
+      --soft-bg: #fff5f8;
+      --whatsapp: #25d366;
+      --telegram: #0088cc;
+    }
+
+    body {
+      font-family: 'Vazirmatn', sans-serif;
+      background: var(--soft-bg);
+      color: #333;
+      padding-top: 76px;
+    }
+
+    /* ===== Navbar ===== */
+    .navbar { background: rgba(255,255,255,0.97); backdrop-filter: blur(10px); box-shadow: 0 2px 20px rgba(233,30,99,0.1); }
+    .navbar-brand { font-weight: 800; color: var(--pink) !important; font-size: 1.6rem; }
+    .navbar-brand span { color: var(--pink-dark); }
+    .nav-link { font-weight: 500; color: #555 !important; transition: 0.3s; }
+    .nav-link:hover, .nav-link.active { color: var(--pink) !important; }
+    .cart-badge { position: absolute; top: -6px; left: -8px; background: var(--pink); color: #fff; font-size: 0.65rem; min-width: 18px; height: 18px; padding: 0 4px; border-radius: 10px; display: flex; align-items: center; justify-content: center; }
+
+    /* ===== Buttons ===== */
+    .btn-pink { background: linear-gradient(135deg, var(--pink), var(--pink-dark)); color: #fff; border: none; padding: 12px 32px; border-radius: 50px; font-weight: 600; box-shadow: 0 8px 25px rgba(233,30,99,0.35); transition: 0.3s; }
+    .btn-pink:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(233,30,99,0.5); color: #fff; }
+    .btn-outline-pink { border: 2px solid var(--pink); color: var(--pink); padding: 10px 30px; border-radius: 50px; font-weight: 600; transition: 0.3s; background: transparent; }
+    .btn-outline-pink:hover { background: var(--pink); color: #fff; }
+
+    /* ===== Breadcrumb ===== */
+    .breadcrumb-bar { background: #fff; border-bottom: 1px solid #fce4ec; padding: 12px 0; font-size: 0.9rem; }
+    .breadcrumb-bar a { color: #888; text-decoration: none; }
+    .breadcrumb-bar a:hover { color: var(--pink); }
+    .breadcrumb-bar .active { color: var(--pink-dark); font-weight: 600; }
+
+    /* ===== Page Header ===== */
+    .page-header {
+      background: linear-gradient(135deg, #fff5f8 0%, #fce4ec 50%, #f8bbd0 100%);
+      padding: 60px 0 50px;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-header::before {
+      content: '';
+      position: absolute;
+      width: 350px; height: 350px;
+      background: radial-gradient(circle, rgba(233,30,99,0.15), transparent 70%);
+      border-radius: 50%;
+      top: -100px; left: -100px;
+    }
+    .page-header h1 { font-weight: 800; color: var(--pink-dark); font-size: 2.4rem; margin-bottom: 15px; }
+    .page-header p { color: #666; font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
+
+    /* ===== Contact Cards ===== */
+    .contact-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 30px 20px;
+      text-align: center;
+      border: 1px solid rgba(233,30,99,0.08);
+      transition: 0.4s;
+      height: 100%;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+    .contact-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(233,30,99,0.15);
+      color: inherit;
+    }
+    .contact-icon {
+      width: 70px; height: 70px;
+      margin: 0 auto 18px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      color: #fff;
+      transition: 0.4s;
+    }
+    .contact-card:hover .contact-icon { transform: scale(1.1) rotate(-5deg); }
+    .ci-phone { background: linear-gradient(135deg, var(--pink), var(--pink-dark)); }
+    .ci-whatsapp { background: linear-gradient(135deg, #25d366, #128c7e); }
+    .ci-telegram { background: linear-gradient(135deg, #0088cc, #006699); }
+    .ci-email { background: linear-gradient(135deg, #ff9800, #e65100); }
+
+    .contact-card h5 { font-weight: 800; color: var(--pink-dark); margin-bottom: 8px; }
+    .contact-card p { color: #666; font-size: 0.92rem; margin-bottom: 12px; }
+    .contact-card .contact-value { font-weight: 700; color: var(--pink); font-size: 0.95rem; direction: ltr; display: inline-block; }
+
+    /* ===== Form ===== */
+    .form-card {
+      background: #fff;
+      border-radius: 24px;
+      padding: 40px;
+      border: 1px solid rgba(233,30,99,0.08);
+      box-shadow: 0 10px 30px rgba(233,30,99,0.06);
+    }
+    .form-card h3 { font-weight: 800; color: var(--pink-dark); margin-bottom: 8px; }
+    .form-card > p { color: #666; margin-bottom: 30px; font-size: 0.95rem; }
+
+    .form-label { font-weight: 600; color: #555; font-size: 0.9rem; margin-bottom: 6px; }
+    .form-control, .form-select {
+      border-radius: 12px;
+      border: 2px solid #eee;
+      padding: 12px 16px;
+      font-family: 'Vazirmatn', sans-serif;
+      font-size: 0.95rem;
+      transition: 0.3s;
+    }
+    .form-control:focus, .form-select:focus {
+      border-color: var(--pink);
+      box-shadow: 0 0 0 0.2rem rgba(233,30,99,0.15);
+    }
+    .form-control::placeholder { color: #bbb; }
+    textarea.form-control { min-height: 130px; resize: vertical; }
+
+    .form-check-input:checked {
+      background-color: var(--pink);
+      border-color: var(--pink);
+    }
+
+    /* ===== Info Box ===== */
+    .info-box {
+      background: #fff;
+      border-radius: 24px;
+      padding: 30px;
+      border: 1px solid rgba(233,30,99,0.08);
+      height: 100%;
+    }
+    .info-box h4 { font-weight: 800; color: var(--pink-dark); margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid #fce4ec; }
+
+    .info-item {
+      display: flex;
+      gap: 15px;
+      padding: 15px 0;
+      border-bottom: 1px solid #fce4ec;
+    }
+    .info-item:last-child { border-bottom: none; }
+    .info-item i {
+      width: 45px; height: 45px;
+      border-radius: 50%;
+      background: var(--soft-bg);
+      color: var(--pink);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+    .info-item strong { display: block; font-size: 0.9rem; color: #333; margin-bottom: 3px; }
+    .info-item span, .info-item a { font-size: 0.88rem; color: #666; text-decoration: none; transition: 0.3s; }
+    .info-item a:hover { color: var(--pink); }
+
+    /* ===== Map ===== */
+    .map-container {
+      background: #fff;
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid rgba(233,30,99,0.08);
+      height: 100%;
+      min-height: 350px;
+    }
+    .map-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+      filter: grayscale(0.3) contrast(1.05);
+      transition: 0.3s;
+    }
+    .map-container:hover iframe { filter: grayscale(0); }
+
+    /* ===== Social CTA ===== */
+    .social-cta {
+      background: linear-gradient(135deg, var(--pink-dark), var(--pink));
+      border-radius: 24px;
+      padding: 40px 30px;
+      color: #fff;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .social-cta::after {
+      content: '\f0e0';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      position: absolute;
+      font-size: 15rem;
+      opacity: 0.08;
+      bottom: -40px; left: 10px;
+    }
+    .social-cta h3 { font-weight: 800; margin-bottom: 15px; position: relative; z-index: 1; }
+    .social-cta p { opacity: 0.9; margin-bottom: 25px; position: relative; z-index: 1; }
+    .social-cta .btn { position: relative; z-index: 1; }
+
+    /* ===== FAQ Mini ===== */
+    .faq-mini {
+      background: #fff;
+      border-radius: 24px;
+      padding: 30px;
+      border: 1px solid rgba(233,30,99,0.08);
+      margin-top: 30px;
+    }
+    .faq-mini h4 { font-weight: 800; color: var(--pink-dark); margin-bottom: 20px; }
+    .accordion-item {
+      border: 1px solid #fce4ec;
+      border-radius: 12px !important;
+      margin-bottom: 10px;
+      overflow: hidden;
+    }
+    .accordion-button {
+      font-weight: 600;
+      color: #333;
+      background: #fff;
+      padding: 16px 20px;
+      box-shadow: none !important;
+    }
+    .accordion-button:not(.collapsed) {
+      background: var(--soft-bg);
+      color: var(--pink-dark);
+    }
+    .accordion-button:focus { box-shadow: none; }
+    .accordion-button::after { margin-right: auto; margin-left: 0; }
+    .accordion-body { font-size: 0.9rem; color: #666; line-height: 1.8; }
+
+    /* ===== Toast ===== */
+    .toast-custom {
+      position: fixed;
+      bottom: 30px; left: 30px;
+      background: #fff;
+      border-radius: 14px;
+      padding: 16px 24px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      z-index: 9999;
+      transform: translateY(150%);
+      transition: 0.4s;
+      border-right: 5px solid #4caf50;
+      max-width: 320px;
+    }
+    .toast-custom.show { transform: translateY(0); }
+    .toast-custom i { color: #4caf50; font-size: 1.5rem; }
+
+    /* ===== Footer ===== */
+    footer { background: #1a1a1a; color: #bbb; padding: 40px 0 20px; margin-top: 60px; }
+    footer h5 { color: #fff; }
+    .social-icon { width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.08); display: inline-flex; align-items: center; justify-content: center; transition: 0.3s; }
+    .social-icon:hover { background: var(--pink); color: #fff !important; transform: translateY(-3px); }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 768px) {
+      .page-header { padding: 40px 0 30px; }
+      .page-header h1 { font-size: 1.7rem; }
+      .form-card { padding: 25px 20px; }
+      .toast-custom { left: 15px; right: 15px; bottom: 15px; max-width: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== Navbar ===== -->
+<nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">
+      <i class="fa-solid fa-star me-1"></i>باربی <span>باش</span>
+    </a>
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">خانه</a></li>
+        <li class="nav-item"><a class="nav-link" href="shop.html">فروشگاه</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">درباره ما</a></li>
+        <li class="nav-item"><a class="nav-link" href="faq.html">سوالات متداول</a></li>
+        <li class="nav-item"><a class="nav-link active" href="contact.html">تماس</a></li>
+      </ul>
+      <div class="d-flex align-items-center gap-3">
+        <a href="cart.html" class="position-relative text-decoration-none" style="color:var(--pink); font-size:1.3rem;">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span class="cart-badge">۰</span>
+        </a>
+        <a href="shop.html" class="btn btn-pink btn-sm px-4">خرید کنید</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== Breadcrumb ===== -->
+<div class="breadcrumb-bar">
+  <div class="container">
+    <a href="index.html"><i class="fa-solid fa-house me-1"></i>خانه</a>
+    <span class="mx-2 text-muted">/</span>
+    <span class="active">تماس با ما</span>
+  </div>
+</div>
+
+<!-- ===== Page Header ===== -->
+<section class="page-header text-center">
+  <div class="container position-relative">
+    <h1>تماس با باربی باش</h1>
+    <p>تیم پشتیبانی ما آماده پاسخگویی به سؤالات شماست. از هر راهی که راحت‌ترید با ما در ارتباط باشید.</p>
+  </div>
+</section>
+
+<!-- ===== Contact Cards ===== -->
+<section class="py-5">
+  <div class="container">
+    <div class="row g-4 mb-5">
+      <div class="col-md-6 col-lg-3">
+        <a href="tel:+982112345678" class="contact-card">
+          <div class="contact-icon ci-phone"><i class="fa-solid fa-phone"></i></div>
+          <h5>تماس تلفنی</h5>
+          <p>شنبه تا پنجشنبه، ۹ صبح تا ۶ عصر</p>
+          <span class="contact-value">۰۲۱-۱۲۳۴۵۶۷۸</span>
+        </a>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <a href="#" onclick="openWhatsApp(); return false;" class="contact-card">
+          <div class="contact-icon ci-whatsapp"><i class="fa-brands fa-whatsapp"></i></div>
+          <h5>واتساپ</h5>
+          <p>پاسخگویی سریع در ساعات کاری</p>
+          <span class="contact-value" id="waNumber">...</span>
+        </a>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <a href="#" onclick="openTelegram(); return false;" class="contact-card">
+          <div class="contact-icon ci-telegram"><i class="fa-brands fa-telegram"></i></div>
+          <h5>تلگرام</h5>
+          <p>پشتیبانی و مشاوره رایگان</p>
+          <span class="contact-value" id="tgUsername">...</span>
+        </a>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <a href="mailto:info@barbiebash.com" class="contact-card">
+          <div class="contact-icon ci-email"><i class="fa-solid fa-envelope"></i></div>
+          <h5>ایمیل</h5>
+          <p>پاسخ حداکثر تا ۲۴ ساعت</p>
+          <span class="contact-value">info@barbiebash.com</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- ===== Form + Info ===== -->
+    <div class="row g-4">
+      <!-- فرم تماس -->
+      <div class="col-lg-7">
+        <div class="form-card">
+          <h3><i class="fa-solid fa-paper-plane me-2" style="color:var(--pink)"></i>فرم تماس</h3>
+          <p>فرم زیر را پر کنید، در اسرع وقت با شما تماس می‌گیریم.</p>
+
+          <form id="contactForm" onsubmit="submitForm(event)">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label">نام و نام خانوادگی <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="fullName" placeholder="مثال: سارا محمدی" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">شماره تماس <span class="text-danger">*</span></label>
+                <input type="tel" class="form-control" id="phone" placeholder="۰۹۱۲۱۲۳۴۵۶۷" pattern="[0-9۰-۹]{10,11}" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">ایمیل (اختیاری)</label>
+                <input type="email" class="form-control" id="email" placeholder="example@email.com">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">موضوع <span class="text-danger">*</span></label>
+                <select class="form-select" id="subject" required>
+                  <option value="">انتخاب کنید...</option>
+                  <option value="سوال درباره محصول">سوال درباره محصول</option>
+                  <option value="پیگیری سفارش">پیگیری سفارش</option>
+                  <option value="مشاوره خرید">مشاوره خرید</option>
+                  <option value="انتقاد و پیشنهاد">انتقاد و پیشنهاد</option>
+                  <option value="همکاری">همکاری</option>
+                  <option value="سایر">سایر</option>
+                </select>
+              </div>
+              <div class="col-12">
+                <label class="form-label">پیام شما <span class="text-danger">*</span></label>
+                <textarea class="form-control" id="message" placeholder="پیام خود را اینجا بنویسید..." required></textarea>
+              </div>
+              <div class="col-12">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="privacy" required>
+                  <label class="form-check-label small" for="privacy">
+                    با <a href="terms.html" class="text-decoration-none" style="color:var(--pink)">قوانین و حریم خصوصی</a> موافقم.
+                  </label>
+                </div>
+              </div>
+              <div class="col-12">
+                <button type="submit" class="btn btn-pink w-100 py-2">
+                  <i class="fa-solid fa-paper-plane me-2"></i>ارسال پیام
+                </button>
+              </div>
+            </div>
+          </form>
+
+          <div class="text-center mt-3 small text-muted">
+            <i class="fa-solid fa-lock me-1"></i>اطلاعات شما نزد ما محفوظ است
+          </div>
+        </div>
+      </div>
+
+      <!-- اطلاعات تماس -->
+      <div class="col-lg-5">
+        <div class="info-box">
+          <h4><i class="fa-solid fa-location-dot me-2"></i>اطلاعات تماس</h4>
+
+          <div class="info-item">
+            <i class="fa-solid fa-location-dot"></i>
+            <div>
+              <strong>آدرس</strong>
+              <span>تهران، خیابان ولیعصر، برج تجاری، طبقه ۵، واحد ۱۲</span>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <i class="fa-solid fa-clock"></i>
+            <div>
+              <strong>ساعات کاری</strong>
+              <span>شنبه تا پنجشنبه: ۹:۰۰ - ۱۸:۰۰<br>جمعه: تعطیل</span>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <i class="fa-solid fa-phone"></i>
+            <div>
+              <strong>تلفن</strong>
+              <a href="tel:+982112345678" dir="ltr">۰۲۱-۱۲۳۴۵۶۷۸</a>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <i class="fa-solid fa-envelope"></i>
+            <div>
+              <strong>ایمیل</strong>
+              <a href="mailto:info@barbiebash.com" dir="ltr">info@barbiebash.com</a>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <i class="fa-brands fa-whatsapp" style="color:#25d366"></i>
+            <div>
+              <strong>واتساپ</strong>
+              <a href="#" onclick="openWhatsApp(); return false;" id="waLink" dir="ltr">...</a>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <i class="fa-brands fa-telegram" style="color:#0088cc"></i>
+            <div>
+              <strong>تلگرام</strong>
+              <a href="#" onclick="openTelegram(); return false;" id="tgLink" dir="ltr">...</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- نقشه -->
+        <div class="map-container mt-4">
+          <iframe
+            src="https://www.openstreetmap.org/export/embed.html?bbox=51.38%2C35.72%2C51.44%2C35.76&layer=mapnik&marker=35.74%2C51.41"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="نقشه دفتر باربی باش">
+          </iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== FAQ Mini ===== -->
+    <div class="row g-4 mt-2">
+      <div class="col-lg-8">
+        <div class="faq-mini">
+          <h4><i class="fa-solid fa-circle-question me-2" style="color:var(--pink)"></i>سوالات متداول</h4>
+          <div class="accordion" id="faqContact">
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                  چطور سفارشم را پیگیری کنم؟
+                </button>
+              </h2>
+              <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqContact">
+                <div class="accordion-body">
+                  کافیست شماره سفارش خود را از طریق واتساپ یا تلگرام برای مشاور ارسال کنید. در اسرع وقت وضعیت سفارش شما ارسال می‌شود.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                  زمان پاسخگویی چقدر است؟
+                </button>
+              </h2>
+              <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqContact">
+                <div class="accordion-body">
+                  در ساعات کاری معمولاً کمتر از ۳۰ دقیقه پاسخ می‌دهیم. در خارج از ساعات کاری، پیام شما در اولین فرصت پاسخ داده می‌شود.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                  آیا مشاوره رایگان است؟
+                </button>
+              </h2>
+              <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqContact">
+                <div class="accordion-body">
+                  بله، مشاوره تخصصی تغذیه و انتخاب محصول توسط تیم ما کاملاً رایگان است. فقط کافیست با ما در ارتباط باشید.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                  چطور می‌توانم سفارش ثبت کنم؟
+                </button>
+              </h2>
+              <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqContact">
+                <div class="accordion-body">
+                  سفارش خود را از طریق <a href="shop.html" style="color:var(--pink)">فروشگاه</a> انتخاب کنید، سپس در صفحه <a href="cart.html" style="color:var(--pink)">سبد خرید</a> روی دکمه واتساپ یا تلگرام کلیک کنید. مشاور ما سفارش را ثبت و هماهنگ می‌کند.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="text-center mt-3">
+            <a href="faq.html" class="btn btn-outline-pink btn-sm">مشاهده همه سوالات</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA شبکه‌های اجتماعی -->
+      <div class="col-lg-4">
+        <div class="social-cta h-100 d-flex flex-column justify-content-center">
+          <h3>ما را دنبال کنید</h3>
+          <p>از تخفیف‌ها و محصولات جدید باخبر شوید</p>
+          <div class="d-flex justify-content-center gap-3 mb-3">
+            <a href="#" class="social-icon" style="color:#fff; background:rgba(255,255,255,0.15); width:50px; height:50px; font-size:1.3rem;"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="social-icon" style="color:#fff; background:rgba(255,255,255,0.15); width:50px; height:50px; font-size:1.3rem;"><i class="fa-brands fa-telegram"></i></a>
+            <a href="#" class="social-icon" style="color:#fff; background:rgba(255,255,255,0.15); width:50px; height:50px; font-size:1.3rem;"><i class="fa-brands fa-whatsapp"></i></a>
+          </div>
+          <a href="shop.html" class="btn btn-light px-4 py-2 fw-bold" style="border-radius:50px; color:var(--pink-dark)">
+            <i class="fa-solid fa-shopping-bag me-2"></i>مشاهده محصولات
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<div id="footer-placeholder"></div>
+
+<!-- ===== Toast ===== -->
+<div class="toast-custom" id="toast">
+  <i class="fa-solid fa-circle-check"></i>
+  <div>
+    <strong class="d-block" id="toastTitle">پیام ارسال شد</strong>
+    <small class="text-muted" id="toastText"></small>
+  </div>
+</div>
+
+<!-- ===== JS Bootstrap ===== -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- ===== فایل‌های مرکزی ===== -->
+<script src="js/pricing.js"></script>
+<script src="js/products.js"></script>
+<script src="js/common.js"></script>
+
+<!-- ===== JS اختصاصی صفحه تماس ===== -->
+<script>
+  /* ============================================
+     اطلاعات مشاور از pricing.js
+     ============================================ */
+  const advisor = typeof ADVISOR !== 'undefined' ? ADVISOR : {
+    whatsapp: '989121234567',
+    telegram: 'barbiebash_support',
+    phone: '02112345678',
+    name: 'مشاور باربی باش'
+  };
+
+  /* ============================================
+     نمایش شماره واتساپ و تلگرام
+     ============================================ */
+  (function initContactLinks() {
+    // واتساپ
+    const waDisplay = '+' + advisor.whatsapp;
+    document.getElementById('waNumber').textContent = waDisplay;
+    document.getElementById('waLink').textContent = waDisplay;
+
+    // تلگرام
+    const tgDisplay = '@' + advisor.telegram;
+    document.getElementById('tgUsername').textContent = tgDisplay;
+    document.getElementById('tgLink').textContent = tgDisplay;
+  })();
+
+  /* ============================================
+     باز کردن واتساپ
+     ============================================ */
+  function openWhatsApp() {
+    const text = 'سلام، از طریق صفحه تماس با شما در ارتباط هستم.';
+    window.open(`https://wa.me/${advisor.whatsapp}?text=${encodeURIComponent(text)}`, '_blank');
+    showToast('در حال انتقال', 'واتساپ باز می‌شود');
+  }
+
+  /* ============================================
+     باز کردن تلگرام
+     ============================================ */
+  function openTelegram() {
+    window.open(`https://t.me/${advisor.telegram}`, '_blank');
+    showToast('در حال انتقال', 'تلگرام باز می‌شود');
+  }
+
+  /* ============================================
+     ارسال فرم
+     ============================================ */
+  function submitForm(e) {
+    e.preventDefault();
+
+    // اعتبارسنجی ساده
+    const name = document.getElementById('fullName').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const subject = document.getElementById('subject').value;
+    const message = document.getElementById('message').value.trim();
+    const privacy = document.getElementById('privacy').checked;
+
+    if (!name || !phone || !subject || !message) {
+      showToast('خطا', 'لطفاً همه فیلدهای ضروری را پر کنید');
+      return;
+    }
+    if (!privacy) {
+      showToast('خطا', 'لطفاً قوانین را بپذیرید');
+      return;
+    }
+
+    // ساخت متن پیام برای ارسال به واتساپ/تلگرام
+    const email = document.getElementById('email').value.trim();
+    let lines = [
+      '📩 *پیام جدید از فرم تماس*',
+      '━━━━━━━━━━━━━━━',
+      '',
+      `👤 نام: ${name}`,
+      `📞 تلفن: ${phone}`,
+    ];
+    if (email) lines.push(`📧 ایمیل: ${email}`);
+    lines.push(`📌 موضوع: ${subject}`);
+    lines.push('');
+    lines.push('💬 پیام:');
+    lines.push(message);
+    const text = lines.join('\n');
+
+    // نمایش موفقیت
+    showToast('پیام شما آماده ارسال است', 'انتخاب روش ارسال...');
+
+    // ذخیره در localStorage (اختیاری)
+    try {
+      const messages = JSON.parse(localStorage.getItem('contactMessages') || '[]');
+      messages.push({ name, phone, email, subject, message, date: new Date().toISOString() });
+      localStorage.setItem('contactMessages', JSON.stringify(messages));
+    } catch (err) { /* silent */ }
+
+    // بعد از ۸۰۰ میلی‌ثانیه، به واتساپ ارسال شود
+    setTimeout(() => {
+      const sendToWA = confirm('پیام شما آماده است.\nآیا مایلید از طریق واتساپ ارسال شود؟\n(لغو = کپی متن)');
+      if (sendToWA) {
+        window.open(`https://wa.me/${advisor.whatsapp}?text=${encodeURIComponent(text)}`, '_blank');
+      } else {
+        copyToClipboard(text).then(() => {
+          showToast('کپی شد', 'متن پیام در کلیپ‌بورد قرار گرفت');
+        }).catch(() => {
+          showToast('خطا', 'لطفاً دستی متن را کپی کنید');
+        });
+      }
+    }, 800);
+
+    // ریست فرم
+    document.getElementById('contactForm').reset();
+  }
+
+  /* ============================================
+     کپی به کلیپ‌بورد
+     ============================================ */
+  function copyToClipboard(text) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      return navigator.clipboard.writeText(text);
+    }
+    return new Promise((resolve, reject) => {
+      try {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        resolve();
+      } catch (e) { reject(e); }
+    });
+  }
+
+  /* ============================================
+     Toast
+     ============================================ */
+  let toastTimer;
+  function showToast(title, text) {
+    const t = document.getElementById('toast');
+    document.getElementById('toastTitle').textContent = title;
+    document.getElementById('toastText').textContent = text || '';
+    t.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => t.classList.remove('show'), 3500);
+  }
+</script>
+
+</body>
+</html>

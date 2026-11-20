@@ -3,11 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>باربی باش | قرص‌های لاغری گیاهی</title>
-  <meta name="description" content="قرص لاغری گیاهی باربی باش - لاغری سالم بدون عوارض">
+  <title>باربی‌باش | مکمل و چربی سوزهای گیاهی</title>
+<link rel="icon" type="image/png" href="images/logo/favicon.png">
+<link rel="apple-touch-icon" href="images/logo/favicon.png">
+  <meta name="description" content="باربی باش - مکمل‌های گیاهی لاغری با فرمولاسیون علمی. لاغری سالم، بدون عوارض جانبی، تأیید شده توسط متخصصان. ارسال سریع به سراسر کشور.">
+  <meta name="keywords" content="قرص لاغری, مکمل گیاهی, باربی باش, چربیسوز, لاغری طبیعی">
+  <meta name="author" content="باربی‌باش">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="باربی باش | کاهش وزن بدون ورزش و رژیم">
+  <meta property="og:description" content="مکمل‌های گیاهی لاغری بدون عوارض. نتایج واقعی، ارسال سریع.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fa_IR">
+  <meta name="theme-color" content="#e91e63">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/improvements.css">
   <style>
     :root { --pink:#e91e63; --pink-light:#f8bbd0; --pink-dark:#ad1457; --soft-bg:#fff5f8; }
     body { font-family:'Vazirmatn',sans-serif; background:var(--soft-bg); color:#333; }
@@ -101,7 +112,10 @@
 
 <nav class="navbar navbar-expand-lg sticky-top">
   <div class="container">
-    <a class="navbar-brand" href="index.html"><i class="fa-solid fa-star me-1"></i>باربی <span>باش</span></a>
+<a class="navbar-brand" href="index.html">
+  <img src="images/logo/logo.png" alt="باربی باش" class="brand-logo">
+</a>
+
     <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -128,7 +142,7 @@
   <div class="container">
     <div class="row align-items-center">
       <div class="col-lg-6 mb-4 mb-lg-0">
-        <h1>لاغری <span>طبیعی</span> با<br>قرص‌های باربی باش</h1>
+        <h1>با باربی‌باش 😍<br> همیشه باربی باش!</h1>
         <p class="lead mt-3 mb-4">با فرمولاسیون گیاهی و تأیید شده، بدون عوارض جانبی به وزن ایده‌آل خود برسید. سلامتی شما اولویت ماست. ✨</p>
         <div class="d-flex flex-wrap gap-3">
           <a href="shop.html" class="btn btn-pink"><i class="fa-solid fa-cart-shopping me-2"></i>مشاهده محصولات</a>
@@ -206,18 +220,7 @@
   </div>
 </section>
 
-<footer>
-  <div class="container text-center">
-    <h5><i class="fa-solid fa-star me-1" style="color:var(--pink)"></i>باربی باش</h5>
-    <p class="small mb-3">قرص‌های لاغری گیاهی با مجوز وزارت بهداشت</p>
-    <div class="mb-3">
-      <a href="#" class="social-icon me-2" style="color:var(--pink-light)"><i class="fa-brands fa-instagram"></i></a>
-      <a href="#" class="social-icon me-2" style="color:var(--pink-light)"><i class="fa-brands fa-telegram"></i></a>
-      <a href="#" class="social-icon me-2" style="color:var(--pink-light)"><i class="fa-brands fa-whatsapp"></i></a>
-    </div>
-    <small>© ۱۴۰۳ تمامی حقوق برای شرکت باربی باش محفوظ است.</small>
-  </div>
-</footer>
+<div id="footer-placeholder"></div>
 
 <div class="toast-custom" id="toast">
   <i class="fa-solid fa-circle-check"></i>
@@ -227,6 +230,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script src="js/pricing.js"></script>
 <script src="js/products.js"></script>
+<script src="js/common.js"></script>
 <script>
   (function initGlobalBanner() {
     if (GLOBAL_DISCOUNT > 0) {

@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>درباره ما | باربی باش</title>
+<link rel="icon" type="image/png" href="images/logo/favicon.png">
+<link rel="apple-touch-icon" href="images/logo/favicon.png">
+  <meta name="description" content="داستان باربی باش - شرکت تولید قرص‌های لاغری گیاهی با مجوز وزارت بهداشت">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/improvements.css">
+
+  <style>
+    :root {
+      --pink: #e91e63;
+      --pink-light: #f8bbd0;
+      --pink-dark: #ad1457;
+      --soft-bg: #fff5f8;
+    }
+
+    body {
+      font-family: 'Vazirmatn', sans-serif;
+      background: var(--soft-bg);
+      color: #333;
+      padding-top: 76px;
+    }
+
+    /* ===== Navbar ===== */
+    .navbar { background: rgba(255,255,255,0.97); backdrop-filter: blur(10px); box-shadow: 0 2px 20px rgba(233,30,99,0.1); }
+    .navbar-brand { font-weight: 800; color: var(--pink) !important; font-size: 1.6rem; }
+    .navbar-brand span { color: var(--pink-dark); }
+    .nav-link { font-weight: 500; color: #555 !important; transition: 0.3s; }
+    .nav-link:hover, .nav-link.active { color: var(--pink) !important; }
+    .cart-badge { position: absolute; top: -6px; left: -8px; background: var(--pink); color: #fff; font-size: 0.65rem; min-width: 18px; height: 18px; padding: 0 4px; border-radius: 10px; display: flex; align-items: center; justify-content: center; }
+
+    /* ===== Buttons ===== */
+    .btn-pink { background: linear-gradient(135deg, var(--pink), var(--pink-dark)); color: #fff; border: none; padding: 12px 32px; border-radius: 50px; font-weight: 600; box-shadow: 0 8px 25px rgba(233,30,99,0.35); transition: 0.3s; }
+    .btn-pink:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(233,30,99,0.5); color: #fff; }
+    .btn-outline-pink { border: 2px solid var(--pink); color: var(--pink); padding: 10px 30px; border-radius: 50px; font-weight: 600; transition: 0.3s; background: transparent; }
+    .btn-outline-pink:hover { background: var(--pink); color: #fff; }
+
+    /* ===== Breadcrumb ===== */
+    .breadcrumb-bar { background: #fff; border-bottom: 1px solid #fce4ec; padding: 12px 0; font-size: 0.9rem; }
+    .breadcrumb-bar a { color: #888; text-decoration: none; }
+    .breadcrumb-bar a:hover { color: var(--pink); }
+    .breadcrumb-bar .active { color: var(--pink-dark); font-weight: 600; }
+
+    /* ===== Page Header ===== */
+    .page-header {
+      background: linear-gradient(135deg, #fff5f8 0%, #fce4ec 50%, #f8bbd0 100%);
+      padding: 60px 0 50px;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-header::before {
+      content: '';
+      position: absolute;
+      width: 350px; height: 350px;
+      background: radial-gradient(circle, rgba(233,30,99,0.15), transparent 70%);
+      border-radius: 50%;
+      top: -100px; left: -100px;
+    }
+    .page-header h1 { font-weight: 800; color: var(--pink-dark); font-size: 2.4rem; margin-bottom: 15px; }
+    .page-header p { color: #666; font-size: 1.1rem; max-width: 650px; margin: 0 auto; }
+
+    /* ===== Section Title ===== */
+    .section-title {
+      font-weight: 800;
+      color: var(--pink-dark);
+      position: relative;
+      display: inline-block;
+      margin-bottom: 15px;
+    }
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px; right: 0;
+      width: 60%; height: 4px;
+      background: linear-gradient(90deg, var(--pink), transparent);
+      border-radius: 4px;
+    }
+
+    /* ===== Story ===== */
+    .story-card {
+      background: #fff;
+      border-radius: 24px;
+      padding: 40px;
+      border: 1px solid rgba(233,30,99,0.08);
+      box-shadow: 0 10px 30px rgba(233,30,99,0.06);
+    }
+    .story-card p { color: #555; line-height: 2; font-size: 1.02rem; margin-bottom: 18px; }
+    .story-card p:last-child { margin-bottom: 0; }
+    .story-card strong { color: var(--pink-dark); }
+
+    .story-img {
+      background: linear-gradient(135deg, #fce4ec, #f8bbd0);
+      border-radius: 24px;
+      height: 100%;
+      min-height: 380px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .story-img img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 24px;
+      z-index: 1;
+    }
+    .story-img i.fallback-icon {
+      font-size: 9rem;
+      color: var(--pink);
+      filter: drop-shadow(0 15px 30px rgba(233,30,99,0.3));
+      animation: float 4s ease-in-out infinite;
+      z-index: 0;
+    }
+    @keyframes float {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+    .story-img .badge-float {
+      position: absolute;
+      top: 20px; right: 20px;
+      background: var(--pink);
+      color: #fff;
+      padding: 8px 18px;
+      border-radius: 50px;
+      font-weight: 800;
+      font-size: 0.85rem;
+      box-shadow: 0 5px 15px rgba(233,30,99,0.4);
+    }
+
+    /* ===== Stats ===== */
+    .stats-section {
+      background: linear-gradient(135deg, var(--pink-dark), var(--pink));
+      border-radius: 24px;
+      padding: 50px 30px;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+    .stats-section::after {
+      content: '\f06c';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      position: absolute;
+      font-size: 18rem;
+      opacity: 0.06;
+      bottom: -60px; left: 20px;
+    }
+    .stat-item {
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+    .stat-item .stat-num {
+      font-size: 2.8rem;
+      font-weight: 900;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .stat-item .stat-label {
+      font-size: 0.95rem;
+      opacity: 0.9;
+    }
+
+    /* ===== Values ===== */
+    .value-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 35px 25px;
+      text-align: center;
+      height: 100%;
+      border: 1px solid rgba(233,30,99,0.08);
+      transition: 0.4s;
+    }
+    .value-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(233,30,99,0.15);
+    }
+    .value-icon {
+      width: 75px; height: 75px;
+      margin: 0 auto 20px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--pink-light), #fff);
+      color: var(--pink);
+      font-size: 1.9rem;
+      transition: 0.4s;
+    }
+    .value-card:hover .value-icon { transform: scale(1.1) rotate(-5deg); }
+    .value-card h5 { font-weight: 800; color: var(--pink-dark); margin-bottom: 10px; }
+    .value-card p { color: #777; font-size: 0.9rem; line-height: 1.8; margin: 0; }
+
+    /* ===== Team ===== */
+    .team-card {
+      background: #fff;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid rgba(233,30,99,0.08);
+      transition: 0.4s;
+      text-align: center;
+    }
+    .team-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(233,30,99,0.15);
+    }
+    .team-avatar {
+      height: 180px;
+      background: linear-gradient(135deg, #fce4ec, #f8bbd0);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      color: var(--pink);
+      font-weight: 900;
+      position: relative;
+      overflow: hidden;
+    }
+    .team-avatar img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 1;
+    }
+    .team-avatar i.fallback-icon {
+      position: relative;
+      z-index: 0;
+    }
+    .team-card h6 { font-weight: 800; color: #333; margin: 18px 0 4px; }
+    .team-card .role { color: var(--pink); font-size: 0.85rem; font-weight: 600; margin-bottom: 12px; }
+    .team-card p { color: #888; font-size: 0.82rem; padding: 0 15px 20px; margin: 0; line-height: 1.7; }
+
+    /* ===== Certificates ===== */
+    .cert-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 25px;
+      text-align: center;
+      border: 1px solid rgba(233,30,99,0.08);
+      transition: 0.4s;
+      height: 100%;
+    }
+    .cert-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(233,30,99,0.12);
+    }
+    .cert-icon {
+      width: 80px; height: 80px;
+      margin: 0 auto 15px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--pink), var(--pink-dark));
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      box-shadow: 0 8px 20px rgba(233,30,99,0.3);
+    }
+    .cert-card h6 { font-weight: 800; color: var(--pink-dark); margin-bottom: 8px; }
+    .cert-card p { color: #888; font-size: 0.82rem; margin: 0; line-height: 1.7; }
+
+    /* ===== Timeline ===== */
+    .timeline {
+      position: relative;
+      padding: 20px 0;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0;
+      right: 30px;
+      width: 3px;
+      background: linear-gradient(180deg, var(--pink-light), var(--pink));
+      border-radius: 3px;
+    }
+    .timeline-item {
+      position: relative;
+      padding-right: 80px;
+      margin-bottom: 35px;
+    }
+    .timeline-item:last-child { margin-bottom: 0; }
+    .timeline-dot {
+      position: absolute;
+      right: 18px;
+      top: 5px;
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--pink), var(--pink-dark));
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 800;
+      box-shadow: 0 4px 12px rgba(233,30,99,0.35);
+      border: 3px solid #fff;
+    }
+    .timeline-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 20px 25px;
+      border: 1px solid rgba(233,30,99,0.08);
+      transition: 0.3s;
+    }
+    .timeline-card:hover {
+      box-shadow: 0 10px 25px rgba(233,30,99,0.1);
+    }
+    .timeline-card .year {
+      color: var(--pink);
+      font-weight: 800;
+      font-size: 0.85rem;
+      margin-bottom: 5px;
+    }
+    .timeline-card h6 { font-weight: 800; color: #333; margin-bottom: 8px; }
+    .timeline-card p { color: #777; font-size: 0.88rem; margin: 0; line-height: 1.8; }
+
+    /* ===== CTA ===== */
+    .cta-section {
+      background: linear-gradient(135deg, var(--pink-dark), var(--pink));
+      border-radius: 24px;
+      padding: 50px 30px;
+      color: #fff;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-section::after {
+      content: '\f06c';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      position: absolute;
+      font-size: 15rem;
+      opacity: 0.08;
+      bottom: -50px; left: 20px;
+    }
+    .cta-section h3 { font-weight: 800; margin-bottom: 15px; position: relative; z-index: 1; }
+    .cta-section p { opacity: 0.9; margin-bottom: 25px; position: relative; z-index: 1; }
+
+    /* ===== Toast ===== */
+    .toast-custom {
+      position: fixed;
+      bottom: 30px; left: 30px;
+      background: #fff;
+      border-radius: 14px;
+      padding: 16px 24px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      z-index: 9999;
+      transform: translateY(150%);
+      transition: 0.4s;
+      border-right: 5px solid #4caf50;
+      max-width: 320px;
+    }
+    .toast-custom.show { transform: translateY(0); }
+    .toast-custom i { color: #4caf50; font-size: 1.5rem; }
+
+    /* ===== Footer ===== */
+    footer { background: #1a1a1a; color: #bbb; padding: 40px 0 20px; margin-top: 60px; }
+    footer h5 { color: #fff; }
+    .social-icon { width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.08); display: inline-flex; align-items: center; justify-content: center; transition: 0.3s; }
+    .social-icon:hover { background: var(--pink); color: #fff !important; transform: translateY(-3px); }
+
+    /* ===== Reveal ===== */
+    .reveal { opacity: 0; transform: translateY(30px); transition: 0.8s; }
+    .reveal.active { opacity: 1; transform: translateY(0); }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 768px) {
+      .page-header { padding: 40px 0 30px; }
+      .page-header h1 { font-size: 1.7rem; }
+      .story-card { padding: 25px 20px; }
+      .story-img { min-height: 250px; }
+      .story-img i { font-size: 6rem; }
+      .stat-item .stat-num { font-size: 2rem; }
+      .stats-section { padding: 35px 20px; }
+      .timeline::before { right: 20px; }
+      .timeline-item { padding-right: 60px; }
+      .timeline-dot { right: 8px; }
+      .toast-custom { left: 15px; right: 15px; bottom: 15px; max-width: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== Navbar ===== -->
+<nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">
+      <i class="fa-solid fa-star me-1"></i>باربی <span>باش</span>
+    </a>
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">خانه</a></li>
+        <li class="nav-item"><a class="nav-link" href="shop.html">فروشگاه</a></li>
+        <li class="nav-item"><a class="nav-link active" href="about.html">درباره ما</a></li>
+        <li class="nav-item"><a class="nav-link" href="faq.html">سوالات متداول</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">تماس</a></li>
+      </ul>
+      <div class="d-flex align-items-center gap-3">
+        <a href="cart.html" class="position-relative text-decoration-none" style="color:var(--pink); font-size:1.3rem;">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span class="cart-badge">۰</span>
+        </a>
+        <a href="shop.html" class="btn btn-pink btn-sm px-4">خرید کنید</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== Breadcrumb ===== -->
+<div class="breadcrumb-bar">
+  <div class="container">
+    <a href="index.html"><i class="fa-solid fa-house me-1"></i>خانه</a>
+    <span class="mx-2 text-muted">/</span>
+    <span class="active">درباره ما</span>
+  </div>
+</div>
+
+<!-- ===== Page Header ===== -->
+<section class="page-header text-center">
+  <div class="container position-relative">
+    <h1>داستان باربی باش</h1>
+    <p>ما با یک هدف ساده شروع کردیم: کمک به شما برای رسیدن به اندام ایده‌آل، بدون آسیب به سلامتی. امروز به یکی از معتبرترین برندهای مکمل‌های لاغری گیاهی در ایران تبدیل شده‌ایم.</p>
+  </div>
+</section>
+
+<!-- ===== Story ===== -->
+<section class="py-5">
+  <div class="container">
+    <div class="row g-4 align-items-stretch">
+      <div class="col-lg-7 reveal">
+        <div class="story-card h-100">
+          <h2 class="section-title mb-4">چگونه شروع کردیم؟</h2>
+          <p>
+            در سال <strong>۱۳۹۸</strong>، تیمی از متخصصان تغذیه و داروسازی با دغدغه‌ای مشترک دور هم جمع شدند:
+            <strong>چرا محصولات لاغری موجود در بازار، عوارض جانبی زیادی دارند؟</strong>
+            بسیاری از افراد به دلیل ترس از عوارض، از تلاش برای کاهش وزن دست می‌کشیدند.
+          </p>
+          <p>
+            ما تصمیم گرفتیم محصولی بسازیم که <strong>کاملاً گیاهی</strong> باشد،
+            <strong>تأیید شده توسط متخصصان</strong> باشد، و <strong>بدون عوارض جانبی</strong> به شما کمک کند.
+            نتیجه، تولد <strong>باربی باش</strong> بود.
+          </p>
+          <p>
+            امروز، با افتخار اعلام می‌کنیم که بیش از <strong>۱۰,۰۰۰ مشتری راضی</strong> در سراسر ایران
+            با محصولات ما به وزن ایده‌آل خود رسیده‌اند. ما همچنان به تحقیق، توسعه و بهبود محصولاتمان ادامه می‌دهیم.
+          </p>
+          <div class="row g-3 mt-3">
+            <div class="col-sm-6">
+              <div class="d-flex align-items-center gap-2">
+                <i class="fa-solid fa-check-circle" style="color:var(--pink); font-size:1.3rem;"></i>
+                <span class="small fw-bold">مجوز وزارت بهداشت</span>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="d-flex align-items-center gap-2">
+                <i class="fa-solid fa-check-circle" style="color:var(--pink); font-size:1.3rem;"></i>
+                <span class="small fw-bold">تأیید متخصصان تغذیه</span>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="d-flex align-items-center gap-2">
+                <i class="fa-solid fa-check-circle" style="color:var(--pink); font-size:1.3rem;"></i>
+                <span class="small fw-bold">۱۰۰٪ گیاهی</span>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="d-flex align-items-center gap-2">
+                <i class="fa-solid fa-check-circle" style="color:var(--pink); font-size:1.3rem;"></i>
+                <span class="small fw-bold">بدون عوارض جانبی</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-5 reveal">
+<div class="story-img">
+  <span class="badge-float"><i class="fa-solid fa-award me-1"></i>از ۱۳۹۸</span>
+  <img src="images/about/story.jpg" alt="داستان باربی باش" 
+       style="width:100%; height:100%; object-fit:cover; border-radius:24px;">
+</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Stats ===== -->
+<section class="pb-4">
+  <div class="container">
+    <div class="stats-section reveal">
+      <div class="row g-4">
+        <div class="col-6 col-md-3">
+          <div class="stat-item">
+            <div class="stat-num">+۱۰,۰۰۰</div>
+            <div class="stat-label">مشتری راضی</div>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="stat-item">
+            <div class="stat-num">۱۲</div>
+            <div class="stat-label">محصول متنوع</div>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="stat-item">
+            <div class="stat-num">۴.۸</div>
+            <div class="stat-label">امتیاز کاربران</div>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="stat-item">
+            <div class="stat-num">۶</div>
+            <div class="stat-label">سال تجربه</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Values ===== -->
+<section class="py-5">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <h2 class="section-title">ارزش‌های ما</h2>
+      <p class="text-muted mt-3">چیزهایی که به آن‌ها پایبندیم</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-3 reveal">
+        <div class="value-card">
+          <div class="value-icon"><i class="fa-solid fa-leaf"></i></div>
+          <h5>۱۰۰٪ گیاهی</h5>
+          <p>همه محصولات ما از عصاره‌های طبیعی و گیاهی ساخته شده‌اند، بدون مواد شیمیایی مضر.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3 reveal">
+        <div class="value-card">
+          <div class="value-icon"><i class="fa-solid fa-shield-heart"></i></div>
+          <h5>سلامت اولویت دارد</h5>
+          <p>ما هرگز محصولی را که به سلامتی شما آسیب بزند، تولید نمی‌کنیم.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3 reveal">
+        <div class="value-card">
+          <div class="value-icon"><i class="fa-solid fa-flask"></i></div>
+          <h5>تحقیق و توسعه</h5>
+          <p>تیم تحقیق و توسعه ما همیشه به دنبال فرمولاسیون‌های بهتر و مؤثرتر است.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3 reveal">
+        <div class="value-card">
+          <div class="value-icon"><i class="fa-solid fa-hand-holding-heart"></i></div>
+          <h5>صداقت و شفافیت</h5>
+          <p>ترکیبات، مجوزها و عوارض احتمالی را کاملاً شفاف اعلام می‌کنیم.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Timeline ===== -->
+<section class="py-5" style="background:#fff;">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <h2 class="section-title">مسیر ما</h2>
+      <p class="text-muted mt-3">از شروع تا امروز</p>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="timeline reveal">
+          <div class="timeline-item">
+            <div class="timeline-dot">۱</div>
+            <div class="timeline-card">
+              <div class="year">۱۳۹۸</div>
+              <h6>تأسیس شرکت</h6>
+              <p>با گردهمایی تیمی از متخصصان تغذیه و داروسازی، باربی باش تأسیس شد.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot">۲</div>
+            <div class="timeline-card">
+              <div class="year">۱۳۹۹</div>
+              <h6>عرضه اولین محصول</h6>
+              <p>BarbieSlim Pro با فرمولاسیون گیاهی و مجوز وزارت بهداشت وارد بازار شد.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot">۳</div>
+            <div class="timeline-card">
+              <div class="year">۱۴۰۰</div>
+              <h6>رشد و تنوع محصولات</h6>
+              <p>محصولات جدید (Detox، Night، Tea) به سبد محصولات اضافه شدند.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot">۴</div>
+            <div class="timeline-card">
+              <div class="year">۱۴۰۱</div>
+              <h6>راه‌اندازی فروشگاه آنلاین</h6>
+              <p>با هدف دسترسی آسان‌تر مشتریان، فروشگاه آنلاین باربی باش راه‌اندازی شد.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot">۵</div>
+            <div class="timeline-card">
+              <div class="year">۱۴۰۲</div>
+              <h6>رسیدن به ۱۰,۰۰۰ مشتری</h6>
+              <p>با افتخار به ۱۰,۰۰۰ مشتری راضی در سراسر ایران دست یافتیم.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot">۶</div>
+            <div class="timeline-card">
+              <div class="year">۱۴۰۳</div>
+              <h6>توسعه و نوآوری</h6>
+              <p>با تیم R&D قوی، همچنان به بهبود و توسعه محصولات جدید ادامه می‌دهیم.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Team ===== -->
+<section class="py-5">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <h2 class="section-title">تیم ما</h2>
+      <p class="text-muted mt-3">افرادی که پشت باربی باش هستند</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-3 reveal">
+        <div class="team-card">
+          <div class="team-avatar">
+            <img src="images/about/team-1.jpg" alt="دکتر سارا احمدی"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
+            <i class="fa-solid fa-user-doctor fallback-icon" style="display:none"></i>
+          </div>
+          <h6>دکتر سارا احمدی</h6>
+          <div class="role">بنیان‌گذار و مدیرعامل</div>
+          <p>دکترای تغذیه، ۱۵ سال تجربه در حوزه سلامت و لاغری</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3 reveal">
+        <div class="team-card">
+          <div class="team-avatar">
+            <img src="images/about/team-2.jpg" alt="دکتر علی رضایی"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
+            <i class="fa-solid fa-pills fallback-icon" style="display:none"></i>
+          </div>
+          <h6>دکتر علی رضایی</h6>
+          <div class="role">مدیر تحقیق و توسعه</div>
+          <p>داروساز و متخصص فرمولاسیون مکمل‌های گیاهی</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3 reveal">
+        <div class="team-card">
+          <div class="team-avatar">
+            <img src="images/about/team-3.jpg" alt="مریم کریمی"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
+            <i class="fa-solid fa-heart-pulse fallback-icon" style="display:none"></i>
+          </div>
+          <h6>مریم کریمی</h6>
+          <div class="role">کارشناس تغذیه</div>
+          <p>متخصص رژیم درمانی و مشاوره تغذیه</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3 reveal">
+        <div class="team-card">
+          <div class="team-avatar">
+            <img src="images/about/team-4.jpg" alt="رضا محمدی"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
+            <i class="fa-solid fa-headset fallback-icon" style="display:none"></i>
+          </div>
+          <h6>رضا محمدی</h6>
+          <div class="role">مدیر پشتیبانی</div>
+          <p>مسئول پاسخگویی و رضایت مشتریان</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Certificates ===== -->
+<section class="py-5" style="background:#fff;">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <h2 class="section-title">مجوزها و گواهی‌ها</h2>
+      <p class="text-muted mt-3">اعتبار و کیفیت محصولات ما</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-6 col-md-3 reveal">
+        <div class="cert-card">
+          <div class="cert-icon"><i class="fa-solid fa-certificate"></i></div>
+          <h6>مجوز وزارت بهداشت</h6>
+          <p>تأیید شده توسط سازمان غذا و دارو</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-3 reveal">
+        <div class="cert-card">
+          <div class="cert-icon"><i class="fa-solid fa-award"></i></div>
+          <h6>گواهی ISO 9001</h6>
+          <p>استاندارد بین‌المللی مدیریت کیفیت</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-3 reveal">
+        <div class="cert-card">
+          <div class="cert-icon"><i class="fa-solid fa-flask-vial"></i></div>
+          <h6>گواهی GMP</h6>
+          <p>استاندارد تولید دارویی و مکمل</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-3 reveal">
+        <div class="cert-card">
+          <div class="cert-icon"><i class="fa-solid fa-leaf"></i></div>
+          <h6>۱۰۰٪ گیاهی</h6>
+          <p>تأیید آزمایشگاهی ترکیبات طبیعی</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="py-5">
+  <div class="container">
+    <div class="cta-section reveal">
+      <h3>همین امروز به ما بپیوندید</h3>
+      <p>با محصولات گیاهی باربی باش، مسیر لاغری سالم را شروع کنید.</p>
+      <div class="d-flex justify-content-center flex-wrap gap-3">
+        <a href="shop.html" class="btn btn-light px-4 py-2 fw-bold" style="border-radius:50px; color:var(--pink-dark)">
+          <i class="fa-solid fa-shopping-bag me-2"></i>مشاهده محصولات
+        </a>
+        <a href="contact.html" class="btn btn-outline-light px-4 py-2 fw-bold" style="border-radius:50px">
+          <i class="fa-solid fa-headset me-2"></i>مشاوره رایگان
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<div id="footer-placeholder"></div>
+
+<!-- ===== Toast ===== -->
+<div class="toast-custom" id="toast">
+  <i class="fa-solid fa-circle-check"></i>
+  <div>
+    <strong class="d-block" id="toastTitle">عملیات موفق</strong>
+    <small class="text-muted" id="toastText"></small>
+  </div>
+</div>
+
+<!-- ===== JS Bootstrap ===== -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/pricing.js"></script>
+<script src="js/products.js"></script>
+<script src="js/common.js"></script>
+<script>
+  /* ============================================
+     Scroll Reveal
+     ============================================ */
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('active');
+    });
+  }, { threshold: 0.15 });
+  reveals.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
