@@ -7,27 +7,23 @@
 
 // ⚙️ تنظیمات سراسری
 const GLOBAL_DISCOUNT = 15;        // درصد تخفیف سراسری (۰ = غیرفعال)
-const SHIPPING_COST = 50000;       // هزینه ارسال (تومان)
-const FREE_SHIPPING_MIN = 500000;  // حداقل خرید برای ارسال رایگان
+const SHIPPING_COST = 180000;       // هزینه ارسال (تومان)
+const FREE_SHIPPING_MIN = 5000000;  // حداقل خرید برای ارسال رایگان
 
 /* ----------------------------------------
-   💰 قیمت اصلی محصولات (فقط یک عدد)
-   ----------------------------------------
-   قیمت نهایی و قیمت خط‌خورده خودکار محاسبه می‌شوند.
+   💰 قیمت اصلی محصولات (فقط یک عدد - به تومان)
    ---------------------------------------- */
 const PRICING = {
-  1:  1600,   // PapayaSlim
-  2:  399000,   // BarbieSlim Detox
-  3:  550000,   // BarbieSlim Night
-  4:  299000,   // BarbieSlim Fiber
-  5:  199000,   // BarbieSlim Tea
-  6:  650000,   // BarbieSlim Max
-  7:  349000,   // BarbieSlim Green
-  8:  450000,   // BarbieSlim Sleep
-  9:  219000,   // BarbieSlim Berry
-  10: 599000,   // BarbieSlim Turbo
-  11: 379000,   // BarbieSlim Clean
-  12: 720000    // BarbieSlim Slim+
+  1:  2800000,   // دایموند (Diamond) - اسپانیا ۳۲ عددی
+  2:  2500000,   // اسلیم‌بوست (Slim Boost) - کانادا ۳۰ عددی
+  3:  2400000,   // فایو-اس (Five-S) - آلمان ۳۰ عددی
+  4:  2100000,   // بلک اسلیم (Black Slim) - فرانسه ۳۰ عددی
+  5:  2100000,   // ایزی‌اسلیم (Easy Slim) - اسپانیا ۳۰ عددی
+  6:  2100000,   // آلفا اسلیم (Alpha Slim) - آمریکا ۵۰ عددی
+  7:  1800000,   // گلوریا (Gloria) - اسپانیا ۳۰ عددی
+  8:  1600000,   // پاپایا اسلیم (Papaya Slim) - فیلیپین ۳۰ عددی
+  9:  2000000,   // لیپوبلک (Lipo Black) - اسپانیا ۳۰ عددی
+
 };
 
 /* ----------------------------------------
@@ -44,12 +40,10 @@ const ADVISOR = {
    توابع قیمت
    ============================================================ */
 
-// قیمت اصلی (همان عدد در PRICING)
 function getBasePrice(product) {
   return PRICING[product.id] || 0;
 }
 
-// ⭐ قیمت نهایی با تخفیف سراسری
 function getFinalPrice(product) {
   const base = getBasePrice(product);
   if (GLOBAL_DISCOUNT > 0) {
@@ -58,25 +52,21 @@ function getFinalPrice(product) {
   return base;
 }
 
-// ⭐ قیمت قدیمی (خط‌خورده) — خودکار = قیمت اصلی
 function getOldPrice(product) {
   if (GLOBAL_DISCOUNT > 0) {
     return getBasePrice(product);
   }
-  return 0;  // اگر تخفیف نیست، قیمت قدیمی نمایش داده نمی‌شود
+  return 0;
 }
 
-// ⭐ درصد تخفیف — همیشه GLOBAL_DISCOUNT
 function getDiscountPercent(product) {
   return GLOBAL_DISCOUNT > 0 ? GLOBAL_DISCOUNT : 0;
 }
 
-// آیا تخفیف دارد؟
 function hasDiscount(product) {
   return GLOBAL_DISCOUNT > 0;
 }
 
-// مبلغ صرفه‌جویی
 function getSavings(product) {
   const old = getOldPrice(product);
   const final = getFinalPrice(product);

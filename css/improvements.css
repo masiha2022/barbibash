@@ -1,0 +1,307 @@
+/* ============================================================
+   بهبودهای مشترک باربی باش
+   ============================================================ */
+
+:root {
+  --pink: #e91e63;
+  --pink-light: #f8bbd0;
+  --pink-dark: #ad1457;
+  --soft-bg: #fff5f8;
+  --text: #333;
+  --muted: #666;
+  --radius: 16px;
+  --shadow: 0 10px 40px rgba(233, 30, 99, 0.12);
+  --shadow-hover: 0 20px 50px rgba(233, 30, 99, 0.2);
+}
+
+/* Typography & base */
+body {
+  font-family: 'Vazirmatn', system-ui, -apple-system, sans-serif;
+  background: var(--soft-bg);
+  color: var(--text);
+  line-height: 1.7;
+}
+
+/* Brand logo */
+.brand-logo {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Global banner */
+.global-banner {
+  background: linear-gradient(135deg, var(--pink), var(--pink-dark));
+  color: #fff;
+  text-align: center;
+  padding: 11px 16px;
+  font-weight: 700;
+  font-size: 0.92rem;
+  letter-spacing: -0.2px;
+}
+.global-banner .blink {
+  animation: blink 1.5s infinite;
+  margin-left: 8px;
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.45; }
+}
+
+/* Navbar improvements */
+.navbar {
+  background: rgba(255, 255, 255, 0.97);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 2px 24px rgba(233, 30, 99, 0.08);
+  padding-top: 0.7rem;
+  padding-bottom: 0.7rem;
+}
+.navbar-brand {
+  font-weight: 800;
+  color: var(--pink) !important;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.nav-link {
+  font-weight: 500;
+  color: #555 !important;
+  transition: color 0.25s ease;
+  position: relative;
+}
+.nav-link:hover,
+.nav-link.active {
+  color: var(--pink) !important;
+}
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  height: 2px;
+  background: var(--pink);
+  border-radius: 2px;
+}
+
+/* Cart badge */
+.cart-badge {
+  position: absolute;
+  top: -7px;
+  left: -9px;
+  background: var(--pink);
+  color: #fff;
+  font-size: 0.65rem;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  box-shadow: 0 2px 6px rgba(233, 30, 99, 0.4);
+}
+
+/* Buttons */
+.btn-pink {
+  background: linear-gradient(135deg, var(--pink), var(--pink-dark));
+  color: #fff !important;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 50px;
+  font-weight: 600;
+  box-shadow: 0 8px 22px rgba(233, 30, 99, 0.32);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.btn-pink:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(233, 30, 99, 0.45);
+  color: #fff !important;
+}
+.btn-outline-pink {
+  border: 2px solid var(--pink);
+  color: var(--pink) !important;
+  padding: 10px 26px;
+  border-radius: 50px;
+  font-weight: 600;
+  background: transparent;
+  transition: all 0.25s ease;
+}
+.btn-outline-pink:hover {
+  background: var(--pink);
+  color: #fff !important;
+}
+
+/* Cards */
+.feature-card,
+.product-card,
+.testimonial-card {
+  background: #fff;
+  border-radius: var(--radius);
+  border: 1px solid rgba(233, 30, 99, 0.07);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+.feature-card:hover,
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-hover);
+}
+
+/* Section titles */
+.section-title {
+  font-weight: 800;
+  color: var(--pink-dark);
+  position: relative;
+  display: inline-block;
+  margin-bottom: 12px;
+}
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  right: 0;
+  width: 55%;
+  height: 3.5px;
+  background: linear-gradient(90deg, var(--pink), transparent);
+  border-radius: 4px;
+}
+
+/* Footer */
+.site-footer {
+  background: linear-gradient(160deg, #1a0a12 0%, #2d1220 100%);
+  color: #fff;
+  margin-top: 4rem;
+}
+.footer-logo {
+  height: 36px;
+  width: auto;
+  opacity: 0.95;
+}
+.footer-links li {
+  margin-bottom: 0.55rem;
+}
+.footer-links a {
+  color: rgba(255, 255, 255, 0.65);
+  text-decoration: none;
+  font-size: 0.92rem;
+  transition: color 0.2s;
+}
+.footer-links a:hover {
+  color: var(--pink-light);
+}
+.footer-bottom {
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Toast */
+.site-toast {
+  position: fixed;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background: #222;
+  color: #fff;
+  padding: 14px 28px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  z-index: 9999;
+  opacity: 0;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+  pointer-events: none;
+}
+.site-toast.show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
+.site-toast.success {
+  background: linear-gradient(135deg, #2e7d32, #1b5e20);
+}
+.site-toast.error {
+  background: linear-gradient(135deg, #c62828, #b71c1c);
+}
+
+/* Product price styles */
+.price-now {
+  font-weight: 800;
+  color: var(--pink-dark);
+  font-size: 1.25rem;
+}
+.price-old {
+  text-decoration: line-through;
+  color: #aaa;
+  font-size: 0.95rem;
+  margin-right: 6px;
+}
+.discount-badge {
+  background: var(--pink);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+
+/* Accessibility & focus */
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--pink);
+  outline-offset: 2px;
+}
+
+/* Smooth reveal animation helper */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Mobile tweaks */
+@media (max-width: 767.98px) {
+  .hero h1 {
+    font-size: 1.9rem !important;
+  }
+  .global-banner {
+    font-size: 0.82rem;
+    padding: 10px 12px;
+  }
+  .btn-pink, .btn-outline-pink {
+    padding: 11px 22px;
+    font-size: 0.95rem;
+  }
+}
+
+/* Print friendly */
+@media print {
+  .global-banner, .navbar, .site-footer, .btn {
+    display: none !important;
+  }
+}
+
+/* Product long description - proper paragraph spacing */
+#descLong {
+  white-space: pre-line;
+  line-height: 1.85;
+  font-size: 1.02rem;
+  color: #444;
+  margin-bottom: 0;
+}
+
+.story-img img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.story-img {
+  position: relative;
+}
